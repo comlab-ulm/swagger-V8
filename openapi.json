@@ -2638,6 +2638,72 @@
       }
     },
 
+    "/languagedetect": {
+      "post": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Automatically detecting Language",
+        "operationId": "languagedetect",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LanguageDetect"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "detection result in  locale name format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LanguageDetectData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+
     "/convert/pdf": {
       "post": {
         "tags": [
@@ -10451,7 +10517,31 @@
           }
         }
       },
-     "ConvertData": {
+      "LanguageDetect": {
+         "required": [
+           "text"
+         ],
+         "type": "object",
+         "properties": {
+           "text": {
+             "description": "text in HTML or Plain format",
+             "type": "string"
+           }
+         }
+       },
+      "LanguageDetectData": {
+         "type": "object",
+         "properties": {
+           "language": {
+             "description": "Language in locale name format (5 letters long, see an example)",
+             "data": "string",
+             "maxLength": 5,
+             "minLength": 5,
+             "example": "DE_de"
+           }
+         }
+       },
+      "ConvertData": {
         "required": [
           "file_name",
           "data"
