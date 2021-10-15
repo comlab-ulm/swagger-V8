@@ -10732,18 +10732,11 @@
       },
       "UserLoginData": {
         "required": [
-          "service_id",
-          "identifier",
+           "identifier",
           "password"
         ],
         "type": "object",
         "properties": {
-          "service_id": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "Id of service",
-            "example": 1
-          },
           "identifier": {
             "maxLength": 255,
             "type": "string",
