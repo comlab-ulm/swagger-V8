@@ -9182,6 +9182,11 @@
       "ArchiveFoldersData": {
         "type": "object",
         "properties": {
+          "id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
           "folder_name": {
             "maxLength": 255,
             "type": "string",
