@@ -8156,8 +8156,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 1,
-              "type": "integer"
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
             }
           },
           {
@@ -8573,8 +8574,9 @@
             "style": "simple",
             "explode": false,
             "schema": {
-              "minimum": 1,
-              "type": "integer"
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
             }
           }
         ],
@@ -9435,9 +9437,10 @@
             "example": "{}"
           },
           "version": {
-            "minimum": 1,
-            "type": "number",
-            "example": 1
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "example": "ver. 1"
           },
           "hix": {
             "minimum": 0,
