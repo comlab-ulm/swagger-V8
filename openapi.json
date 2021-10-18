@@ -8389,19 +8389,186 @@
         ]
       }
     },
-    "/archive/{id}": {
+    "/archive/{analyse_id}": {
+      "delete": {
+        "tags": [
+          "simple",
+          "archives"
+        ],
+        "summary": "Delete whole archive (with all versions!)",
+        "operationId": "deleteArchiveAll",
+        "parameters": [
+          {
+            "name": "analyse_id",
+            "in": "path",
+            "description": "The id of archive which will be deleted",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 50
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "archive deleted"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "simple",
+          "archives"
+        ],
+        "parameters": [
+          {
+            "name": "analyse_id",
+            "in": "path",
+            "description": "The user frendly id of archive which will be deleted",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 50
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Add archive versions",
+        "operationId": "addArchive",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArchivesAddVersionData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "folder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchivesData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/archive/{analyse_id}/{version}": {
       "put": {
         "tags": [
           "simple",
           "archives"
         ],
-        "summary": "Update archive",
-        "operationId": "updateArchive",
+        "summary": "Update archive version",
+        "operationId": "updateArchiveVersion",
         "parameters": [
           {
-            "name": "id",
+            "name": "analyse_id",
             "in": "path",
-            "description": "The id of archive",
+            "description": "The id of archive which will be deleted",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 50
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "The version of archive ",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -9328,6 +9495,80 @@
           "delete_time": {
             "maxLength": 255,
             "type": "string"
+          }
+        }
+      },
+      "ArchivesAddVersionData": {
+        "required": [
+          "name",
+          "result",
+          "text",
+          "benchmark_id"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "name"
+          },
+          "benchmark_id": {
+            "minimum": 1,
+            "type": "integer",
+            "example": 1
+          },
+          "text": {
+            "type": "string",
+            "example": "text"
+          },
+          "result": {
+            "type": "string",
+            "example": "{}"
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          },
+          "hix": {
+            "minimum": 0,
+            "type": "number",
+            "example": 1
+          },
+          "clix": {
+            "minimum": 0,
+            "type": "number",
+            "example": 1
+          },
+          "folder": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 0
+          },
+          "tags": {
+            "type": "array",
+            "example": [
+              "tag1",
+              "tag2"
+            ],
+            "items": {
+              "type": "string",
+              "example": "tag1"
+            }
+          },
+          "user_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "group_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "company_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
           }
         }
       },
