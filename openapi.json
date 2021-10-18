@@ -8098,6 +8098,19 @@
             }
           },
           {
+            "name": "analyse_id",
+            "in": "query",
+            "description": "Filter by analyse_id",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 50,
+              "minLength": 5,
+              "type": "string"
+            }
+          },
+          {
             "name": "locale_name",
             "in": "query",
             "description": "Filter by locale_name",
@@ -9230,6 +9243,12 @@
           "id": {
             "type": "integer",
             "example": 1
+          },
+          "analyse_id": {
+            "minLength": 5,
+            "maxLength": 50,
+            "type": "string",
+            "example": "f8FrO0dsQQQiy"
           },
           "name": {
             "maxLength": 255,
