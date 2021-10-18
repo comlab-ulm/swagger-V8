@@ -9340,6 +9340,12 @@
         ],
         "type": "object",
         "properties": {
+          "analyse_id": {
+            "minLength": 5,
+            "maxLength": 50,
+            "type": "string",
+            "example": "f8FrO0dsQQQiy"
+          },
           "name": {
             "maxLength": 255,
             "type": "string",
