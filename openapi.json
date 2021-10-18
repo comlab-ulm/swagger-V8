@@ -8556,7 +8556,7 @@
           {
             "name": "analyse_id",
             "in": "path",
-            "description": "The id of archive which will be deleted",
+            "description": "The id of archive which will be deleted (urlencoded)",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -8569,7 +8569,7 @@
           {
             "name": "version",
             "in": "path",
-            "description": "The version of archive ",
+            "description": "The version of archive  (urlencoded)",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -8657,15 +8657,29 @@
         "operationId": "deleteArchive",
         "parameters": [
           {
-            "name": "id",
+            "name": "analyse_id",
             "in": "path",
-            "description": "The id of archive which will be deleted",
+            "description": "The id of archive which will be deleted (urlencoded)",
             "required": true,
             "style": "simple",
             "explode": false,
             "schema": {
-              "minimum": 1,
-              "type": "integer"
+              "minLength": 5,
+              "maxLength": 50,
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "The version of archive  (urlencoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
             }
           }
         ],
@@ -9506,7 +9520,8 @@
           "name",
           "result",
           "text",
-          "benchmark_id"
+          "benchmark_id",
+          "version"
         ],
         "type": "object",
         "properties": {
@@ -9514,6 +9529,12 @@
             "maxLength": 255,
             "type": "string",
             "example": "name"
+          },
+          "version": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "example": "ver. 1"
           },
           "benchmark_id": {
             "minimum": 1,
@@ -9580,7 +9601,8 @@
           "name",
           "result",
           "text",
-          "benchmark_id"
+          "benchmark_id",
+          "version"
         ],
         "type": "object",
         "properties": {
@@ -9594,6 +9616,12 @@
             "maxLength": 255,
             "type": "string",
             "example": "name"
+          },
+          "version": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "example": "ver. 1"
           },
           "benchmark_id": {
             "minimum": 1,
