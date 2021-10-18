@@ -8478,7 +8478,7 @@
             "explode": false,
             "schema": {
               "minLength": 5,
-              "maxLength": 50
+              "maxLength": 50,
               "type": "string"
             }
           }
