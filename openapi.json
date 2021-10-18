@@ -8485,7 +8485,7 @@
           }
         ],
         "summary": "Add archive versions",
-        "operationId": "addArchive",
+        "operationId": "addArchiveVersion",
         "requestBody": {
           "content": {
             "application/json": {
@@ -8653,7 +8653,7 @@
           "simple",
           "archives"
         ],
-        "summary": "Delete archive",
+        "summary": "Delete archive version",
         "operationId": "deleteArchive",
         "parameters": [
           {
