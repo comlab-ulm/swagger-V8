@@ -9517,7 +9517,6 @@
       },
       "ArchivesAddVersionData": {
         "required": [
-          "name",
           "result",
           "text",
           "benchmark_id",
@@ -9525,11 +9524,6 @@
         ],
         "type": "object",
         "properties": {
-          "name": {
-            "maxLength": 255,
-            "type": "string",
-            "example": "name"
-          },
           "version": {
             "maxLength": 50,
             "minLength": 1,
@@ -9563,11 +9557,6 @@
             "type": "integer",
             "example": 1
           },
-          "folder": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 0
-          },
           "tags": {
             "type": "array",
             "example": [
@@ -9578,21 +9567,6 @@
               "type": "string",
               "example": "tag1"
             }
-          },
-          "user_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
-          },
-          "group_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
-          },
-          "company_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
           }
         }
       },
