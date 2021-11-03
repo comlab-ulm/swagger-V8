@@ -8170,7 +8170,7 @@
             "explode": true,
             "schema": {
               "minimum": 0,
-              "type": "integer"
+              "type": "number"
             }
           },
           {
@@ -8182,7 +8182,7 @@
             "explode": true,
             "schema": {
               "minimum": 0,
-              "type": "integer"
+              "type": "number"
             }
           },
           {
@@ -9458,12 +9458,12 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "owner": {
@@ -9549,12 +9549,12 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "tags": {
@@ -9616,12 +9616,12 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "folder": {
@@ -9679,12 +9679,12 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "folder": {
