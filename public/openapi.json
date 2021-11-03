@@ -26,7 +26,7 @@
       "description": "VPN Thin Client PostgreSQL Alpha API (main)"
     },
     {
-      "url": "http://10.8.0.5:9090/api",
+      "url": "http://10.8.0.5:9100/api",
       "description": "VPN PostgreSQL Alpha API"
     },
     {
@@ -34,8 +34,8 @@
       "description": "VPN SQLite Alpha API"
     },
     {
-      "url": "https://virtserver.swaggerhub.com/russkiy78/TextLab/1.1.0",
-      "description": "SwaggerHub API Auto Mocking"
+      "url": "https://preview.text-lab.de/api/",
+      "description": "Preview version API"
     }
   ],
   "tags": [
@@ -2598,6 +2598,72 @@
         "responses": {
           "200": {
             "description": "Cleared"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+
+    "/languagedetect": {
+      "post": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Automatically detecting Language",
+        "operationId": "languagedetect",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LanguageDetect"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "detection result in  locale name format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LanguageDetectData"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -8032,6 +8098,19 @@
             }
           },
           {
+            "name": "analyse_id",
+            "in": "query",
+            "description": "Filter by analyse_id",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 50,
+              "minLength": 5,
+              "type": "string"
+            }
+          },
+          {
             "name": "locale_name",
             "in": "query",
             "description": "Filter by locale_name",
@@ -8077,8 +8156,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 1,
-              "type": "integer"
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
             }
           },
           {
@@ -8090,7 +8170,7 @@
             "explode": true,
             "schema": {
               "minimum": 0,
-              "type": "number"
+              "type": "integer"
             }
           },
           {
@@ -8102,7 +8182,7 @@
             "explode": true,
             "schema": {
               "minimum": 0,
-              "type": "number"
+              "type": "integer"
             }
           },
           {
@@ -8310,25 +8390,193 @@
         ]
       }
     },
-    "/archive/{id}": {
+    "/archive/{analyse_id}": {
+      "delete": {
+        "tags": [
+          "simple",
+          "archives"
+        ],
+        "summary": "Delete whole archive (with all versions!)",
+        "operationId": "deleteArchiveAll",
+        "parameters": [
+          {
+            "name": "analyse_id",
+            "in": "path",
+            "description": "The id of archive which will be deleted",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 50,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "archive deleted"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "simple",
+          "archives"
+        ],
+        "parameters": [
+          {
+            "name": "analyse_id",
+            "in": "path",
+            "description": "The user frendly id of archive which will be deleted",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 50,
+              "type": "string"
+            }
+          }
+        ],
+        "summary": "Add archive versions",
+        "operationId": "addArchiveVersion",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArchivesAddVersionData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "folder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchivesData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/archive/{analyse_id}/{version}": {
       "put": {
         "tags": [
           "simple",
           "archives"
         ],
-        "summary": "Update archive",
-        "operationId": "updateArchive",
+        "summary": "Update archive version",
+        "operationId": "updateArchiveVersion",
         "parameters": [
           {
-            "name": "id",
+            "name": "analyse_id",
             "in": "path",
-            "description": "The id of archive",
+            "description": "The id of archive which will be deleted (urlencoded)",
             "required": true,
             "style": "simple",
             "explode": false,
             "schema": {
-              "minimum": 1,
-              "type": "integer"
+              "minLength": 5,
+              "maxLength": 50,
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "The version of archive  (urlencoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
             }
           }
         ],
@@ -8405,19 +8653,33 @@
           "simple",
           "archives"
         ],
-        "summary": "Delete archive",
+        "summary": "Delete archive version",
         "operationId": "deleteArchive",
         "parameters": [
           {
-            "name": "id",
+            "name": "analyse_id",
             "in": "path",
-            "description": "The id of archive which will be deleted",
+            "description": "The id of archive which will be deleted (urlencoded)",
             "required": true,
             "style": "simple",
             "explode": false,
             "schema": {
-              "minimum": 1,
-              "type": "integer"
+              "minLength": 5,
+              "maxLength": 50,
+              "type": "string"
+            }
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "description": "The version of archive  (urlencoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "maxLength": 50,
+              "minLength": 1,
+              "type": "string"
             }
           }
         ],
@@ -9116,6 +9378,11 @@
       "ArchiveFoldersData": {
         "type": "object",
         "properties": {
+          "id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
           "folder_name": {
             "maxLength": 255,
             "type": "string",
@@ -9160,6 +9427,12 @@
             "type": "integer",
             "example": 1
           },
+          "analyse_id": {
+            "minLength": 5,
+            "maxLength": 50,
+            "type": "string",
+            "example": "f8FrO0dsQQQiy"
+          },
           "name": {
             "maxLength": 255,
             "type": "string",
@@ -9178,18 +9451,19 @@
             "example": "{}"
           },
           "version": {
-            "minimum": 1,
-            "type": "number",
-            "example": 1
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "example": "ver. 1"
           },
           "hix": {
             "minimum": 0,
-            "type": "number",
+            "type": "integer",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "number",
+            "type": "integer",
             "example": 1
           },
           "owner": {
@@ -9241,19 +9515,20 @@
           }
         }
       },
-      "ArchivesAddData": {
+      "ArchivesAddVersionData": {
         "required": [
-          "name",
           "result",
           "text",
-          "benchmark_id"
+          "benchmark_id",
+          "version"
         ],
         "type": "object",
         "properties": {
-          "name": {
-            "maxLength": 255,
+          "version": {
+            "maxLength": 50,
+            "minLength": 1,
             "type": "string",
-            "example": "name"
+            "example": "ver. 1"
           },
           "benchmark_id": {
             "minimum": 1,
@@ -9274,12 +9549,79 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "number",
+            "type": "integer",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "number",
+            "type": "integer",
+            "example": 1
+          },
+          "tags": {
+            "type": "array",
+            "example": [
+              "tag1",
+              "tag2"
+            ],
+            "items": {
+              "type": "string",
+              "example": "tag1"
+            }
+          }
+        }
+      },
+      "ArchivesAddData": {
+        "required": [
+          "name",
+          "result",
+          "text",
+          "benchmark_id",
+          "version"
+        ],
+        "type": "object",
+        "properties": {
+          "analyse_id": {
+            "minLength": 5,
+            "maxLength": 50,
+            "type": "string",
+            "example": "f8FrO0dsQQQiy"
+          },
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "name"
+          },
+          "version": {
+            "maxLength": 50,
+            "minLength": 1,
+            "type": "string",
+            "example": "ver. 1"
+          },
+          "benchmark_id": {
+            "minimum": 1,
+            "type": "integer",
+            "example": 1
+          },
+          "text": {
+            "type": "string",
+            "example": "text"
+          },
+          "result": {
+            "type": "string",
+            "example": "{}"
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          },
+          "hix": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "clix": {
+            "minimum": 0,
+            "type": "integer",
             "example": 1
           },
           "folder": {
@@ -9337,12 +9679,12 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "number",
+            "type": "integer",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "number",
+            "type": "integer",
             "example": 1
           },
           "folder": {
@@ -10451,7 +10793,31 @@
           }
         }
       },
-     "ConvertData": {
+      "LanguageDetect": {
+         "required": [
+           "text"
+         ],
+         "type": "object",
+         "properties": {
+           "text": {
+             "description": "text in HTML or Plain format",
+             "type": "string"
+           }
+         }
+       },
+      "LanguageDetectData": {
+         "type": "object",
+         "properties": {
+           "language": {
+             "description": "Language in locale name format (5 letters long, see an example)",
+             "data": "string",
+             "maxLength": 5,
+             "minLength": 5,
+             "example": "DE_de"
+           }
+         }
+       },
+      "ConvertData": {
         "required": [
           "file_name",
           "data"
@@ -10642,18 +11008,11 @@
       },
       "UserLoginData": {
         "required": [
-          "service_id",
-          "identifier",
+           "identifier",
           "password"
         ],
         "type": "object",
         "properties": {
-          "service_id": {
-            "minimum": 1,
-            "type": "integer",
-            "description": "Id of service",
-            "example": 1
-          },
           "identifier": {
             "maxLength": 255,
             "type": "string",
