@@ -724,8 +724,10 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "example": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -792,7 +794,10 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "example": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -803,7 +808,10 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "example": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -826,7 +834,10 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "example": 0,
+              "enum": [0,1]
             }
           }
         ],
@@ -1278,10 +1289,7 @@
             "schema": {
               "type": "integer",
               "default": 0,
-              "enum": [
-                0,
-                1
-              ]
+              "enum": [0,1]
             }
           },
           {
@@ -1316,8 +1324,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -1729,8 +1738,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -1797,7 +1807,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -1808,7 +1820,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -1831,7 +1845,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           }
         ],
@@ -2048,8 +2064,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -2124,7 +2141,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -2396,8 +2415,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           }
         ],
@@ -3829,8 +3849,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -4150,8 +4171,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -4969,8 +4991,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -5604,8 +5627,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -5794,7 +5818,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           }
         ],
@@ -6618,8 +6644,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -6630,8 +6657,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -6682,8 +6710,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -8093,8 +8122,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -9896,36 +9926,41 @@
             "example": "meaning"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "settings": {
             "type": "string",
             "example": "{}"
           },
           "term_global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_settings": {
             "type": "string",
             "example": "{}"
           },
           "term_check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "term_description": {
             "type": "string",
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_id": {
             "type": "integer",
@@ -9965,12 +10000,14 @@
             "example": "meaning"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_id": {
             "type": "integer",
@@ -9981,20 +10018,23 @@
             "example": 1
           },
           "term_global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_settings": {
             "type": "string",
             "example": "{}"
           },
           "term_check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "term_description": {
             "type": "string",
@@ -10024,24 +10064,27 @@
             "example": "[\"ADJD\",\"VVPP\"]"
           },
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "settings": {
             "type": "string",
             "example": "{}"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
             "example": "description"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "category_id": {
             "type": "integer",
@@ -10056,20 +10099,23 @@
         "type": "object",
         "properties": {
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
             "example": "description"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "settings": {
             "type": "string",
@@ -10098,12 +10144,14 @@
             "example": "[\"ADJD\",\"VVPP\"]"
           },
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -10114,8 +10162,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           }
         }
       },
@@ -10139,16 +10188,18 @@
             "example": "[\"ADJD\",\"VVPP\"]"
           },
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "wordcount": {
             "type": "integer",
             "example": 2
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -10159,8 +10210,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_replacement": {
             "type": "array",
@@ -10190,16 +10242,18 @@
             "example": "[\"ADJD\",\"VVPP\"]"
           },
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "wordcount": {
             "type": "integer",
             "example": 2
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -10210,8 +10264,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           }
         }
       },
@@ -10247,8 +10302,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           }
         }
       },
@@ -10284,8 +10340,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "parent_id": {
             "minimum": 0,
@@ -10326,8 +10383,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "owner": {
             "minimum": 1,
@@ -11105,8 +11163,10 @@
             "example": "Deuchland"
           },
           "enable": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "example": 0,
+            "enum": [0,1]
           }
         }
       },
@@ -11400,8 +11460,10 @@
             "example": "Ulm"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "example": 1,
+            "enum": [0,1]
           },
           "license_id": {
             "minimum": 0,
@@ -11582,8 +11644,10 @@
             "example": "Ulm"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "example": 1,
+            "enum": [0,1]
           },
           "license_id": {
             "minimum": 0,
@@ -11668,8 +11732,10 @@
             "example": "Ulm"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "example": 1,
+            "enum": [0,1]
           },
           "license_id": {
             "minimum": 0,
@@ -12098,8 +12164,10 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "example": 1,
+            "enum": [0,1]
           }
         }
       },
