@@ -11,7 +11,7 @@
       "url": "https://www.text-lab.de/"
     },
     "version": "1.1.0"
-  },
+
   "servers": [
     {
       "url": "http://127.0.0.1:9090/api",
@@ -8420,7 +8420,7 @@
         ]
       }
     },
-    "/archive/{analyse_id}": {
+    "/archive/analyse/{analyse_id}": {
       "delete": {
         "tags": [
           "simple",
@@ -8574,7 +8574,7 @@
         ]
       }
     },
-    "/archive/{analyse_id}/{version}": {
+    "/archive/version/{analyse_id}/{version}": {
       "put": {
         "tags": [
           "simple",
