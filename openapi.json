@@ -8572,6 +8572,96 @@
             "bearerAuth": []
           }
         ]
+      },
+      "put": {
+        "tags": [
+          "simple",
+          "archives"
+        ],
+        "summary": "Update archive (must  change for all archive versions)",
+        "operationId": "updateArchive",
+        "parameters": [
+          {
+            "name": "analyse_id",
+            "in": "path",
+            "description": "The id of archive which will be updated (urlencoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 50,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": " ",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArchivesUpdateData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "archive updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchivesData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/archive/version/{analyse_id}/{version}": {
@@ -9733,48 +9823,10 @@
       "ArchivesUpdateData": {
         "type": "object",
         "properties": {
-          "name": {
-            "maxLength": 255,
-            "type": "string",
-            "example": "name"
-          },
-          "text": {
-            "type": "string",
-            "example": "text"
-          },
-          "result": {
-            "type": "string",
-            "example": "{}"
-          },
-          "settings": {
-            "type": "string",
-            "example": "{}"
-          },
-          "hix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
-          },
-          "clix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
-          },
           "folder": {
             "minimum": 0,
             "type": "integer",
             "example": 0
-          },
-          "tags": {
-            "type": "array",
-            "example": [
-              "tag1",
-              "tag2"
-            ],
-            "items": {
-              "type": "string",
-              "example": "tag1"
-            }
           },
           "user_id": {
             "minimum": 0,
