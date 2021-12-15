@@ -9687,6 +9687,49 @@
           }
         }
       },
+      "ArchivesUpdateVersionData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "name"
+          },
+          "text": {
+            "type": "string",
+            "example": "text"
+          },
+          "result": {
+            "type": "string",
+            "example": "{}"
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          },
+          "hix": {
+            "minimum": 0,
+            "type": "number",
+            "example": 1
+          },
+          "clix": {
+            "minimum": 0,
+            "type": "number",
+            "example": 1
+          },
+          "tags": {
+            "type": "array",
+            "example": [
+              "tag1",
+              "tag2"
+            ],
+            "items": {
+              "type": "string",
+              "example": "tag1"
+            }
+          }
+        }
+      },
       "ArchivesUpdateData": {
         "type": "object",
         "properties": {
@@ -10867,11 +10910,11 @@
          "type": "object",
          "properties": {
            "language": {
-             "description": "Language in locale name format (5 letters long, see an example)",
+             "description": "Language in locale name format (2 letters long, see an example",
              "data": "string",
-             "maxLength": 5,
-             "minLength": 5,
-             "example": "DE_de"
+             "maxLength": 2,
+             "minLength": 2,
+             "example": "de"
            }
          }
        },
