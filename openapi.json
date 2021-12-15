@@ -8615,7 +8615,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ArchivesUpdateData"
+                "$ref": "#/components/schemas/ArchivesUpdateVersionData"
               }
             }
           }
