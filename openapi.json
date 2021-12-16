@@ -8287,6 +8287,54 @@
               "minimum": 1,
               "type": "integer"
             }
+          },
+          {
+            "name": "create_time_from",
+            "in": "query",
+            "description": " (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "create_time_to",
+            "in": "query",
+            "description": " Format (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "update_time_from",
+            "in": "query",
+            "description": " (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "update_time_to",
+            "in": "query",
+            "description": " Format (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
           }
         ],
         "responses": {
