@@ -97,7 +97,6 @@
     }
   ],
   "paths": {
-
     "/lt/check": {
       "post": {
         "tags": [
@@ -163,7 +162,6 @@
         ]
       }
     },
-
     "/user/registration": {
       "post": {
         "tags": [
@@ -9566,7 +9564,7 @@
 	"type": "object",
         "properties": {
           "data": {
-            "maxLength": 50000,
+            "maxLength": 100000,
             "type": "string",
             "example": "data=%7B%22annotation%22%3A%5B%7B%22text%22%3A%22Das+%22%2C%22offset%22%3A0%2C%22sourceIndex%22%3A%220%22%7D%2C%7B%22text%22%3A%22Herz+%22%2C%22offset%22%3A4%2C%22sourceIndex%22%3A%221%22%7D%2C%7B%22text%22%3A%22ist%22%2C%22offset%22%3A9%2C%22sourceIndex%22%3A%222%22%7D%5D%2C%22apiKey%22%3A%22UadSLVCKVqDQOCRl%22%7D&language=de-DE"
 	  }
