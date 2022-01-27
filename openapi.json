@@ -8929,19 +8929,15 @@
             }
           },
           {
-            "name": "subfolders",
+            "name": "parent",
             "in": "query",
-            "description": "1 - Get folder with subfolders",
+            "description": "filter by parent",
             "required": false,
             "style": "form",
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
-              "enum": [
-                0,
-                1
-              ]
+              "default": 0
             }
           },
           {
@@ -9564,7 +9560,7 @@
 	"type": "object",
         "properties": {
           "data": {
-            "maxLength": 100000,
+            "maxLength": 500000,
             "type": "string",
             "example": "data=%7B%22annotation%22%3A%5B%7B%22text%22%3A%22Das+%22%2C%22offset%22%3A0%2C%22sourceIndex%22%3A%220%22%7D%2C%7B%22text%22%3A%22Herz+%22%2C%22offset%22%3A4%2C%22sourceIndex%22%3A%221%22%7D%2C%7B%22text%22%3A%22ist%22%2C%22offset%22%3A9%2C%22sourceIndex%22%3A%222%22%7D%5D%2C%22apiKey%22%3A%22UadSLVCKVqDQOCRl%22%7D&language=de-DE"
 	  }
