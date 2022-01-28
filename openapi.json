@@ -3277,7 +3277,7 @@
           "system",
           "benchmarks"
         ],
-        "summary": "Run a benchmark",
+        "summary": "Run a benchmark <a href='./benchmark'>Detailed Description</a>",
         "operationId": "runBenchmark",
         "parameters": [
           {
