@@ -3304,7 +3304,7 @@
         },
         "responses": {
           "200": {
-            "description": "response depend of benchmark type <a href='./benchmark'>Detailed Description</a> ",
+            "description": "response depend of benchmark type <a href='./#/benchmark'>Detailed Description</a> ",
             "content": {
               "application/json": {
                 "schema": {
