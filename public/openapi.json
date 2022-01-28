@@ -97,7 +97,6 @@
     }
   ],
   "paths": {
-
     "/lt/check": {
       "post": {
         "tags": [
@@ -155,10 +154,14 @@
               }
             }
           }
-	}
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
-
     "/user/registration": {
       "post": {
         "tags": [
@@ -724,8 +727,10 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "example": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -792,7 +797,10 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "example": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -803,7 +811,10 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "example": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -826,7 +837,10 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "example": 0,
+              "enum": [0,1]
             }
           }
         ],
@@ -1278,10 +1292,7 @@
             "schema": {
               "type": "integer",
               "default": 0,
-              "enum": [
-                0,
-                1
-              ]
+              "enum": [0,1]
             }
           },
           {
@@ -1316,8 +1327,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -1729,8 +1741,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -1797,7 +1810,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -1808,7 +1823,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -1831,7 +1848,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           }
         ],
@@ -2048,8 +2067,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -2124,7 +2144,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -2396,8 +2418,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           }
         ],
@@ -3254,7 +3277,7 @@
           "system",
           "benchmarks"
         ],
-        "summary": "Run a benchmark",
+        "summary": "Run a benchmark <a href='./benchmark'>full description</a> ",
         "operationId": "runBenchmark",
         "parameters": [
           {
@@ -3829,8 +3852,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -4150,8 +4174,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -4969,8 +4994,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -5604,8 +5630,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -5794,7 +5821,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean"
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           }
         ],
@@ -6618,8 +6647,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -6630,8 +6660,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -6682,8 +6713,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -8093,8 +8125,9 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "type": "boolean",
-              "default": false
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
             }
           },
           {
@@ -8170,7 +8203,7 @@
             "explode": true,
             "schema": {
               "minimum": 0,
-              "type": "integer"
+              "type": "number"
             }
           },
           {
@@ -8182,7 +8215,7 @@
             "explode": true,
             "schema": {
               "minimum": 0,
-              "type": "integer"
+              "type": "number"
             }
           },
           {
@@ -8256,6 +8289,54 @@
             "schema": {
               "minimum": 1,
               "type": "integer"
+            }
+          },
+          {
+            "name": "create_time_from",
+            "in": "query",
+            "description": " (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "create_time_to",
+            "in": "query",
+            "description": " Format (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "update_time_from",
+            "in": "query",
+            "description": " (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "update_time_to",
+            "in": "query",
+            "description": " Format (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
             }
           }
         ],
@@ -8390,7 +8471,7 @@
         ]
       }
     },
-    "/archive/{analyse_id}": {
+    "/archive/analyse/{analyse_id}": {
       "delete": {
         "tags": [
           "simple",
@@ -8542,9 +8623,99 @@
             "bearerAuth": []
           }
         ]
+      },
+      "put": {
+        "tags": [
+          "simple",
+          "archives"
+        ],
+        "summary": "Update archive (must  change for all archive versions)",
+        "operationId": "updateArchive",
+        "parameters": [
+          {
+            "name": "analyse_id",
+            "in": "path",
+            "description": "The id of archive which will be updated (urlencoded)",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 50,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": " ",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArchivesUpdateData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "archive updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchivesData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
-    "/archive/{analyse_id}/{version}": {
+    "/archive/version/{analyse_id}/{version}": {
       "put": {
         "tags": [
           "simple",
@@ -8585,7 +8756,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ArchivesUpdateData"
+                "$ref": "#/components/schemas/ArchivesUpdateVersionData"
               }
             }
           }
@@ -8758,19 +8929,15 @@
             }
           },
           {
-            "name": "subfolders",
+            "name": "parent",
             "in": "query",
-            "description": "1 - Get folder with subfolders",
+            "description": "filter by parent",
             "required": false,
             "style": "form",
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
-              "enum": [
-                0,
-                1
-              ]
+              "default": 0
             }
           },
           {
@@ -8880,6 +9047,30 @@
             "schema": {
               "minimum": 1,
               "type": "integer"
+            }
+          },
+          {
+            "name": "create_time_from",
+            "in": "query",
+            "description": " (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "create_time_to",
+            "in": "query",
+            "description": " Format (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
             }
           }
         ],
@@ -9369,7 +9560,7 @@
 	"type": "object",
         "properties": {
           "data": {
-            "maxLength": 50000,
+            "maxLength": 500000,
             "type": "string",
             "example": "data=%7B%22annotation%22%3A%5B%7B%22text%22%3A%22Das+%22%2C%22offset%22%3A0%2C%22sourceIndex%22%3A%220%22%7D%2C%7B%22text%22%3A%22Herz+%22%2C%22offset%22%3A4%2C%22sourceIndex%22%3A%221%22%7D%2C%7B%22text%22%3A%22ist%22%2C%22offset%22%3A9%2C%22sourceIndex%22%3A%222%22%7D%5D%2C%22apiKey%22%3A%22UadSLVCKVqDQOCRl%22%7D&language=de-DE"
 	  }
@@ -9458,12 +9649,12 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "owner": {
@@ -9549,12 +9740,12 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "tags": {
@@ -9616,12 +9807,12 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "folder": {
@@ -9657,7 +9848,7 @@
           }
         }
       },
-      "ArchivesUpdateData": {
+      "ArchivesUpdateVersionData": {
         "type": "object",
         "properties": {
           "name": {
@@ -9679,18 +9870,13 @@
           },
           "hix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
           },
           "clix": {
             "minimum": 0,
-            "type": "integer",
+            "type": "number",
             "example": 1
-          },
-          "folder": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 0
           },
           "tags": {
             "type": "array",
@@ -9702,6 +9888,16 @@
               "type": "string",
               "example": "tag1"
             }
+          }
+        }
+      },
+      "ArchivesUpdateData": {
+        "type": "object",
+        "properties": {
+          "folder": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 0
           },
           "user_id": {
             "minimum": 0,
@@ -9896,36 +10092,41 @@
             "example": "meaning"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "settings": {
             "type": "string",
             "example": "{}"
           },
           "term_global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_settings": {
             "type": "string",
             "example": "{}"
           },
           "term_check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "term_description": {
             "type": "string",
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_id": {
             "type": "integer",
@@ -9965,12 +10166,14 @@
             "example": "meaning"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_id": {
             "type": "integer",
@@ -9981,20 +10184,23 @@
             "example": 1
           },
           "term_global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_settings": {
             "type": "string",
             "example": "{}"
           },
           "term_check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "term_description": {
             "type": "string",
@@ -10024,24 +10230,27 @@
             "example": "[\"ADJD\",\"VVPP\"]"
           },
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "settings": {
             "type": "string",
             "example": "{}"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
             "example": "description"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "category_id": {
             "type": "integer",
@@ -10056,20 +10265,23 @@
         "type": "object",
         "properties": {
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
             "example": "description"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "settings": {
             "type": "string",
@@ -10098,12 +10310,14 @@
             "example": "[\"ADJD\",\"VVPP\"]"
           },
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -10114,8 +10328,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           }
         }
       },
@@ -10139,16 +10354,18 @@
             "example": "[\"ADJD\",\"VVPP\"]"
           },
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "wordcount": {
             "type": "integer",
             "example": 2
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -10159,8 +10376,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "term_replacement": {
             "type": "array",
@@ -10190,16 +10408,18 @@
             "example": "[\"ADJD\",\"VVPP\"]"
           },
           "check_words": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
           },
           "wordcount": {
             "type": "integer",
             "example": 2
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -10210,8 +10430,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           }
         }
       },
@@ -10247,8 +10468,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           }
         }
       },
@@ -10284,8 +10506,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "parent_id": {
             "minimum": 0,
@@ -10326,8 +10549,9 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
           },
           "owner": {
             "minimum": 1,
@@ -10809,11 +11033,11 @@
          "type": "object",
          "properties": {
            "language": {
-             "description": "Language in locale name format (5 letters long, see an example)",
+             "description": "Language in locale name format (2 letters long, see an example",
              "data": "string",
-             "maxLength": 5,
-             "minLength": 5,
-             "example": "DE_de"
+             "maxLength": 2,
+             "minLength": 2,
+             "example": "de"
            }
          }
        },
@@ -11105,8 +11329,10 @@
             "example": "Deuchland"
           },
           "enable": {
-            "type": "boolean",
-            "example": false
+            "type": "integer",
+            "default": 0,
+            "example": 0,
+            "enum": [0,1]
           }
         }
       },
@@ -11400,8 +11626,10 @@
             "example": "Ulm"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "example": 1,
+            "enum": [0,1]
           },
           "license_id": {
             "minimum": 0,
@@ -11582,8 +11810,10 @@
             "example": "Ulm"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "example": 1,
+            "enum": [0,1]
           },
           "license_id": {
             "minimum": 0,
@@ -11668,8 +11898,10 @@
             "example": "Ulm"
           },
           "enabled": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "example": 1,
+            "enum": [0,1]
           },
           "license_id": {
             "minimum": 0,
@@ -12098,8 +12330,10 @@
             "example": "{}"
           },
           "global_visible": {
-            "type": "boolean",
-            "example": true
+            "type": "integer",
+            "default": 1,
+            "example": 1,
+            "enum": [0,1]
           }
         }
       },
