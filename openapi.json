@@ -3277,7 +3277,7 @@
           "system",
           "benchmarks"
         ],
-        "summary": "Run a benchmark <a href='./benchmark'>Detailed Description</a>",
+        "summary": "Run a benchmark",
         "operationId": "runBenchmark",
         "parameters": [
           {
@@ -3304,7 +3304,7 @@
         },
         "responses": {
           "200": {
-            "description": "response depend of benchmark type",
+            "description": "response depend of benchmark type <a href='./benchmark'>Detailed Description</a> ",
             "content": {
               "application/json": {
                 "schema": {
