@@ -7,11 +7,11 @@ import {Route, Switch} from "react-router-dom";
 function App() {
     return (
         <Switch>
-            <Route path="/swagger-V8/" exact={true}>
+            <Route path="/" exact>
                 <SwaggerUI url="./openapi.json" />
             </Route>
-            <Route path="/swagger-V8/benchmark" exact={true}>
-                <SwaggerUI url="./benchmark.json" />
+            <Route path="/benchmark" >
+                <div>sdfdsfsdf</div>
             </Route>
         </Switch>
     )
