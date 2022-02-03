@@ -9622,8 +9622,43 @@
   },
   "components": {
     "schemas": {
+      "BenchmarkExportData" : {
+        "type": "object",
+        "required": [
+          "language",
+          "result"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string",
+            "example": "comment"
+          },
+          "language": {
+            "description": "Language of document (not an analize)!",
+            "type": "string",
+            "maxLength": 2,
+            "minLength": 2,
+            "example": "de"
+          },
+          "result": {
+            "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)",
+            "type": "string",
+            "example": "{}"
+          }
+        }
+      },
+      "BenchmarkExportDataResult" : {
+        "type": "object",
+        "properties": {
+          "file": {
+            "type": "string",
+            "description": "Result converting. Base64 based file",
+            "example": ""
+          }
+        }
+      },
       "LTCheckData": {
-	"type": "object",
+	      "type": "object",
         "properties": {
           "data": {
             "maxLength": 500000,
@@ -12486,41 +12521,6 @@
             "type": "integer",
             "example": 1
           }
-        }
-      }
-    },
-    "BenchmarkExportData" : {
-      "type": "object",
-      "required": [
-        "language",
-        "result"
-      ],
-      "properties": {
-        "comment": {
-          "type": "string",
-          "example": "comment"
-        },
-        "language": {
-          "description": "Language of document (not an analize)!",
-          "type": "string",
-          "maxLength": 2,
-          "minLength": 2,
-          "example": "de"
-        },
-        "result": {
-          "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)",
-          "type": "string",
-          "example": "{}"
-        }
-      }
-    },
-    "BenchmarkExportDataResult" : {
-      "type": "object",
-      "properties": {
-        "file": {
-          "type": "string",
-          "description": "Result converting. Base64 based file",
-          "example": ""
         }
       }
     },
