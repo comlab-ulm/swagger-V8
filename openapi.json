@@ -7,7 +7,7 @@
       "email": "a.krasikov@comlab-ulm.de"
     },
     "license": {
-      "name": "Proprioretary",
+      "name": "Proprietary",
       "url": "https://www.text-lab.de/"
     },
     "version": "1.1.0"
@@ -2938,6 +2938,72 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/inline_response_200_2"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/benchmark/export/doc": {
+      "post": {
+        "tags": [
+          "benchmarks"
+        ],
+        "summary": "Export benchmark result as DOC file",
+        "operationId": "exportBenchmarkDOC",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BenchmarkExportData"
+              }
+            }
+          }
+        }
+        "responses": {
+          "200": {
+            "description": "Result in DOC format (as base64 encoded file)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BenchmarkExportDataResult"
                 }
               }
             }
@@ -12420,6 +12486,31 @@
             "type": "integer",
             "example": 1
           }
+        }
+      }
+    },
+    "BenchmarkExportData" : {
+      "type": "object",
+      "required": [
+        "syllcount",
+        "word"
+      ],
+      "properties": {
+        "comment": {
+          "type": "string",
+          "example": "comment"
+        },
+        "language": {
+          "description": "Language of document (not an analize)!"
+          "type": "string",
+          "maxLength": 2,
+          "minLength": 2,
+          "example": "de"
+        },
+        "result": {
+          "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)"
+          "type": "string",
+          "example": "{}"
         }
       }
     },
