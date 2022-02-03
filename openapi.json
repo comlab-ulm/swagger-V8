@@ -2996,7 +2996,7 @@
               }
             }
           }
-        }
+        },
         "responses": {
           "200": {
             "description": "Result in DOC format (as base64 encoded file)",
