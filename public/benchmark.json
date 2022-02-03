@@ -1,0 +1,195 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TextLab 8 API (Run a Benchmark)",
+    "description": "TextLab 8 API (Run a Benchmark)",
+    "contact": {
+      "email": "a.krasikov@comlab-ulm.de"
+    },
+    "license": {
+      "name": "Proprietary",
+      "url": "https://www.text-lab.de/"
+    },
+    "version": "1.1.0"
+  },
+  "servers": [
+    {
+      "url": "http://127.0.0.1:9090/api",
+      "description": "Local 9090"
+    },
+    {
+      "url": "http://127.0.0.1:5000/api",
+      "description": "Local 5000"
+    },
+    {
+      "url": "http://10.8.0.5:5006/api",
+      "description": "VPN Thin Client PostgreSQL Alpha API (main)"
+    },
+    {
+      "url": "http://10.8.0.5:9100/api",
+      "description": "VPN PostgreSQL Alpha API"
+    },
+    {
+      "url": "http://10.8.0.5:9091/api",
+      "description": "VPN SQLite Alpha API"
+    },
+    {
+      "url": "https://preview.text-lab.de/api/",
+      "description": "Preview version API"
+    }
+  ],
+  "securitySchemes": {
+    "bearerAuth": {
+      "type": "http",
+      "description": "Bearer auth with JWT token (HS256)",
+      "scheme": "bearer",
+      "bearerFormat": "JWT"
+    }
+  },
+  "paths": {
+    "/benchmark/{id}": {
+      "post": {
+        "tags": [
+          "benchmarks"
+        ],
+        "summary": "Run a benchmark",
+        "operationId": "runBenchmark",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of benchmark",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BenchmarkRunData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Result Object",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BenchmarkRunRequest"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "example": "Custom message"
+            }
+          }
+        }
+      },
+      "BenchmarkRunData": {
+        "required": [
+          "locale_name",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "maxLength": 1000000,
+            "type": "string",
+            "example": "This is the text"
+          },
+          "locale_name": {
+            "maxLength": 5,
+            "minLength": 5,
+            "type": "string",
+            "example": "de_DE"
+          }
+        }
+      },
+      "BenchmarkRunRequest": {
+        "required": [
+          "locale_name",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "MSecRunTime": {
+            "description": "Array of objects, contain time  of work for each library + Total for full work time",
+            "type": "object"
+          },
+          "locale_name": {
+            "maxLength": 5,
+            "minLength": 5,
+            "type": "string",
+            "example": "de_DE"
+          }
+        }
+      }
+    }
+  }
+}

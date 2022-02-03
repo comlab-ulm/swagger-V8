@@ -8,10 +8,13 @@ function App() {
     return (
         <Switch>
             <Route path="/" exact>
-                <SwaggerUI url="./openapi.json" />
+                <SwaggerUI url="openapi.json" />
             </Route>
-            <Route path="/benchmark" >
-                <div>sdfdsfsdf</div>
+            <Route path="/benchmark/" exact >
+                <SwaggerUI url="benchmark.json" />
+            </Route>
+            <Route>
+                <div>404</div>
             </Route>
         </Switch>
     )
