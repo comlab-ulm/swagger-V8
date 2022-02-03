@@ -12492,8 +12492,8 @@
     "BenchmarkExportData" : {
       "type": "object",
       "required": [
-        "syllcount",
-        "word"
+        "language",
+        "result"
       ],
       "properties": {
         "comment": {
@@ -12511,6 +12511,16 @@
           "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)"
           "type": "string",
           "example": "{}"
+        }
+      }
+    },
+    "BenchmarkExportDataResult" : {
+      "type": "object",
+      "properties": {
+        "file": {
+          "type": "string",
+          "description": "Result converting. Base64 based file"
+          "example": ""
         }
       }
     },
