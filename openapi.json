@@ -12501,14 +12501,14 @@
           "example": "comment"
         },
         "language": {
-          "description": "Language of document (not an analize)!"
+          "description": "Language of document (not an analize)!",
           "type": "string",
           "maxLength": 2,
           "minLength": 2,
           "example": "de"
         },
         "result": {
-          "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)"
+          "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)",
           "type": "string",
           "example": "{}"
         }
@@ -12519,7 +12519,7 @@
       "properties": {
         "file": {
           "type": "string",
-          "description": "Result converting. Base64 based file"
+          "description": "Result converting. Base64 based file",
           "example": ""
         }
       }
