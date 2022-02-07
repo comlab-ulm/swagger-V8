@@ -9659,7 +9659,7 @@
       "BenchmarkExportDataResult" : {
         "type": "object",
         "properties": {
-          "file": {
+          "resultfile": {
             "type": "string",
             "description": "Result converting. Base64 based file",
             "example": ""
