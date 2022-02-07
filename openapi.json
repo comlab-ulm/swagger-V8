@@ -2988,7 +2988,6 @@
         "summary": "Export benchmark result as DOC file",
         "operationId": "exportBenchmarkDOC",
         "requestBody": {
-          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -9636,9 +9635,19 @@
           "language": {
             "description": "Language of document (not an analize)!",
             "type": "string",
-            "maxLength": 2,
             "minLength": 2,
+            "maxLength": 2,
+            "enum": [
+              "en",
+              "de",
+              "ru"
+            ],
             "example": "de"
+          },
+          "values": {
+            "description": "Array of returned values. If  empty - return all",
+            "type": "string",
+            "example": "[\"moreSentencesInWords\"]"
           },
           "result": {
             "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)",
