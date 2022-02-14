@@ -44,6 +44,10 @@
       "description": "User Login/Logout Operations"
     },
     {
+      "name": "login",
+      "description": "User Login/Logout Operations"
+    },
+    {
       "name": "open",
       "description": "Opened For All Operations (with no authtorization)"
     },
@@ -94,6 +98,10 @@
     {
       "name": "lt",
       "description": "The Language Tool Operations"
+    },
+    {
+      "name": "lists",
+      "description": "Allow/Black Lists Operations"
     }
   ],
   "paths": {
@@ -2988,7 +2996,6 @@
         "summary": "Export benchmark result as DOC file",
         "operationId": "exportBenchmarkDOC",
         "requestBody": {
-          "description": "",
           "content": {
             "application/json": {
               "schema": {
@@ -8116,6 +8123,18 @@
         "operationId": "getAllArchives",
         "parameters": [
           {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Query limit",
@@ -9618,12 +9637,228 @@
           }
         ]
       }
+    },
+    "/allowlist/user": {
+      "post": {
+        "tags": [
+          "lists"
+        ],
+        "summary": "Add to user allowlist",
+        "operationId": "addUserAllowList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddAllowListData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "folder",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllowListData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
     "schemas": {
+      "AddAllowListData": {
+        "required": [
+          "check_words",
+          "lemma",
+          "words",
+          "user_id",
+          "list_name"
+        ],
+        "type": "object",
+        "properties": {
+          "words": {
+            "type": "string",
+            "example": "[\"erfolgreich\",\"absolviert\"]"
+          },
+          "lemma": {
+            "type": "string",
+            "example": "[\"erfolgreich\",\"absolvieren\"]"
+          },
+          "tag": {
+            "type": "string",
+            "example": "[\"ADJD\",\"VVPP\"]"
+          },
+          "list_name": {
+            "type": "string",
+            "example": "test"
+          },
+          "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "check_words": {
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
+          },
+          "description": {
+            "type": "string",
+            "example": "description"
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          }
+        }
+      },
+      "AllowListData": {
+        "required": [
+          "check_words",
+          "lemma",
+          "words",
+          "user_id",
+          "list_name"
+        ],
+        "type": "object",
+        "properties": {
+          "words": {
+            "type": "string",
+            "example": "[\"erfolgreich\",\"absolviert\"]"
+          },
+          "lemma": {
+            "type": "string",
+            "example": "[\"erfolgreich\",\"absolvieren\"]"
+          },
+          "tag": {
+            "type": "string",
+            "example": "[\"ADJD\",\"VVPP\"]"
+          },
+          "list_name": {
+            "type": "string",
+            "example": "test"
+          },
+          "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "check_words": {
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
+          },
+          "approved": {
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
+          },
+          "description": {
+            "type": "string",
+            "example": "description"
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          },
+          "create_time": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "update_time": {
+            "type": "string"
+          },
+          "delete_time": {
+            "maxLength": 255,
+            "type": "string"
+          }
+        }
+      },
+      "BenchmarkExportData" : {
+        "type": "object",
+        "required": [
+          "language",
+          "result"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string",
+            "example": "comment"
+          },
+          "language": {
+            "description": "Language of document (not an analize)!",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "enum": [
+              "en",
+              "de",
+              "ru"
+            ],
+            "example": "de"
+          },
+          "values": {
+            "description": "Array of returned values. If  empty - return all",
+            "type": "string",
+            "example": "[\"moreSentencesInWords\"]"
+          },
+          "result": {
+            "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)",
+            "type": "string",
+            "example": "{}"
+          }
+        }
+      },
+      "BenchmarkExportDataResult" : {
+        "type": "object",
+        "properties": {
+          "resultfile": {
+            "type": "string",
+            "description": "Result converting. Base64 based file",
+            "example": ""
+          }
+        }
+      },
       "LTCheckData": {
-	"type": "object",
+	      "type": "object",
         "properties": {
           "data": {
             "maxLength": 500000,
@@ -12486,41 +12721,6 @@
             "type": "integer",
             "example": 1
           }
-        }
-      }
-    },
-    "BenchmarkExportData" : {
-      "type": "object",
-      "required": [
-        "language",
-        "result"
-      ],
-      "properties": {
-        "comment": {
-          "type": "string",
-          "example": "comment"
-        },
-        "language": {
-          "description": "Language of document (not an analize)!",
-          "type": "string",
-          "maxLength": 2,
-          "minLength": 2,
-          "example": "de"
-        },
-        "result": {
-          "description": "Result of analyse in JSON.stringlify format (copy of 'result' value from Redux)",
-          "type": "string",
-          "example": "{}"
-        }
-      }
-    },
-    "BenchmarkExportDataResult" : {
-      "type": "object",
-      "properties": {
-        "file": {
-          "type": "string",
-          "description": "Result converting. Base64 based file",
-          "example": ""
         }
       }
     },
