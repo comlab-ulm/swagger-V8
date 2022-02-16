@@ -9780,7 +9780,9 @@
                 "update_time",
                 "delete_time",
                 "check_words",
-                "list_name"
+                "list_name",
+                "company_id",
+                "group_id"
               ]
             }
           },
@@ -9864,6 +9866,30 @@
             "name": "user_id",
             "in": "query",
             "description": "Filter by user_id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "group_id",
+            "in": "query",
+            "description": "Filter by group_id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "company_id",
+            "in": "query",
+            "description": "Filter by company_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -10244,6 +10270,14 @@
             "example": "test"
           },
           "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "group_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "company_id": {
             "type": "integer",
             "minimum": 1
           },
