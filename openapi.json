@@ -10273,14 +10273,6 @@
             "type": "integer",
             "minimum": 1
           },
-          "group_id": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "company_id": {
-            "type": "integer",
-            "minimum": 1
-          },
           "state": {
             "type": "integer",
             "minimum": 1
@@ -10376,6 +10368,14 @@
             "example": "test"
           },
           "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "group_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "company_id": {
             "type": "integer",
             "minimum": 1
           },
