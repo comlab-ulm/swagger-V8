@@ -10183,7 +10183,7 @@
         },
         "responses": {
           "200": {
-            "description": "done",
+            "description": "done"
           },
           "400": {
             "description": "Invalid fields supplied",
