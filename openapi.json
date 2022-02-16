@@ -9694,6 +9694,16 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Word already in",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -10128,10 +10138,90 @@
           }
         ]
       }
+    },
+    "/allowlist/publish/{id}": {
+      "post": {
+        "tags": [
+          "lists"
+        ],
+        "summary": "Move Allow Word in real Term List",
+        "operationId": "addUToTermAllowList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveAllowWordItTerm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "done",
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Word already in categogy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
     }
   },
   "components": {
     "schemas": {
+      "MoveAllowWordItTerm": {
+        "required": [
+          "category_id"
+        ],
+        "type": "object",
+        "properties": {
+          "category_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+        }
+      },
       "UpdateAllowListData": {
         "required": [
         ],
