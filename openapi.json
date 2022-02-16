@@ -10245,7 +10245,7 @@
           "category_id": {
             "type": "integer",
             "minimum": 1
-          },
+          }
         }
       },
       "UpdateAllowListData": {
