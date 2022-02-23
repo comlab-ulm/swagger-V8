@@ -9022,7 +9022,7 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0
+              "example": 0
             }
           },
           {
