@@ -5696,6 +5696,18 @@
             }
           },
           {
+            "name": "id",
+            "in": "query",
+            "description": "Filter by id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
             "name": "deleted",
             "in": "query",
             "description": "Filter by deleted ( delete_time IS NULL) ",
@@ -5704,7 +5716,6 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
               "enum": [0,1]
             }
           },
@@ -5895,7 +5906,6 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
               "enum": [0,1]
             }
           }
