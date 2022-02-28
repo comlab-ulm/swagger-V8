@@ -9591,8 +9591,13 @@
                   "properties": {
                     "data": {
                       "type": "array",
+                      "example": [
+                        "tag1",
+                        "tag2"
+                      ],
                       "items": {
-                        "$ref": "#/components/schemas/ArchivesAddData"
+                        "type": "string",
+                        "example": "tag1"
                       }
                     }
                   }
