@@ -2058,7 +2058,7 @@
                 "locale_name",
                 "global_visible",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id",
                 "parent_id",
                 "update_time",
@@ -2170,7 +2170,7 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
             "description": "Filter by user_id",
             "required": false,
@@ -3907,7 +3907,7 @@
               "enum": [
                 "id",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id",
                 "locale_name",
                 "text_type_id",
@@ -4008,9 +4008,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -8200,7 +8200,7 @@
                 "folder",
                 "id",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id",
                 "archive_name",
                 "version",
@@ -8363,9 +8363,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -9077,7 +9077,7 @@
                 "parent",
                 "id",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id",
                 "folder_name"
               ]
@@ -9121,9 +9121,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -9526,7 +9526,7 @@
               "enum": [
                 "tag_name",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id"
               ]
             }
@@ -9557,9 +9557,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -9792,7 +9792,7 @@
                 "check_words",
                 "term_category_id",
                 "company_id",
-                "group_id"
+                "user_group_id"
               ]
             }
           },
@@ -9884,9 +9884,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -10380,7 +10380,7 @@
             "type": "integer",
             "minimum": 1
           },
-          "group_id": {
+          "user_group_id": {
             "type": "integer",
             "minimum": 1
           },
@@ -10496,7 +10496,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -10590,7 +10590,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -10743,7 +10743,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -10811,7 +10811,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -11658,7 +11658,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -11686,7 +11686,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
