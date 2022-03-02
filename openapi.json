@@ -655,10 +655,9 @@
     "/term": {
       "get": {
         "tags": [
-          "superadmins",
-          "termins"
+          "superadmins"
         ],
-        "summary": "Get All Terms",
+        "summary": "Get All Terms (superadmin's only function)",
         "operationId": "getAllTerm",
         "parameters": [
           {
@@ -887,10 +886,9 @@
       },
       "post": {
         "tags": [
-          "superadmins",
-          "termins"
+          "superadmins"
         ],
-        "summary": "Add Term",
+        "summary": "Add Term  (superadmin's only function)",
         "operationId": "addTerm",
         "requestBody": {
           "content": {
@@ -963,10 +961,9 @@
     "/term/{id}": {
       "put": {
         "tags": [
-          "superadmins",
-          "termins"
+          "superadmins"
         ],
-        "summary": "Update Term",
+        "summary": "Update Term  (superadmin's only function)",
         "operationId": "updateTerm",
         "parameters": [
           {
@@ -1040,13 +1037,103 @@
         ]
       }
     },
+    "/term/{category_id}": {
+      "post": {
+        "tags": [
+          "superadmins",
+          "termins"
+        ],
+        "summary": "Add Term to Category",
+        "operationId": "addTermToCategory",
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "The id of category",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUserTermData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Term",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TermData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Already exist!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/term/{category_id}/{id}": {
       "put": {
         "tags": [
           "admins",
           "termins"
         ],
-        "summary": "Update User Term",
+        "summary": "Update Term In Category",
         "operationId": "updateUserTerm",
         "parameters": [
           {
@@ -1136,7 +1223,7 @@
           "admins",
           "termins"
         ],
-        "summary": "Delete User Term",
+        "summary": "Delete Term In Category",
         "operationId": "deleteUserTerm",
         "parameters": [
           {
@@ -1459,82 +1546,6 @@
           },
           "403": {
             "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/term/category": {
-      "post": {
-        "tags": [
-          "admins",
-          "termins"
-        ],
-        "summary": "Add link to category for term (with no replacement)",
-        "operationId": "addTermCategoryReplacement",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddTermCategoryReplacementData"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "term category",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TermCategoryReplacementData"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Already exist!",
             "content": {
               "application/json": {
                 "schema": {
@@ -11096,7 +11107,6 @@
       },
       "AddUserTermData": {
         "required": [
-          "category_id",
           "check_words",
           "lemma",
           "words"
@@ -11132,10 +11142,6 @@
             "type": "integer",
             "default": 1,
             "enum": [0,1]
-          },
-          "category_id": {
-            "type": "integer",
-            "example": 1
           }
         }
       },
