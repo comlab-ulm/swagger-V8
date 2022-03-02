@@ -720,7 +720,6 @@
                 "global_visible",
                 "check_words",
                 "wordcount",
-                "enabled",
                 "update_time",
                 "create_time",
                 "delete_time"
@@ -798,20 +797,6 @@
             }
           },
           {
-            "name": "global_visible",
-            "in": "query",
-            "description": "Filter by global_visible",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "integer",
-              "default": 0,
-              "example": 0,
-              "enum": [0,1]
-            }
-          },
-          {
             "name": "check_words",
             "in": "query",
             "description": "Filter by check_words",
@@ -838,7 +823,7 @@
             }
           },
           {
-            "name": "enabled",
+            "name": "global_visible",
             "in": "query",
             "description": "Filter by global_visible",
             "required": false,
@@ -1734,7 +1719,6 @@
                 "global_visible",
                 "check_words",
                 "wordcount",
-                "enabled",
                 "update_time",
                 "create_time",
                 "delete_time"
@@ -1849,7 +1833,7 @@
             }
           },
           {
-            "name": "enabled",
+            "name": "global_visible",
             "in": "query",
             "description": "Filter by global_visible",
             "required": false,
@@ -11003,11 +10987,6 @@
             "type": "string",
             "example": "meaning"
           },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
           "settings": {
             "type": "string",
             "example": "{}"
@@ -11077,11 +11056,6 @@
             "type": "string",
             "example": "meaning"
           },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
           "global_visible": {
             "type": "integer",
             "default": 1,
@@ -11150,11 +11124,6 @@
             "type": "string",
             "example": "{}"
           },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
           "description": {
             "type": "string",
             "example": "description"
@@ -11221,11 +11190,6 @@
             "default": 0,
             "enum": [0,1]
           },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
           "description": {
             "type": "string",
             "example": "description"
@@ -11268,11 +11232,6 @@
           "wordcount": {
             "type": "integer",
             "example": 2
-          },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -11322,11 +11281,6 @@
           "wordcount": {
             "type": "integer",
             "example": 2
-          },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
           },
           "description": {
             "type": "string",
