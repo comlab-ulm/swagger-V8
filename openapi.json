@@ -1880,19 +1880,6 @@
               "minimum": 1,
               "type": "integer"
             }
-          },
-          {
-            "name": "global_visible",
-            "in": "query",
-            "description": "Filter by global_visible",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "integer",
-              "default": 0,
-              "enum": [0,1]
-            }
           }
         ],
         "responses": {
