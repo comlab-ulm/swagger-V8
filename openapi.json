@@ -1293,6 +1293,108 @@
         ]
       }
     },
+    "/term/{category_id}/{id}/replacement": {
+      "post": {
+        "tags": [
+          "superadmins",
+          "termins"
+        ],
+        "summary": "Add Term Replacement to Category (also add a new Replacement if needed)",
+        "operationId": "addTermToCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of Term",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "The id of category",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTermReplacementData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Term",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TermData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Already exist!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/term/replacement": {
       "get": {
         "tags": [
@@ -1456,70 +1558,6 @@
                   "items": {
                     "$ref": "#/components/schemas/TermReplacementData"
                   }
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      },
-      "post": {
-        "tags": [
-          "admins",
-          "termins"
-        ],
-        "summary": "Add replacement to term",
-        "operationId": "addTermReplacement",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddTermReplacementData"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "term replacement",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TermReplacementData"
                 }
               }
             }
@@ -10968,7 +11006,6 @@
       },
       "AddTermReplacementData": {
         "required": [
-          "category_id",
           "global_visible",
           "term_id"
         ],
@@ -11002,41 +11039,10 @@
             "type": "string",
             "example": "{}"
           },
-          "term_global_visible": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
-          "term_enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
-          "term_settings": {
-            "type": "string",
-            "example": "{}"
-          },
-          "term_check_words": {
-            "type": "integer",
-            "default": 0,
-            "enum": [0,1]
-          },
-          "term_description": {
-            "type": "string",
-            "example": "{}"
-          },
           "global_visible": {
             "type": "integer",
             "default": 1,
             "enum": [0,1]
-          },
-          "term_id": {
-            "type": "integer",
-            "example": 1
-          },
-          "category_id": {
-            "type": "integer",
-            "example": 1
           }
         }
       },
