@@ -1293,7 +1293,7 @@
         ]
       }
     },
-    "/term/{category_id}/{id}/replacement": {
+    "/term/replacement/{category_id}/{id}": {
       "post": {
         "tags": [
           "superadmins",
