@@ -958,7 +958,7 @@
         ]
       }
     },
-    "/term/{id}": {
+    "/term/{term_id}": {
       "put": {
         "tags": [
           "superadmins"
@@ -967,7 +967,7 @@
         "operationId": "updateTerm",
         "parameters": [
           {
-            "name": "id",
+            "name": "term_id",
             "in": "path",
             "description": "The id of Term",
             "required": true,
@@ -1127,7 +1127,7 @@
         ]
       }
     },
-    "/term/{category_id}/{id}": {
+    "/term/{category_id}/{term_id}": {
       "put": {
         "tags": [
           "admins",
@@ -1137,7 +1137,7 @@
         "operationId": "updateUserTerm",
         "parameters": [
           {
-            "name": "id",
+            "name": "term_id",
             "in": "path",
             "description": "The id of Term",
             "required": true,
@@ -1227,7 +1227,7 @@
         "operationId": "deleteUserTerm",
         "parameters": [
           {
-            "name": "id",
+            "name": "term_id",
             "in": "path",
             "description": "The id of Term",
             "required": true,
@@ -1293,7 +1293,7 @@
         ]
       }
     },
-    "/term/replacement/{category_id}/{id}": {
+    "/term/replacement/{category_id}/{term_id}": {
       "post": {
         "tags": [
           "superadmins",
@@ -1303,7 +1303,7 @@
         "operationId": "addTermToCategory",
         "parameters": [
           {
-            "name": "id",
+            "name": "term_id",
             "in": "path",
             "description": "The id of Term",
             "required": true,
