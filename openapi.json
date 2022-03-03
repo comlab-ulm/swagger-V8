@@ -1600,7 +1600,7 @@
         ]
       }
     },
-    "/term/replacement/{replacement_id}/{term_id}/{category_id}": {
+    "/term/replacement/{category_id}/{term_id}/{replacement_id}": {
       "delete": {
         "tags": [
           "admins",
