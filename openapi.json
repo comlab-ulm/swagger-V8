@@ -1300,7 +1300,7 @@
           "termins"
         ],
         "summary": "Add Term Replacement to Category (also add a new Replacement if needed)",
-        "operationId": "addTermToCategory",
+        "operationId": "addTermReplacementToCategory",
         "parameters": [
           {
             "name": "term_id",
