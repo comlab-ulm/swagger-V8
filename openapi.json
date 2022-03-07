@@ -1416,7 +1416,7 @@
           },
           {
             "name": "term_id",
-            "in": "peth",
+            "in": "path",
             "description": "The id of Term",
             "required": true,
             "style": "simple",
