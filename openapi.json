@@ -10993,8 +10993,7 @@
       },
       "AddTermReplacementData": {
         "required": [
-          "global_visible",
-          "term_id"
+          "global_visible"
         ],
         "type": "object",
         "properties": {
