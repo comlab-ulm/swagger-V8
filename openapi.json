@@ -1598,7 +1598,7 @@
         ]
       }
     },
-    "/term/replacement/{category_id}/{term_id}/{replacement_id}": {
+    "/term/replacement/{category_id}/{term_id}/{replacement_id}/{meaning}": {
       "delete": {
         "tags": [
           "admins",
@@ -1641,6 +1641,17 @@
             "schema": {
               "minimum": 1,
               "type": "integer"
+            }
+          },
+          {
+            "name": "meaning",
+            "in": "path",
+            "description": "The meaning",
+            "required": false,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
             }
           }
         ],
