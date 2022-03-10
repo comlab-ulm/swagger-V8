@@ -3090,6 +3090,20 @@
         ],
         "summary": "Get benchmark templates (admin must have right)",
         "operationId": "getBenchmarkTemplate",
+        "parameters": [
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "benchmark templates",
@@ -3883,6 +3897,18 @@
         "description": "For example for filter string is ?filter_by_field=name&filter_by_value=%mi%\nSELECT * FROM table WHERE name LIKE '%mi%'\n",
         "operationId": "getAllBenchmarks",
         "parameters": [
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
           {
             "name": "limit",
             "in": "query",
