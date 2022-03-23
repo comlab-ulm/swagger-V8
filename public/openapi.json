@@ -11028,7 +11028,10 @@
       },
       "AddTermReplacementData": {
         "required": [
-          "global_visible"
+          "global_visible",
+          "wordcount",
+          "words",
+          "lemma"
         ],
         "type": "object",
         "properties": {
@@ -11043,6 +11046,11 @@
           "tag": {
             "type": "string",
             "example": "[\"ADJD\",\"VVPP\"]"
+          },
+          "wordcount": {
+            "minimum": 1,
+            "type": "integer",
+            "example": 2
           },
           "description": {
             "type": "string",
@@ -11132,7 +11140,8 @@
         "required": [
           "check_words",
           "lemma",
-          "words"
+          "words",
+          "wordcount"
         ],
         "type": "object",
         "properties": {
@@ -11147,6 +11156,11 @@
           "tag": {
             "type": "string",
             "example": "[\"ADJD\",\"VVPP\"]"
+          },
+          "wordcount": {
+            "minimum": 1,
+            "type": "integer",
+            "example": 2
           },
           "check_words": {
             "type": "integer",
@@ -11259,6 +11273,7 @@
             "enum": [0,1]
           },
           "wordcount": {
+            "minimum": 1,
             "type": "integer",
             "example": 2
           },
@@ -11308,6 +11323,7 @@
             "enum": [0,1]
           },
           "wordcount": {
+            "minimum": 1,
             "type": "integer",
             "example": 2
           },
