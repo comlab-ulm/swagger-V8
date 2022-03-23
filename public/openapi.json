@@ -655,10 +655,9 @@
     "/term": {
       "get": {
         "tags": [
-          "superadmins",
-          "termins"
+          "superadmins"
         ],
-        "summary": "Get All Terms",
+        "summary": "Get All Terms (superadmin's only function)",
         "operationId": "getAllTerm",
         "parameters": [
           {
@@ -720,7 +719,6 @@
                 "global_visible",
                 "check_words",
                 "wordcount",
-                "enabled",
                 "update_time",
                 "create_time",
                 "delete_time"
@@ -798,20 +796,6 @@
             }
           },
           {
-            "name": "global_visible",
-            "in": "query",
-            "description": "Filter by global_visible",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "integer",
-              "default": 0,
-              "example": 0,
-              "enum": [0,1]
-            }
-          },
-          {
             "name": "check_words",
             "in": "query",
             "description": "Filter by check_words",
@@ -838,7 +822,7 @@
             }
           },
           {
-            "name": "enabled",
+            "name": "global_visible",
             "in": "query",
             "description": "Filter by global_visible",
             "required": false,
@@ -902,10 +886,9 @@
       },
       "post": {
         "tags": [
-          "superadmins",
-          "termins"
+          "superadmins"
         ],
-        "summary": "Add Term",
+        "summary": "Add Term  (superadmin's only function)",
         "operationId": "addTerm",
         "requestBody": {
           "content": {
@@ -975,17 +958,16 @@
         ]
       }
     },
-    "/term/{id}": {
+    "/term/{term_id}": {
       "put": {
         "tags": [
-          "superadmins",
-          "termins"
+          "superadmins"
         ],
-        "summary": "Update Term",
+        "summary": "Update Term  (superadmin's only function)",
         "operationId": "updateTerm",
         "parameters": [
           {
-            "name": "id",
+            "name": "term_id",
             "in": "path",
             "description": "The id of Term",
             "required": true,
@@ -1055,17 +1037,107 @@
         ]
       }
     },
-    "/term/{category_id}/{id}": {
+    "/term/{category_id}": {
+      "post": {
+        "tags": [
+          "superadmins",
+          "termins"
+        ],
+        "summary": "Add Term to Category",
+        "operationId": "addTermToCategory",
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "The id of category",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddUserTermData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Term",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TermData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Already exist!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/term/{category_id}/{term_id}": {
       "put": {
         "tags": [
           "admins",
           "termins"
         ],
-        "summary": "Update User Term",
+        "summary": "Update Term In Category",
         "operationId": "updateUserTerm",
         "parameters": [
           {
-            "name": "id",
+            "name": "term_id",
             "in": "path",
             "description": "The id of Term",
             "required": true,
@@ -1151,11 +1223,11 @@
           "admins",
           "termins"
         ],
-        "summary": "Delete User Term",
+        "summary": "Delete Term In Category",
         "operationId": "deleteUserTerm",
         "parameters": [
           {
-            "name": "id",
+            "name": "term_id",
             "in": "path",
             "description": "The id of Term",
             "required": true,
@@ -1221,7 +1293,107 @@
         ]
       }
     },
-    "/term/replacement": {
+    "/term/replacement/{category_id}/{term_id}": {
+      "post": {
+        "tags": [
+          "superadmins",
+          "termins"
+        ],
+        "summary": "Add Term Replacement to Category (also add a new Replacement if needed)",
+        "operationId": "addTermReplacementToCategory",
+        "parameters": [
+          {
+            "name": "term_id",
+            "in": "path",
+            "description": "The id of Term",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "The id of category",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTermReplacementData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Term",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TermData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Already exist!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
       "get": {
         "tags": [
           "admins",
@@ -1231,11 +1403,11 @@
         "operationId": "getTermsReplacement",
         "parameters": [
           {
-            "name": "term_category_id",
-            "in": "query",
+            "name": "category_id",
+            "in": "path",
             "description": "The id of Term Category",
-            "required": false,
-            "style": "form",
+            "required": true,
+            "style": "simple",
             "explode": true,
             "schema": {
               "minimum": 1,
@@ -1244,10 +1416,10 @@
           },
           {
             "name": "term_id",
-            "in": "query",
+            "in": "path",
             "description": "The id of Term",
-            "required": false,
-            "style": "form",
+            "required": true,
+            "style": "simple",
             "explode": true,
             "schema": {
               "minimum": 1,
@@ -1424,149 +1596,9 @@
             "bearerAuth": []
           }
         ]
-      },
-      "post": {
-        "tags": [
-          "admins",
-          "termins"
-        ],
-        "summary": "Add replacement to term",
-        "operationId": "addTermReplacement",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddTermReplacementData"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "term replacement",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TermReplacementData"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
       }
     },
-    "/term/category": {
-      "post": {
-        "tags": [
-          "admins",
-          "termins"
-        ],
-        "summary": "Add link to category for term (with no replacement)",
-        "operationId": "addTermCategoryReplacement",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AddTermCategoryReplacementData"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "term category",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TermCategoryReplacementData"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Already exist!",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/term/replacement/{replacement_id}/{term_id}/{category_id}": {
+    "/term/replacement/{category_id}/{term_id}/{replacement_id}/{meaning}": {
       "delete": {
         "tags": [
           "admins",
@@ -1609,6 +1641,17 @@
             "schema": {
               "minimum": 1,
               "type": "integer"
+            }
+          },
+          {
+            "name": "meaning",
+            "in": "path",
+            "description": "The meaning",
+            "required": false,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
             }
           }
         ],
@@ -1734,7 +1777,6 @@
                 "global_visible",
                 "check_words",
                 "wordcount",
-                "enabled",
                 "update_time",
                 "create_time",
                 "delete_time"
@@ -1846,19 +1888,6 @@
             "schema": {
               "minimum": 1,
               "type": "integer"
-            }
-          },
-          {
-            "name": "enabled",
-            "in": "query",
-            "description": "Filter by global_visible",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "integer",
-              "default": 0,
-              "enum": [0,1]
             }
           }
         ],
@@ -2058,7 +2087,7 @@
                 "locale_name",
                 "global_visible",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id",
                 "parent_id",
                 "update_time",
@@ -2170,7 +2199,7 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
             "description": "Filter by user_id",
             "required": false,
@@ -3061,6 +3090,20 @@
         ],
         "summary": "Get benchmark templates (admin must have right)",
         "operationId": "getBenchmarkTemplate",
+        "parameters": [
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "benchmark templates",
@@ -3855,6 +3898,18 @@
         "operationId": "getAllBenchmarks",
         "parameters": [
           {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "limit",
             "in": "query",
             "description": "Query limit",
@@ -3907,7 +3962,7 @@
               "enum": [
                 "id",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id",
                 "locale_name",
                 "text_type_id",
@@ -4008,9 +4063,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -5696,6 +5751,18 @@
             }
           },
           {
+            "name": "id",
+            "in": "query",
+            "description": "Filter by id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "example": 1
+            }
+          },
+          {
             "name": "deleted",
             "in": "query",
             "description": "Filter by deleted ( delete_time IS NULL) ",
@@ -5704,7 +5771,6 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
               "enum": [0,1]
             }
           },
@@ -5895,7 +5961,6 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
               "enum": [0,1]
             }
           }
@@ -8190,7 +8255,7 @@
                 "folder",
                 "id",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id",
                 "archive_name",
                 "version",
@@ -8353,9 +8418,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -9022,7 +9087,7 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0
+              "example": 0
             }
           },
           {
@@ -9067,7 +9132,7 @@
                 "parent",
                 "id",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id",
                 "folder_name"
               ]
@@ -9111,9 +9176,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -9516,7 +9581,7 @@
               "enum": [
                 "tag_name",
                 "user_id",
-                "group_id",
+                "user_group_id",
                 "company_id"
               ]
             }
@@ -9547,9 +9612,9 @@
             }
           },
           {
-            "name": "group_id",
+            "name": "user_group_id",
             "in": "query",
-            "description": "Filter by group_id ",
+            "description": "Filter by user_group_id ",
             "required": false,
             "style": "form",
             "explode": true,
@@ -9581,8 +9646,13 @@
                   "properties": {
                     "data": {
                       "type": "array",
+                      "example": [
+                        "tag1",
+                        "tag2"
+                      ],
                       "items": {
-                        "$ref": "#/components/schemas/ArchivesAddData"
+                        "type": "string",
+                        "example": "tag1"
                       }
                     }
                   }
@@ -9638,7 +9708,7 @@
         ]
       }
     },
-    "/allowlist/user": {
+    "/allowlist": {
       "post": {
         "tags": [
           "lists"
@@ -9694,6 +9764,535 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Word already in",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "lists"
+        ],
+        "summary": "Get Allowlists  with filters",
+        "description": " ",
+        "operationId": "getAllAllowLists",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Query limit",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Query offset",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Query order (0-ASC, 1-DESC)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "order by field",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "tag_name",
+              "enum": [
+                "id",
+                "words",
+                "lemma",
+                "user_id",
+                "state",
+                "create_time",
+                "update_time",
+                "delete_time",
+                "check_words",
+                "term_category_id",
+                "company_id",
+                "user_group_id"
+              ]
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Filter by id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "words",
+            "in": "query",
+            "description": "Filter by words LIKE (%tag_name%)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 255,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "lemma",
+            "in": "query",
+            "description": "Filter by lemma LIKE (%tag_name%)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 255,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "term_category_id",
+            "in": "query",
+            "description": "Filter by term_category_id",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "Filter by tag LIKE (%tag_name%)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 255,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
+            "name": "check_words",
+            "in": "query",
+            "description": "Filter by check_words ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "Filter by user_id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_group_id",
+            "in": "query",
+            "description": "Filter by user_group_id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "company_id",
+            "in": "query",
+            "description": "Filter by company_id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "Filter by state ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },          {
+            "name": "create_time_from",
+            "in": "query",
+            "description": " (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "create_time_to",
+            "in": "query",
+            "description": " Format (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "update_time_from",
+            "in": "query",
+            "description": " (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          },
+          {
+            "name": "update_time_to",
+            "in": "query",
+            "description": " Format (YYYY-MM-DD HH:MM:SS) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "example": "2021-04-09 12:57:10",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Whitelists",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/AllowListData"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/allowlist/{id}": {
+      "put": {
+        "tags": [
+          "lists"
+        ],
+        "summary": "Update Allowlist",
+        "operationId": "updateAllowList",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of AllowList",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAllowListData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Term Category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AllowListData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "lists"
+        ],
+        "summary": "Delete AllowList record",
+        "operationId": "deleteAllowList",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of Allow List",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "deleted"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/allowlist/publish/{id}": {
+      "post": {
+        "tags": [
+          "lists"
+        ],
+        "summary": "Move Allow Word in real Term List",
+        "operationId": "addUToTermAllowList",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MoveAllowWordItTerm"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "done"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Word already in categogy",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
           }
         },
         "security": [
@@ -9706,13 +10305,20 @@
   },
   "components": {
     "schemas": {
-      "AddAllowListData": {
+      "MoveAllowWordItTerm": {
         "required": [
-          "check_words",
-          "lemma",
-          "words",
-          "user_id",
-          "list_name"
+          "category_id"
+        ],
+        "type": "object",
+        "properties": {
+          "category_id": {
+            "type": "integer",
+            "minimum": 1
+          }
+        }
+      },
+      "UpdateAllowListData": {
+        "required": [
         ],
         "type": "object",
         "properties": {
@@ -9728,9 +10334,58 @@
             "type": "string",
             "example": "[\"ADJD\",\"VVPP\"]"
           },
-          "list_name": {
+          "term_category_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "state": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "check_words": {
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
+          },
+          "description": {
             "type": "string",
-            "example": "test"
+            "example": "description"
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          }
+        }
+      },
+      "AddAllowListData": {
+        "required": [
+          "check_words",
+          "lemma",
+          "words",
+          "user_id",
+          "term_category_id"
+        ],
+        "type": "object",
+        "properties": {
+          "words": {
+            "type": "string",
+            "example": "[\"erfolgreich\",\"absolviert\"]"
+          },
+          "lemma": {
+            "type": "string",
+            "example": "[\"erfolgreich\",\"absolvieren\"]"
+          },
+          "tag": {
+            "type": "string",
+            "example": "[\"ADJD\",\"VVPP\"]"
+          },
+          "term_category_id": {
+            "type": "integer",
+            "minimum": 1
           },
           "user_id": {
             "type": "integer",
@@ -9757,10 +10412,14 @@
           "lemma",
           "words",
           "user_id",
-          "list_name"
+          "term_category_id"
         ],
         "type": "object",
         "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
           "words": {
             "type": "string",
             "example": "[\"erfolgreich\",\"absolviert\"]"
@@ -9773,11 +10432,19 @@
             "type": "string",
             "example": "[\"ADJD\",\"VVPP\"]"
           },
-          "list_name": {
-            "type": "string",
-            "example": "test"
+          "term_category_id": {
+            "type": "integer",
+            "minimum": 1
           },
           "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "user_group_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "company_id": {
             "type": "integer",
             "minimum": 1
           },
@@ -9786,10 +10453,9 @@
             "default": 0,
             "enum": [0,1]
           },
-          "approved": {
+          "state": {
             "type": "integer",
-            "default": 0,
-            "enum": [0,1]
+            "default": 0
           },
           "description": {
             "type": "string",
@@ -9890,7 +10556,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -9984,7 +10650,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -10137,7 +10803,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -10205,7 +10871,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -10362,9 +11028,7 @@
       },
       "AddTermReplacementData": {
         "required": [
-          "category_id",
-          "global_visible",
-          "term_id"
+          "global_visible"
         ],
         "type": "object",
         "properties": {
@@ -10380,10 +11044,6 @@
             "type": "string",
             "example": "[\"ADJD\",\"VVPP\"]"
           },
-          "status": {
-            "type": "integer",
-            "example": 1
-          },
           "description": {
             "type": "string",
             "example": "description"
@@ -10392,35 +11052,7 @@
             "type": "string",
             "example": "meaning"
           },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
           "settings": {
-            "type": "string",
-            "example": "{}"
-          },
-          "term_global_visible": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
-          "term_enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
-          "term_settings": {
-            "type": "string",
-            "example": "{}"
-          },
-          "term_check_words": {
-            "type": "integer",
-            "default": 0,
-            "enum": [0,1]
-          },
-          "term_description": {
             "type": "string",
             "example": "{}"
           },
@@ -10428,14 +11060,6 @@
             "type": "integer",
             "default": 1,
             "enum": [0,1]
-          },
-          "term_id": {
-            "type": "integer",
-            "example": 1
-          },
-          "category_id": {
-            "type": "integer",
-            "example": 1
           }
         }
       },
@@ -10465,11 +11089,6 @@
           "meaning": {
             "type": "string",
             "example": "meaning"
-          },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
           },
           "global_visible": {
             "type": "integer",
@@ -10511,7 +11130,6 @@
       },
       "AddUserTermData": {
         "required": [
-          "category_id",
           "check_words",
           "lemma",
           "words"
@@ -10539,11 +11157,6 @@
             "type": "string",
             "example": "{}"
           },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
           "description": {
             "type": "string",
             "example": "description"
@@ -10552,10 +11165,6 @@
             "type": "integer",
             "default": 1,
             "enum": [0,1]
-          },
-          "category_id": {
-            "type": "integer",
-            "example": 1
           }
         }
       },
@@ -10568,11 +11177,6 @@
           "check_words": {
             "type": "integer",
             "default": 0,
-            "enum": [0,1]
-          },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
             "enum": [0,1]
           },
           "description": {
@@ -10613,11 +11217,6 @@
           "check_words": {
             "type": "integer",
             "default": 0,
-            "enum": [0,1]
-          },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
             "enum": [0,1]
           },
           "description": {
@@ -10662,11 +11261,6 @@
           "wordcount": {
             "type": "integer",
             "example": 2
-          },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -10716,11 +11310,6 @@
           "wordcount": {
             "type": "integer",
             "example": 2
-          },
-          "enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
           },
           "description": {
             "type": "string",
@@ -11052,7 +11641,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
@@ -11080,7 +11669,7 @@
             "type": "integer",
             "example": 1
           },
-          "group_id": {
+          "user_group_id": {
             "minimum": 0,
             "type": "integer",
             "example": 1
