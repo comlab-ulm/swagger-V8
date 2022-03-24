@@ -127,7 +127,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/RegexpCheckDataResult"
                 }
               }
             }
@@ -12083,6 +12083,14 @@
           "regexp": {
             "type": "string",
             "example": "Test"
+          }
+        }
+      },
+      "RegexpCheckDataResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
           }
         }
       },
