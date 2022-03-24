@@ -105,6 +105,71 @@
     }
   ],
   "paths": {
+    "/regex": {
+      "post": {
+        "tags": [
+          "system"
+        ],
+	"summary": "Test the regexp",
+        "operationId": "RegexpCheck",
+	"requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegexpCheckData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Responce from LT in LT format",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegexpCheckDataResult"
+                }
+              }
+            }
+          },
+ 	  "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/lt/check": {
       "post": {
         "tags": [
@@ -8334,7 +8399,7 @@
           {
             "name": "version",
             "in": "query",
-            "description": "Filter by version",
+            "description": "Filter by version LIKE (%version%)",
             "required": false,
             "style": "form",
             "explode": true,
@@ -8371,7 +8436,7 @@
           {
             "name": "tag",
             "in": "query",
-            "description": "Filter by tag",
+            "description": "Filter by tag  LIKE (%tag%)",
             "required": false,
             "style": "form",
             "explode": true,
@@ -12001,6 +12066,31 @@
             "items": {
               "$ref": "#/components/schemas/TreeTagerData_result"
             }
+          }
+        }
+      },
+      "RegexpCheckData": {
+        "required": [
+          "regexp",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "example": "Test"
+          },
+          "regexp": {
+            "type": "string",
+            "example": "Test"
+          }
+        }
+      },
+      "RegexpCheckDataResult": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
           }
         }
       },
