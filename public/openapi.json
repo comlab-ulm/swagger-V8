@@ -123,7 +123,7 @@
         },
         "responses": {
           "200": {
-            "description": "Responce from LT in LT format",
+            "description": "Responce from regex in array[array[]]",
             "content": {
               "application/json": {
                 "schema": {
@@ -12090,7 +12090,11 @@
         "type": "object",
         "properties": {
           "data": {
-            "type": "array"
+            "type": "array",
+            "items": {
+              "type": "array",
+              "example": [1,1]
+            }
           }
         }
       },
