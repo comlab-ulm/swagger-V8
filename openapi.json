@@ -5172,7 +5172,6 @@
                 "id",
                 "name",
                 "company_id",
-                "license_id",
                 "update_time",
                 "create_time",
                 "delete_time"
