@@ -2149,6 +2149,7 @@
                 "name",
                 "description",
                 "category_type",
+                "term_count",
                 "locale_name",
                 "global_visible",
                 "user_id",
