@@ -2159,7 +2159,10 @@
               "enum": [
                 "id",
                 "name",
-                "description",
+                "enname",
+                "dename",
+                "endescription",
+                "dedescription",
                 "category_type",
                 "term_count",
                 "locale_name",
