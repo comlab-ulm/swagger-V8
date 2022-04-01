@@ -4041,6 +4041,10 @@
               "default": "id",
               "enum": [
                 "id",
+                "enname",
+                "dename",
+                "dedescription",
+                "endescription",                
                 "user_id",
                 "user_group_id",
                 "company_id",
