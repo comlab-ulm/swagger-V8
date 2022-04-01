@@ -2159,7 +2159,10 @@
               "enum": [
                 "id",
                 "name",
-                "description",
+                "enname",
+                "dename",
+                "endescription",
+                "dedescription",
                 "category_type",
                 "term_count",
                 "locale_name",
@@ -2260,7 +2263,6 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
               "enum": [0,1]
             }
           },
@@ -4039,6 +4041,10 @@
               "default": "id",
               "enum": [
                 "id",
+                "enname",
+                "dename",
+                "dedescription",
+                "endescription",                
                 "user_id",
                 "user_group_id",
                 "company_id",
