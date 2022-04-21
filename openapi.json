@@ -8452,9 +8452,9 @@
             }
           },
           {
-            "name": "tag",
+            "name": "tag_name",
             "in": "query",
-            "description": "Filter by tag  LIKE (%tag%)",
+            "description": "Filter by tag_name  LIKE (%tag%)",
             "required": false,
             "style": "form",
             "explode": true,
@@ -10717,7 +10717,7 @@
             "type": "integer",
             "example": 0
           },
-          "tags": {
+          "tag_name": {
             "type": "array",
             "example": [
               "tag1",
