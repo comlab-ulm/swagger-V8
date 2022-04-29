@@ -10621,6 +10621,10 @@
           "allowList": {
             "type": "array",
             "example": [[1,2],[4,10]]
+          },
+          "excludeList": {
+            "type": "array",
+            "example": ["spell"]
           }
 	      }
       },
