@@ -8343,12 +8343,12 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "id",
+              "default": "analyse_id",
               "enum": [
+                "analyse_id",
                 "locale_name",
                 "benchmark_id",
                 "folder",
-                "id",
                 "user_id",
                 "user_group_id",
                 "company_id",
