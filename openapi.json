@@ -9934,7 +9934,7 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "tag_name",
+              "default": "id",
               "enum": [
                 "id",
                 "words",
