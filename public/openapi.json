@@ -12470,7 +12470,8 @@
       },
       "CompanyAddData": {
         "required": [
-          "name"
+          "name",
+          "company_licenses"
         ],
         "type": "object",
         "properties": {
@@ -12479,10 +12480,12 @@
             "type": "string",
             "example": "company"
           },
-          "license_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
+          "company_licenses": {
+            "type": "array",
+            "example": [0],
+            "items": {
+              "type": "integer"
+            }
           }
         }
       },
