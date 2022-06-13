@@ -1102,6 +1102,96 @@
         ]
       }
     },
+    "/term/bunch/{category_id}": {
+      "post": {
+        "tags": [
+          "superadmins",
+          "termins"
+        ],
+        "summary": "Bunch add Term to Category",
+        "operationId": "addBunchTermToCategory",
+        "parameters": [
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "The id of category",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddBunchTermData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "All fine",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Already exist!",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/term/{category_id}": {
       "post": {
         "tags": [
@@ -11239,6 +11329,24 @@
           "term_description": {
             "type": "string",
             "example": "{}"
+          }
+        }
+      },
+      "AddBunchTermData": {
+        "required": [
+          "line",
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "line": {
+            "type": "integer"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
           }
         }
       },
