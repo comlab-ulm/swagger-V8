@@ -11343,7 +11343,10 @@
             "type": "integer"
           },
           "data": {
-            "type": "array"
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
           }
         }
       },
