@@ -11345,7 +11345,82 @@
           "data": {
             "type": "array",
             "items": {
-              "type": "object"
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "words": {
+                  "type": "string",
+                  "example": "[\"erfolgreich\",\"absolviert\"]"
+                },
+                "lemma": {
+                  "type": "string",
+                  "example": "[\"erfolgreich\",\"absolvieren\"]"
+                },
+                "tag": {
+                  "type": "string",
+                  "example": "[\"ADJD\",\"VVPP\"]"
+                },
+                "check_words": {
+                  "type": "integer",
+                  "default": 0,
+                  "enum": [0,1]
+                },
+                "settings": {
+                  "type": "string",
+                  "example": "{}"
+                },
+                "description": {
+                  "type": "string",
+                  "example": "description"
+                },
+                "global_visible": {
+                  "type": "integer",
+                  "default": 1,
+                  "enum": [0,1]
+                },
+                "replacements": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer"
+                      },
+                      "words": {
+                        "type": "string",
+                        "example": "[\"erfolgreich\",\"absolviert\"]"
+                      },
+                      "lemma": {
+                        "type": "string",
+                        "example": "[\"erfolgreich\",\"absolvieren\"]"
+                      },
+                      "tag": {
+                        "type": "string",
+                        "example": "[\"ADJD\",\"VVPP\"]"
+                      },
+                      "meaning": {
+                        "type": "string",
+                        "example": " "
+                      },
+                      "settings": {
+                        "type": "string",
+                        "example": "{}"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "description"
+                      },
+                      "global_visible": {
+                        "type": "integer",
+                        "default": 1,
+                        "enum": [0,1]
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
