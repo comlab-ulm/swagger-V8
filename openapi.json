@@ -1191,7 +1191,6 @@
           }
         ]
       }
-      }
     },
     "/term/{category_id}": {
       "post": {
@@ -11341,10 +11340,10 @@
         "type": "object",
         "properties": {
           "line": {
-            "type": "integer",
+            "type": "integer"
           },
           "data": {
-            "type": "array",
+            "type": "array"
           }
         }
       },
