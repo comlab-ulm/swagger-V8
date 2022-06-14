@@ -11387,6 +11387,11 @@
             "type": "string",
             "example": "[\"ADJD\",\"VVPP\"]"
           },
+          "enabled": {
+            "type": "integer",
+            "default": 1,
+            "enum": [0,1]
+          },
           "check_words": {
             "type": "integer",
             "default": 0,
