@@ -457,266 +457,6 @@
         }
       }
     },
-    "/exception-words/upload": {
-      "post": {
-        "tags": [
-          "superadmins"
-        ],
-        "summary": "upload exception Words by language",
-        "operationId": "exceptionWordsUpload",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UploadExceptionWords"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "sucessful"
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/exception-words/download": {
-      "get": {
-        "tags": [
-          "superadmins"
-        ],
-        "summary": "Get all abbreviation by filter",
-        "operationId": "getExceptionWordsByLanguageId",
-        "parameters": [
-          {
-            "name": "language_id",
-            "in": "query",
-            "description": "language id",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 2,
-              "minLength": 2,
-              "type": "string",
-              "example": "en"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "list of exception words",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UploadExceptionWords"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/abbreviation/upload": {
-      "post": {
-        "tags": [
-          "superadmins"
-        ],
-        "summary": "upload Abbreviations by language",
-        "operationId": "abbreviationUpload",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/UploadAbbreviation"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "sucessful"
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/abbreviation/download": {
-      "get": {
-        "tags": [
-          "superadmins"
-        ],
-        "summary": "Get all abbreviation by filter",
-        "operationId": "getAbbreviationByLanguageId",
-        "parameters": [
-          {
-            "name": "language_id",
-            "in": "query",
-            "description": "language id",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 2,
-              "minLength": 2,
-              "type": "string",
-              "example": "en"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "list of abbreviations",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UploadAbbreviation"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
     "/term": {
       "get": {
         "tags": [
@@ -1105,7 +845,7 @@
     "/term/bunch/{category_id}": {
       "post": {
         "tags": [
-          "superadmins",
+          "admins",
           "termins"
         ],
         "summary": "Bunch add Term to Category",
@@ -1195,7 +935,7 @@
     "/term/{category_id}": {
       "post": {
         "tags": [
-          "superadmins",
+          "admins",
           "termins"
         ],
         "summary": "Add Term to Category",
@@ -1451,7 +1191,7 @@
     "/term/replacement/{category_id}/{term_id}": {
       "post": {
         "tags": [
-          "superadmins",
+          "admins",
           "termins"
         ],
         "summary": "Add Term Replacement to Category (also add a new Replacement if needed)",
