@@ -11217,11 +11217,20 @@
         }
       },
       "UpdateUserTermData": {
-        "required": [
-          "check_words"
-        ],
         "type": "object",
         "properties": {
+          "words": {
+            "type": "string",
+            "example": "[\"erfolgreich\",\"absolviert\"]"
+          },
+          "lemma": {
+            "type": "string",
+            "example": "[\"erfolgreich\",\"absolvieren\"]"
+          },
+          "tag": {
+            "type": "string",
+            "example": "[\"ADJD\",\"VVPP\"]"
+          },
           "check_words": {
             "type": "integer",
             "default": 0,
