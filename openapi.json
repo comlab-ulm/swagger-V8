@@ -4895,6 +4895,18 @@
             }
           },
           {
+            "name": "id",
+            "in": "query",
+            "description": "Filter by group id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
             "name": "name",
             "in": "query",
             "description": "Filter by name (LIKE format) ",
