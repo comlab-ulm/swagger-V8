@@ -1387,7 +1387,6 @@
                 "lemma",
                 "tag",
                 "global_visible",
-                "meaning",
                 "update_time",
                 "create_time",
                 "delete_time"
@@ -1454,105 +1453,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/term/replacement/{category_id}/{term_id}/{replacement_id}/{meaning}": {
-      "delete": {
-        "tags": [
-          "admins",
-          "termins"
-        ],
-        "summary": "delete Term Replacenment",
-        "operationId": "deleteTermReplacenment",
-        "parameters": [
-          {
-            "name": "replacement_id",
-            "in": "path",
-            "description": "The id of Term Replacenment",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "term_id",
-            "in": "path",
-            "description": "The id of Term",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "category_id",
-            "in": "path",
-            "description": "The id of Term Category",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "meaning",
-            "in": "path",
-            "description": "The meaning",
-            "required": false,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "term replacement deleted"
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -10999,10 +10899,6 @@
             "type": "string",
             "example": "description"
           },
-          "meaning": {
-            "type": "string",
-            "example": "meaning"
-          },
           "settings": {
             "type": "string",
             "example": "{}"
@@ -11041,10 +10937,6 @@
           "settings": {
             "type": "string",
             "example": "{}"
-          },
-          "meaning": {
-            "type": "string",
-            "example": "meaning"
           },
           "global_visible": {
             "type": "integer",
@@ -11101,10 +10993,6 @@
           "tag": {
             "type": "string",
             "example": "[\"ADJD\",\"VVPP\"]"
-          },
-          "meaning": {
-            "type": "string",
-            "example": " "
           },
           "settings": {
             "type": "string",
@@ -13313,10 +13201,6 @@
           "description": {
             "type": "string",
             "example": "description"
-          },
-          "meaning": {
-            "type": "string",
-            "example": "meaning"
           },
           "settings": {
             "type": "string",
