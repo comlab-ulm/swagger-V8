@@ -1188,6 +1188,95 @@
         ]
       }
     },
+    "/term/replacement/{category_id}/{term_id}/{replacement_id}": {
+      "delete": {
+        "tags": [
+          "admins",
+          "termins"
+        ],
+        "summary": "delete one Term Replacenment in category",
+        "operationId": "deleteTermReplacenment",
+        "parameters": [
+          {
+            "name": "replacement_id",
+            "in": "path",
+            "description": "The id of Term Replacenment",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "term_id",
+            "in": "path",
+            "description": "The id of Term",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "The id of Term Category",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "term replacement deleted"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+
     "/term/replacement/{category_id}/{term_id}": {
       "post": {
         "tags": [
@@ -1453,6 +1542,80 @@
                 }
               }
             }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "admins",
+          "termins"
+        ],
+        "summary": "delete ALL Term Replacenments for Term in category",
+        "operationId": "deleteAllTermReplacenment",
+        "parameters": [
+          {
+            "name": "term_id",
+            "in": "path",
+            "description": "The id of Term",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "category_id",
+            "in": "path",
+            "description": "The id of Term Category",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "term replacements deleted"
           },
           "400": {
             "description": "Invalid fields supplied",
