@@ -13604,17 +13604,17 @@
       },
       "EnabledSettings": {
         "type": "object",
-          "properties": {
-            "syllcount": {
-              "type": "integer"
-            },
-            "color": {
-              "type": "string"
-            },
-            "meaning": {
-              "type": "array"
-            }
+        "properties": {
+          "syllcount": {
+            "type": "integer"
+          },
+          "color": {
+            "type": "string"
+          },
+          "meaning": {
+            "type": "array"
           }
+        }
       }
     },
     "responses": {
