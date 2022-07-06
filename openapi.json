@@ -13607,8 +13607,7 @@
           "properties": {
             "syllcount": {
               "minimum": 0,
-              "type": "integer",
-              "example": 1
+              "type": "integer"
             },
             "color": {
               "type": "string",
@@ -13618,12 +13617,10 @@
                 "colorYellow",
                 "colorGreen",
                 "colorBlue"
-              ],
-              "example": "colorGreen"
+              ]
             },
             "meaning": {
-              "type": "array",
-              "example": [[["geschlossen"],"a"]]
+              "type": "array"
             }
           }
       }
