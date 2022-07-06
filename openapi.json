@@ -13601,32 +13601,32 @@
             "example": 1
           }
         }
-      }
-    },
-    "EnabledSettings": {
-      "type": "object",
-        "properties": {
-          "syllcount": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
-          },
-          "color": {
-            "type": "string",
-            "maxLength": 20,
-            "enum": [
-              "colorRed",
-              "colorYellow",
-              "colorGreen",
-              "colorBlue"
-            ],
-            "example": "colorGreen"
-          },
-          "meaning": {
-            "type": "array",
-            "example": [[["geschlossen"],"a"]]
+      },
+      "EnabledSettings": {
+        "type": "object",
+          "properties": {
+            "syllcount": {
+              "minimum": 0,
+              "type": "integer",
+              "example": 1
+            },
+            "color": {
+              "type": "string",
+              "maxLength": 20,
+              "enum": [
+                "colorRed",
+                "colorYellow",
+                "colorGreen",
+                "colorBlue"
+              ],
+              "example": "colorGreen"
+            },
+            "meaning": {
+              "type": "array",
+              "example": [[["geschlossen"],"a"]]
+            }
           }
-        }
+      }
     },
     "responses": {
       "BadRequestError": {
