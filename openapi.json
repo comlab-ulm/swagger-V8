@@ -13606,18 +13606,10 @@
         "type": "object",
           "properties": {
             "syllcount": {
-              "minimum": 0,
               "type": "integer"
             },
             "color": {
-              "type": "string",
-              "maxLength": 20,
-              "enum": [
-                "colorRed",
-                "colorYellow",
-                "colorGreen",
-                "colorBlue"
-              ]
+              "type": "string"
             },
             "meaning": {
               "type": "array"
