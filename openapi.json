@@ -10347,16 +10347,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "term_category_id": {
             "type": "integer",
@@ -10396,16 +10405,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "term_category_id": {
             "type": "integer",
@@ -10445,16 +10463,25 @@
             "minimum": 1
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "term_category_id": {
             "type": "integer",
@@ -10560,7 +10587,7 @@
             "example": "de_DE"
           },
           "allowList": {
-            "type": "array",
+            "type": "array",            
             "example": [[1,2],[4,10]]
           },
           "excludeList": {
@@ -11071,16 +11098,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "description": {
             "type": "string",
@@ -11101,16 +11137,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "wordcount": {
             "type": "integer",
@@ -11170,16 +11215,25 @@
             "type": "integer"
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "settings": {
             "type": "string",
@@ -11203,16 +11257,25 @@
             "type": "integer"
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "enabled": {
             "type": "integer",
@@ -11272,16 +11335,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11307,16 +11379,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11347,16 +11428,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11386,16 +11476,25 @@
             "example": 1
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11436,16 +11535,25 @@
             "example": 1
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -13374,16 +13482,25 @@
             "example": 1
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "description": {
             "type": "string",
