@@ -11745,6 +11745,34 @@
           }
         }
       },
+      "TermCategoryAddUGCData": {
+        "required": [
+          "term_category_id"
+        ],
+        "type": "object",
+        "properties": {
+          "term_category_id": {
+            "minimum": 1,
+            "type": "integer",
+            "example": 1
+          },
+          "user_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "user_group_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "company_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
       "AddBenchmarkTemplateData": {
         "required": [
           "default_calcelements",
@@ -11854,8 +11882,8 @@
             "example": "[]"
           },
           "settings": {
-            "type": "object",
-            "example": {}
+            "type": "string",
+            "example": "{}"
           }
         }
       },
@@ -11907,34 +11935,6 @@
           }
         }
       },
-      "TermCategoryAddUGCData": {
-        "required": [
-          "term_category_id"
-        ],
-        "type": "object",
-        "properties": {
-          "term_category_id": {
-            "minimum": 1,
-            "type": "integer",
-            "example": 1
-          },
-          "user_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
-          },
-          "user_group_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
-          },
-          "company_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
-          }
-        }
-      },
       "BenchmarkAddData": {
         "required": [
           "benchmark_template_id"
@@ -11963,8 +11963,8 @@
             "example": "[]"
           },
           "settings": {
-            "type": "object",
-            "example": {}
+            "type": "string",
+            "example": "{}"
           }
         }
       },
@@ -12048,7 +12048,7 @@
             }
           },
           "settings": {
-            "type": "object",
+            "type": "string"
           }
         }
       },
