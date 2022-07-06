@@ -1543,7 +1543,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Term REplacement",
+            "description": "Term Replacement",
             "content": {
               "application/json": {
                 "schema": {
@@ -10389,8 +10389,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -10443,8 +10444,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -10513,8 +10515,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "create_time": {
             "maxLength": 255,
@@ -10668,8 +10671,9 @@
             "example": "{}"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "version": {
             "maxLength": 50,
@@ -10765,8 +10769,9 @@
             "example": "{}"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "hix": {
             "minimum": 0,
@@ -10832,8 +10837,9 @@
             "example": "{}"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "hix": {
             "minimum": 0,
@@ -10895,8 +10901,9 @@
             "example": "{}"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "hix": {
             "minimum": 0,
@@ -10982,8 +10989,9 @@
             "example": 1
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "depend_of": {
             "type": "string",
@@ -11067,8 +11075,9 @@
             "example": 1
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -11084,8 +11093,9 @@
             "example": 1
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -11123,8 +11133,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11167,8 +11178,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11182,29 +11194,6 @@
           "category_id": {
             "type": "integer",
             "example": 1
-          },
-          "term_global_visible": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
-          "term_enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
-          "term_settings": {
-            "type": "string",
-            "example": "{}"
-          },
-          "term_check_words": {
-            "type": "integer",
-            "default": 0,
-            "enum": [0,1]
-          },
-          "term_description": {
-            "type": "string",
-            "example": "{}"
           }
         }
       },
@@ -11236,8 +11225,9 @@
             "example": ["ADJD","VVPP"]
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "description": {
             "type": "string",
@@ -11288,8 +11278,9 @@
             "enum": [0,1]
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "description": {
             "type": "string",
@@ -11361,8 +11352,9 @@
             "enum": [0,1]
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "description": {
             "type": "string",
@@ -11414,8 +11406,9 @@
             "enum": [0,1]
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -11458,8 +11451,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11511,8 +11505,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11570,8 +11565,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11608,8 +11604,9 @@
             "example": "negative"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11646,8 +11643,9 @@
             "example": "negative"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11689,8 +11687,9 @@
             "example": "negative"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11783,8 +11782,7 @@
             "example": "[\"hix\",\"data\"]"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "example": {}
           }
         }
       },
@@ -11854,8 +11852,8 @@
             "example": "[]"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "example": {}
           }
         }
       },
@@ -11963,8 +11961,8 @@
             "example": "[]"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "example": {}
           }
         }
       },
@@ -12048,7 +12046,7 @@
             }
           },
           "settings": {
-            "type": "object"
+            "type": "object",
           }
         }
       },
@@ -13507,8 +13505,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -13603,6 +13602,31 @@
           }
         }
       }
+    },
+    "EnabledSettings": {
+      "type": "object",
+        "properties": {
+          "syllcount": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "color": {
+            "type": "string",
+            "maxLength": 20,
+            "enum": [
+              "colorRed",
+              "colorYellow",
+              "colorGreen",
+              "colorBlue"
+            ],
+            "example": "colorGreen"
+          },
+          "meaning": {
+            "type": "array",
+            "example": [[["geschlossen"],"a"]]
+          }
+        }
     },
     "responses": {
       "BadRequestError": {
