@@ -1543,7 +1543,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Term REplacement",
+            "description": "Term Replacement",
             "content": {
               "application/json": {
                 "schema": {
@@ -10347,16 +10347,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "term_category_id": {
             "type": "integer",
@@ -10380,8 +10389,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -10396,16 +10406,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "term_category_id": {
             "type": "integer",
@@ -10425,8 +10444,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -10445,16 +10465,25 @@
             "minimum": 1
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "term_category_id": {
             "type": "integer",
@@ -10486,8 +10515,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "create_time": {
             "maxLength": 255,
@@ -10560,7 +10590,7 @@
             "example": "de_DE"
           },
           "allowList": {
-            "type": "array",
+            "type": "array",            
             "example": [[1,2],[4,10]]
           },
           "excludeList": {
@@ -10641,8 +10671,9 @@
             "example": "{}"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "version": {
             "maxLength": 50,
@@ -10738,8 +10769,9 @@
             "example": "{}"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "hix": {
             "minimum": 0,
@@ -10805,8 +10837,9 @@
             "example": "{}"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "hix": {
             "minimum": 0,
@@ -10868,8 +10901,9 @@
             "example": "{}"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "hix": {
             "minimum": 0,
@@ -10955,8 +10989,9 @@
             "example": 1
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "depend_of": {
             "type": "string",
@@ -11040,8 +11075,9 @@
             "example": 1
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -11057,8 +11093,9 @@
             "example": 1
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -11071,24 +11108,34 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "description": {
             "type": "string",
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11101,16 +11148,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "wordcount": {
             "type": "integer",
@@ -11122,8 +11178,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11137,29 +11194,6 @@
           "category_id": {
             "type": "integer",
             "example": 1
-          },
-          "term_global_visible": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
-          "term_enabled": {
-            "type": "integer",
-            "default": 1,
-            "enum": [0,1]
-          },
-          "term_settings": {
-            "type": "string",
-            "example": "{}"
-          },
-          "term_check_words": {
-            "type": "integer",
-            "default": 0,
-            "enum": [0,1]
-          },
-          "term_description": {
-            "type": "string",
-            "example": "{}"
           }
         }
       },
@@ -11170,20 +11204,30 @@
             "type": "integer"
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "description": {
             "type": "string",
@@ -11203,16 +11247,25 @@
             "type": "integer"
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "enabled": {
             "type": "integer",
@@ -11225,8 +11278,9 @@
             "enum": [0,1]
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "description": {
             "type": "string",
@@ -11272,16 +11326,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11289,8 +11352,9 @@
             "enum": [0,1]
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "description": {
             "type": "string",
@@ -11307,16 +11371,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11333,8 +11406,9 @@
             "enum": [0,1]
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           }
         }
       },
@@ -11347,16 +11421,25 @@
         "type": "object",
         "properties": {
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11368,8 +11451,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11386,16 +11470,25 @@
             "example": 1
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11412,8 +11505,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11436,16 +11530,25 @@
             "example": 1
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "check_words": {
             "type": "integer",
@@ -11462,8 +11565,9 @@
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11500,8 +11604,9 @@
             "example": "negative"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11538,8 +11643,9 @@
             "example": "negative"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11581,8 +11687,9 @@
             "example": "negative"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -11675,8 +11782,7 @@
             "example": "[\"hix\",\"data\"]"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "example": {}
           }
         }
       },
@@ -11746,8 +11852,8 @@
             "example": "[]"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "example": {}
           }
         }
       },
@@ -11855,8 +11961,8 @@
             "example": "[]"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "example": {}
           }
         }
       },
@@ -11940,7 +12046,7 @@
             }
           },
           "settings": {
-            "type": "object"
+            "type": "object",
           }
         }
       },
@@ -13374,24 +13480,34 @@
             "example": 1
           },
           "words": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolviert\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolviert"]
           },
           "lemma": {
-            "type": "string",
-            "example": "[\"erfolgreich\",\"absolvieren\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["erfolgreich","absolvieren"]
           },
           "tag": {
-            "type": "string",
-            "example": "[\"ADJD\",\"VVPP\"]"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["ADJD","VVPP"]
           },
           "description": {
             "type": "string",
             "example": "description"
           },
           "settings": {
-            "type": "string",
-            "example": "{}"
+            "type": "object",
+            "$ref": "#/components/schemas/EnabledSettings",
+            "example": {}
           },
           "global_visible": {
             "type": "integer",
@@ -13483,6 +13599,20 @@
             "minimum": 0,
             "type": "integer",
             "example": 1
+          }
+        }
+      },
+      "EnabledSettings": {
+        "type": "object",
+        "properties": {
+          "syllcount": {
+            "type": "integer"
+          },
+          "color": {
+            "type": "string"
+          },
+          "meaning": {
+            "type": "array"
           }
         }
       }
