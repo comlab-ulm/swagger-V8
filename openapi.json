@@ -11782,7 +11782,8 @@
             "example": "[\"hix\",\"data\"]"
           },
           "settings": {
-            "example": {}
+            "type": "string",
+            "example": "{}"
           }
         }
       },
