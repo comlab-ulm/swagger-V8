@@ -7913,38 +7913,6 @@
         }
       }
     },
-    "/calcelement_settings": {
-      "get": {
-        "tags": [
-          "open",
-          "benchmarks"
-        ],
-        "summary": "Get all calcelements_settings",
-        "operationId": "getAllCalcelementsSettings",
-        "responses": {
-          "200": {
-            "description": "calcelements_settings",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_16"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/calcelements": {
       "get": {
         "tags": [
@@ -10953,34 +10921,6 @@
           }
         }
       },
-
-      "CalcelementSettingsData": {
-        "type": "object",
-        "properties": {
-          "setting_name": {
-            "maxLength": 50,
-            "type": "string",
-            "example": "hixGoal"
-          },
-          "calcelement_id": {
-            "maxLength": 50,
-            "type": "string",
-            "example": "HIXCountLib"
-          },
-          "type": {
-            "type": "string",
-            "example": "string",
-            "enum": [
-              "string",
-              "integer",
-              "array",
-              "object",
-              "number",
-              "boolean"
-            ]
-          }
-        }
-      },
       "CalcelementsData": {
         "type": "object",
         "properties": {
@@ -13382,17 +13322,6 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SettingsData"
-            }
-          }
-        }
-      },
-      "inline_response_200_16": {
-        "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/CalcelementSettingsData"
             }
           }
         }
