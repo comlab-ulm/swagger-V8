@@ -11834,6 +11834,12 @@
         ],
         "type": "object",
         "properties": {
+          "format": {
+            "maxLength": 10,
+            "type": "string",
+            "default":"html",
+            "example": "html"
+          },
           "text": {
             "maxLength": 1000000,
             "type": "string",
