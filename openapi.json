@@ -11841,7 +11841,7 @@
             "example": "html"
           },
           "text": {
-            "maxLength": 1000000,
+            "maxLength": 10000000,
             "type": "string",
             "example": "This is the text"
           },
