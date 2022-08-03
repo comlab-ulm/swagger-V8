@@ -36,6 +36,10 @@
     {
       "url": "https://preview.text-lab.de/api/",
       "description": "Preview version API"
+    },
+    {
+      "url": "https://textlab.online/api/",
+      "description": "Online version API"
     }
   ],
   "tags": [
