@@ -8628,7 +8628,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ArchiveExportExportData"
+                "$ref": "#/components/schemas/ArchiveExportData"
               }
             }
           }
