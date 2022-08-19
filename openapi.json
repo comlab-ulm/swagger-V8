@@ -8617,6 +8617,71 @@
         ]
       }
     },
+    "/archive/export/doc": {
+      "post": {
+        "tags": [
+          "archives"
+        ],
+        "summary": "Export archive result as DOC file",
+        "operationId": "exportArchiveDOC",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArchiveExportExportData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Result in DOC format (as base64 encoded file)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchiveExportDataResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/archive/analyse/{analyse_id}": {
       "delete": {
         "tags": [
@@ -10504,10 +10569,50 @@
           }
         }
       },
+      "ArchiveExportData" : {
+        "type": "object",
+        "required": [
+          "template",
+          "id_list"
+        ],
+        "properties": {
+          "comment": {
+            "type": "string",
+            "example": "comment"
+          },
+          "template": {
+            "description": "Template for a document",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 100,
+            "example": "archive_de"
+          },
+          "values": {
+            "description": "Array of returned values. If  empty - return all",
+            "type": "string",
+            "example": "[\"moreSentencesInWords\"]"
+          },
+          "id_list": {
+            "description": "List of  Analyzes Id'd  to export",
+            "type": "string",
+            "example": "[1,2,3]"
+          }
+        }
+      },
+      "ArchiveExportDataResult" : {
+        "type": "object",
+        "properties": {
+          "resultfile": {
+            "type": "string",
+            "description": "Result converting. Base64 based file",
+            "example": ""
+          }
+        }
+      },
       "BenchmarkExportData" : {
         "type": "object",
         "required": [
-          "language",
+          "template",
           "result"
         ],
         "properties": {
@@ -10515,17 +10620,12 @@
             "type": "string",
             "example": "comment"
           },
-          "language": {
-            "description": "Language of document (not an analize)!",
+          "template": {
+            "description": "Template for a document",
             "type": "string",
             "minLength": 2,
-            "maxLength": 2,
-            "enum": [
-              "en",
-              "de",
-              "ru"
-            ],
-            "example": "de"
+            "maxLength": 100,
+            "example": "archive_de"
           },
           "values": {
             "description": "Array of returned values. If  empty - return all",
