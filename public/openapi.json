@@ -8173,6 +8173,81 @@
         }
       }
     },
+    "/archive/{id}":{
+      "get": {
+        "tags": [
+          "simple",
+          "archives"
+        ],
+        "summary": "Get archives by id",
+        "description": "",
+        "operationId": "getArchivebyId",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of archive which will be deleted",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "archive result"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/archive": {
       "get": {
         "tags": [
@@ -10886,7 +10961,8 @@
           "result",
           "text",
           "benchmark_id",
-          "version"
+          "version",
+          "locale_name"
         ],
         "type": "object",
         "properties": {
@@ -10895,6 +10971,12 @@
             "maxLength": 50,
             "type": "string",
             "example": "f8FrO0dsQQQiy"
+          },
+          "locale_name": {
+            "maxLength": 5,
+            "minLength": 5,
+            "type": "string",
+            "example": "de_DE"
           },
           "name": {
             "maxLength": 255,
