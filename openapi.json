@@ -8259,6 +8259,18 @@
         "operationId": "getAllArchives",
         "parameters": [
           {
+            "name": "by_last",
+            "in": "query",
+            "description": "Filter only by the last versions of archives",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": 1,
+              "type": "number"
+            }
+          },
+          {
             "name": "return_values",
             "in": "query",
             "description": "Set list of returning values in JSON array format (if empty - return all)",
