@@ -8259,9 +8259,21 @@
         "operationId": "getAllArchives",
         "parameters": [
           {
+            "name": "exact_result",
+            "in": "query",
+            "description": "exact_result = 1 -> return only founded versions of archives, = 0 -> return all versions of founded archive",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": 1,
+              "type": "number"
+            }
+          },
+          {
             "name": "by_last",
             "in": "query",
-            "description": "Filter only by the last versions of archives",
+            "description": "by_last = 1 -> Filter only in the last versions of archives, = 0 - filter for the all  versions",
             "required": false,
             "style": "form",
             "explode": true,
