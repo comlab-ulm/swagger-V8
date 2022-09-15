@@ -8368,6 +8368,7 @@
                 "version",
                 "hix",
                 "clix",
+                "spix",
                 "update_time",
                 "create_time",
                 "delete_time"
