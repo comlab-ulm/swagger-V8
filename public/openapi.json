@@ -10030,6 +10030,18 @@
             }
           },
           {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "id",
             "in": "query",
             "description": "Filter by id ",
@@ -10553,9 +10565,9 @@
         "tags": [
           "lists"
         ],
-        "summary": "Get Allowlists  with filters",
+        "summary": "Get TextBin with filters",
         "description": " ",
-        "operationId": "getAllAllowLists",
+        "operationId": "getAllTextBin",
         "parameters": [
           {
             "name": "limit",
@@ -10621,6 +10633,18 @@
                 "company_id",
                 "user_group_id"
               ]
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
             }
           },
           {
