@@ -12980,7 +12980,7 @@
         "type": "object",
         "properties": {
           "file_name": {
-            "maxLength": 500,
+            "maxLength": 255,
             "minLength": 1,
             "type": "string",
             "example": "file.pdf"
