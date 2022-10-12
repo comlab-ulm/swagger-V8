@@ -106,6 +106,10 @@
     {
       "name": "lists",
       "description": "Allow/Black Lists Operations"
+    },
+    {
+      "name": "regexes",
+      "description": "Regexes Operations"
     }
   ],
   "paths": {
