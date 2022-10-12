@@ -106,6 +106,10 @@
     {
       "name": "lists",
       "description": "Allow/Black Lists Operations"
+    },
+    {
+      "name": "regexes",
+      "description": "Regexes Operations"
     }
   ],
   "paths": {
@@ -11024,10 +11028,433 @@
           }
         ]
       }
+    },
+    "/regexes/": {
+      "post":{
+        "tags": [
+          "regexes",
+          "superadmins"
+        ],
+        "summary": "Add Regex",
+        "operationId": "addRegex",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddRegexesData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Regex",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegexesData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Regex already exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get":{
+        "tags": [
+          "regexes",
+          "superadmins"
+        ],
+        "summary": "Get regexes with filters",
+        "description": " ",
+        "operationId": "getAllRegexes",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Query limit",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Query offset",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Query order (0-ASC, 1-DESC)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "order by field",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "id",
+              "enum": [
+                "id",
+                "category",
+                "expression"
+              ]
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Regexes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/RegexesData"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/regexes/{id}": {
+      "put":{
+        "tags": [
+          "regexes",
+          "superadmins"
+        ],
+        "summary": "Update Regexes",
+        "operationId": "updateRegexes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of Regex",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddRegexesData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Regexes",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegexesData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete":{
+        "tags": [
+          "regexes",
+          "superadmins"
+        ],
+        "summary": "Delete Regexes",
+        "operationId": "deleteRegexes",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of Regex",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Regex deleted"
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
     }
   },
   "components": {
     "schemas": {
+      "AddRegexesData": {
+        "required": [
+          "category",
+          "expression"
+        ],
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "expression": {
+            "type": "string",
+            "example": "[:digit:]"
+          },
+          "include": {
+            "type": "string",
+            "example": "[\"0\",\"1\",\"2\"]"
+          },
+          "exclude": {
+            "type": "string",
+            "example": "[\"0\",\"1\",\"2\"]"
+          }
+        }
+      },      
+      "RegexesData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "category": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "expression": {
+            "type": "string",
+            "example": "[:digit:]"
+          },
+          "include": {
+            "type": "string",
+            "example": "[\"0\",\"1\",\"2\"]"
+          },
+          "exclude": {
+            "type": "string",
+            "example": "[\"0\",\"1\",\"2\"]"
+          }
+        }
+      },
       "MoveAllowWordItTerm": {
         "required": [
           "category_id"
