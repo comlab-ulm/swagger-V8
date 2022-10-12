@@ -11029,7 +11029,7 @@
         ]
       }
     },
-    "/regexes/": {
+    "/regexes": {
       "post":{
         "tags": [
           "regexes",
