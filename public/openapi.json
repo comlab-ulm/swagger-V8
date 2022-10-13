@@ -11276,7 +11276,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AddRegexesData"
+                "$ref": "#/components/schemas/UpdateRegexesData"
               }
             }
           }
@@ -11429,7 +11429,28 @@
             "example": "[\"0\",\"1\",\"2\"]"
           }
         }
-      },      
+      },
+      "UpdateRegexesData": {
+        "type": "object",
+        "properties": {
+          "category": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "expression": {
+            "type": "string",
+            "example": "[:digit:]"
+          },
+          "include": {
+            "type": "string",
+            "example": "[\"0\",\"1\",\"2\"]"
+          },
+          "exclude": {
+            "type": "string",
+            "example": "[\"0\",\"1\",\"2\"]"
+          }
+        }
+      },     
       "RegexesData": {
         "type": "object",
         "properties": {
