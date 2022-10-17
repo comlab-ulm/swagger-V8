@@ -8733,6 +8733,136 @@
         ]
       }
     },
+    "/archive/export/values": {
+      "post": {
+        "tags": [
+          "archives"
+        ],
+        "summary": "Get list of archives result values",
+        "operationId": "exportArchiveValues",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArchiveValuesData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "list of archives result values",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchiveValuesDataResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/archive/export/excel": {
+      "post": {
+        "tags": [
+          "archives"
+        ],
+        "summary": "Export archive result as EXCEL file",
+        "operationId": "exportArchiveEXCEL",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArchiveExportExcelData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Result in EXCEL format (as base64 encoded file)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchiveExportDataResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/archive/export/doc": {
       "post": {
         "tags": [
@@ -11679,6 +11809,24 @@
           }
         }
       },
+      "ArchiveExportExcelData" : {
+        "type": "object",
+        "required": [
+          "id_list"
+        ],
+        "properties": {
+          "values": {
+            "description": "Array of returned values. If  empty - return all",
+            "type": "string",
+            "example": "[\"moreSentencesInWords\"]"
+          },
+          "id_list": {
+            "description": "List of  Analyzes Id'd  to export",
+            "type": "string",
+            "example": "[1,2,3]"
+          }
+        }
+      },
       "ArchiveExportData" : {
         "type": "object",
         "required": [
@@ -11706,6 +11854,29 @@
             "description": "List of  Analyzes Id'd  to export",
             "type": "string",
             "example": "[1,2,3]"
+          }
+        }
+      },
+      "ArchiveValuesData" : {
+        "type": "object",
+        "required": [
+          "id_list"
+        ],
+        "properties": {
+          "id_list": {
+            "description": "List of  Analyzes Id'd  to export",
+            "type": "string",
+            "example": "[1,2,3]"
+          }
+        }
+      },
+      "ArchiveValuesDataResult" : {
+        "type": "object",
+        "properties": {
+          "resultfile": {
+            "type": "array",
+            "description": "List of values",
+            "example": ""
           }
         }
       },
