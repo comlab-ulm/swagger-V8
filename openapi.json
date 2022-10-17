@@ -8804,12 +8804,12 @@
           "archives"
         ],
         "summary": "Export archive result as EXCEL file",
-        "operationId": "exportArchiveDOC",
+        "operationId": "exportArchiveEXCEL",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ArchiveExportData"
+                "$ref": "#/components/schemas/ArchiveExportExcelData"
               }
             }
           }
@@ -11809,6 +11809,24 @@
           }
         }
       },
+      "ArchiveExportExcelData" : {
+        "type": "object",
+        "required": [
+          "id_list"
+        ],
+        "properties": {
+          "values": {
+            "description": "Array of returned values. If  empty - return all",
+            "type": "string",
+            "example": "[\"moreSentencesInWords\"]"
+          },
+          "id_list": {
+            "description": "List of  Analyzes Id'd  to export",
+            "type": "string",
+            "example": "[1,2,3]"
+          }
+        }
+      },
       "ArchiveExportData" : {
         "type": "object",
         "required": [
@@ -11845,10 +11863,6 @@
           "id_list"
         ],
         "properties": {
-          "comment": {
-            "type": "string",
-            "example": "comment"
-          },
           "id_list": {
             "description": "List of  Analyzes Id'd  to export",
             "type": "string",
