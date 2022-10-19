@@ -11868,9 +11868,17 @@
       "ArchiveValuesData" : {
         "type": "object",
         "required": [
-          "id_list"
+          "id_list",
+          "language"
         ],
         "properties": {
+          "language": {
+            "description": "Language for term categories",
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2,
+            "example": "de"
+          },
           "id_list": {
             "description": "List of  Analyzes Id'd  to export",
             "type": "string",
