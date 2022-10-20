@@ -9608,7 +9608,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ArchiveFoldersData"
+                "$ref": "#/components/schemas/ArchiveFoldersAddData"
               }
             }
           }
@@ -9689,7 +9689,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ArchiveFoldersData"
+                "$ref": "#/components/schemas/ArchiveFoldersUpdateData"
               }
             }
           }
@@ -11979,7 +11979,71 @@
           "folder_name": {
             "maxLength": 255,
             "type": "string",
-            "example": "tag"
+            "example": "folder_name"
+          },
+          "parent": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "user_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "user_group_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "company_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "ArchiveFoldersUpdateData": {
+        "type": "object",
+        "properties": {
+          "folder_name": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "folder_name"
+          },
+          "parent": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "user_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "user_group_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "company_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          }
+        }
+      },
+      "ArchiveFoldersAddData": {
+        "type": "object",
+        "required": [
+          "folder_name"
+        ],
+        "properties": {
+          "folder_name": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "folder_name",
+            "minLength": 1
           },
           "parent": {
             "minimum": 0,
