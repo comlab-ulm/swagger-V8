@@ -3982,6 +3982,18 @@
             }
           },
           {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "deleted",
             "in": "query",
             "description": "Filter by deleted   ( delete_time IS NULL)  ",
