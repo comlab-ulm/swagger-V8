@@ -2508,6 +2508,86 @@
         ]
       }
     },
+    "/term_category/{id}/clone": {
+      "put": {
+        "tags": [
+          "admins",
+          "termins"
+        ],
+        "summary": "Make a full copy of Term Category instead of create a child category",
+        "operationId": "cloneTermCategory",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of Term Category",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTermCategoryData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Term Category",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TermCategoryData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    }
     "/clean": {
       "get": {
         "tags": [
@@ -8277,7 +8357,7 @@
           {
             "name": "exact_result",
             "in": "query",
-            "description": "exact_result = 1 -> return only founded versions of archives, = 0 -> return all versions of founded archive",
+            "description": "exact_result = 2 -> return only the LAST versions of archives, exact_result = 1 -> return only founded versions of archives, exact_result = 0 -> return all versions of founded archive",
             "required": false,
             "style": "form",
             "explode": true,
