@@ -7416,6 +7416,59 @@
         ]
       }
     },
+    "/user/login/{id}":{
+      "post": {
+        "tags": [
+          "users",
+          "simple",
+          "login"
+        ],
+        "summary": "User is signing in with any type of auth",
+        "operationId": "loginUserAny",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLoginDataAny"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_10"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/user/login": {
       "post": {
         "tags": [
@@ -14114,6 +14167,9 @@
             "example": 0
           }
         }
+      },
+      "UserLoginDataAny": {
+        "type": "object"
       },
       "UserLoginData": {
         "required": [
