@@ -1500,22 +1500,9 @@
             }
           },
           {
-            "name": "deleted",
-            "in": "query",
-            "description": "Filter by deleted ( delete_time IS NULL)  ",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "integer",
-              "default": 0,
-              "enum": [0,1]
-            }
-          },
-          {
             "name": "words",
             "in": "query",
-            "description": "Filter by words (LIKE format)",
+            "description": "Filter by words",
             "required": false,
             "style": "form",
             "explode": true,
@@ -1526,7 +1513,7 @@
           {
             "name": "lemma",
             "in": "query",
-            "description": "Filter by lemma (LIKE format)",
+            "description": "Filter by lemma",
             "required": false,
             "style": "form",
             "explode": true,
@@ -1537,7 +1524,18 @@
           {
             "name": "tag",
             "in": "query",
-            "description": "Filter by tag (LIKE format)",
+            "description": "Filter by tag",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "description",
+            "in": "query",
+            "description": "Filter by description",
             "required": false,
             "style": "form",
             "explode": true,
@@ -1794,7 +1792,7 @@
           {
             "name": "words",
             "in": "query",
-            "description": "Filter by words (LIKE format)",
+            "description": "Filter by words",
             "required": false,
             "style": "form",
             "explode": true,
@@ -1805,7 +1803,7 @@
           {
             "name": "description",
             "in": "query",
-            "description": "Filter by description (LIKE format)",
+            "description": "Filter by description",
             "required": false,
             "style": "form",
             "explode": true,
@@ -1816,7 +1814,7 @@
           {
             "name": "lemma",
             "in": "query",
-            "description": "Filter by lemma (LIKE format)",
+            "description": "Filter by lemma",
             "required": false,
             "style": "form",
             "explode": true,
@@ -1827,7 +1825,7 @@
           {
             "name": "tag",
             "in": "query",
-            "description": "Filter by tag (LIKE format)",
+            "description": "Filter by tag",
             "required": false,
             "style": "form",
             "explode": true,
