@@ -481,7 +481,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -1450,7 +1450,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -1495,10 +1495,7 @@
                 "description",
                 "lemma",
                 "tag",
-                "global_visible",
-                "update_time",
-                "create_time",
-                "delete_time"
+                "global_visible"
               ]
             }
           },
@@ -1716,7 +1713,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -1766,10 +1763,7 @@
                 "tag",
                 "global_visible",
                 "check_words",
-                "wordcount",
-                "update_time",
-                "create_time",
-                "delete_time"
+                "wordcount"
               ]
             }
           },
@@ -2038,7 +2032,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -4001,7 +3995,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -4342,7 +4336,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -5148,7 +5142,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -5808,7 +5802,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -6846,7 +6840,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -7659,7 +7653,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -8462,7 +8456,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -9525,7 +9519,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -9987,7 +9981,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -10249,7 +10243,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -10855,7 +10849,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -11395,7 +11389,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 0,
+              "minimum": 1,
               "type": "integer"
             }
           },
