@@ -13328,11 +13328,6 @@
         }
       },
       "UpdateTermCategoryData": {
-        "required": [
-          "category_type",
-          "locale_name",
-          "name"
-        ],
         "type": "object",
         "properties": {
           "locale_name": {
