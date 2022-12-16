@@ -13346,6 +13346,7 @@
             "example": "{\"en\": \"en text\",\"de\": \"de text\"}"
           },
           "category_type": {
+            "maxLength": 20,
             "type": "string",
             "example": "negative"
           },
@@ -13385,6 +13386,7 @@
             "example": "{\"en\": \"en text\",\"de\": \"de text\"}"
           },
           "category_type": {
+            "maxLength": 20,
             "type": "string",
             "example": "negative"
           },
