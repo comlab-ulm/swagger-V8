@@ -5241,6 +5241,17 @@
               "minimum": 0,
               "type": "integer"
             }
+          },
+          {
+            "name": "company_name",
+            "in": "query",
+            "description": "Filter by company name ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -14900,6 +14911,11 @@
             "minimum": 0,
             "type": "integer",
             "example": 1
+          },
+          "company_name": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "company"
           },
           "name": {
             "maxLength": 255,
