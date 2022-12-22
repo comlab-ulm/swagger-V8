@@ -5211,6 +5211,7 @@
                 "id",
                 "name",
                 "company_id",
+                "company_name",
                 "update_time",
                 "create_time",
                 "delete_time"
