@@ -13073,10 +13073,7 @@
             "type": "integer"
           },
           "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AddBunchTermData_data"
-            }
+            "type": "array"
           }
         }
       },
