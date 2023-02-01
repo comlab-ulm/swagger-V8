@@ -10930,6 +10930,18 @@
             }
           },
           {
+            "name":"return_values",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "extended_filter",
             "in": "query",
             "description": " ",
@@ -11012,7 +11024,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 1,
+              "minimum": 0,
               "type": "integer"
             }
           },
