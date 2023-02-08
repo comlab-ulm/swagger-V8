@@ -11889,8 +11889,11 @@
             "enum": [0,1]
           },
           "replacements": {
-            "type": "string",
-            "example": "replacement1|replacement2"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["replacement1","replacement2"]
           },
           "description": {
             "type": "string",
@@ -11951,8 +11954,11 @@
             "example": "description"
           },
           "replacements": {
-            "type": "string",
-            "example": "replacement1|replacement2"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["replacement1","replacement2"]
           },
           "settings": {
             "type": "object",
@@ -12026,8 +12032,11 @@
             "example": "description"
           },
           "replacements": {
-            "type": "string",
-            "example": "replacement1|replacement2"
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "example": ["replacement1","replacement2"]
           },
           "settings": {
             "type": "object",
