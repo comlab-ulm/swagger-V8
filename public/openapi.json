@@ -8968,7 +8968,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ArchiveStatisticDataResult"
+                  "$ref": "#/components/schemas/ArchiveStatisticResult"
                 }
               }
             }
@@ -12317,12 +12317,13 @@
       "ArchiveStatisticData" : {
         "type": "object",
         "required": [
-          "id_list"
+          "id_list",
+          "return_values"
         ],
         "properties": {
           "return_values": {
             "type": "string",
-            "example": "[\"hix\",\"data\"]"
+            "example": "[\"hix\",\"clix\"]"
           },
           "order":{
             "description": "order (0-ASC, 1-DESC)",
@@ -12346,9 +12347,9 @@
       "ArchiveStatisticDataResult" : {
         "type": "object",
         "properties": {
-          "resultfile": {
+          "result": {
             "type": "array",
-            "description": "result",
+            "description": "Prepared sattistic result",
             "example": ""
           }
         }
