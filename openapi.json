@@ -8946,6 +8946,71 @@
         ]
       }
     },
+    "/archive/statistic": {
+      "post": {
+        "tags": [
+          "archives"
+        ],
+        "summary": "Return the statistic from arcives",
+        "operationId": "archiveStatistic",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ArchiveStatisticData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "prepared statistic",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ArchiveStatisticDataResult"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/archive/export/excel": {
       "post": {
         "tags": [
@@ -12243,9 +12308,48 @@
             "example": "[\"moreSentencesInWords\"]"
           },
           "id_list": {
-            "description": "List of  Analyzes Id'd  to export",
+            "description": "List of  Analyzes Id's to export",
             "type": "string",
             "example": "[1,2,3]"
+          }
+        }
+      },
+      "ArchiveStatisticData" : {
+        "type": "object",
+        "required": [
+          "id_list"
+        ],
+        "properties": {
+          "return_values": {
+            "type": "string",
+            "example": "[\"hix\",\"data\"]"
+          },
+          "order":{
+            "description": "order (0-ASC, 1-DESC)",
+            "type": "integer",
+            "default": 0,
+            "enum": [0,1]
+          },
+          "order_by":{
+            "description": "order by field",
+            "type": "string",
+            "default": "id",
+            "enum": ["id","create_time","name"]
+          },
+          "id_list": {
+            "description": "List of Analyzes Id's to show",
+            "type": "string",
+            "example": "[1,2,3]"
+          }
+        }
+      },
+      "ArchiveStatisticDataResult" : {
+        "type": "object",
+        "properties": {
+          "resultfile": {
+            "type": "array",
+            "description": "result",
+            "example": ""
           }
         }
       },
