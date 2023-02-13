@@ -12354,10 +12354,13 @@
       "ArchiveStatisticDataResult" : {
         "type": "object",
         "properties": {
-          "result": {
+          "data": {
             "type": "array",
-            "description": "Prepared sattistic result",
-            "example": ""
+            "description": "Statistic result"
+          },
+          "results": {
+            "type": "object",
+            "description": "Prepared values "
           }
         }
       },
