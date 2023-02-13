@@ -12331,6 +12331,12 @@
             "default": 0,
             "enum": [0,1]
           },
+          "locale_name": {
+            "maxLength": 5,
+            "minLength": 5,
+            "type": "string",
+            "example": "de_DE"
+          },
           "order_by":{
             "description": "order by field",
             "type": "string",
