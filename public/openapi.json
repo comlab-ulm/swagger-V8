@@ -8968,7 +8968,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ArchiveStatisticResult"
+                  "$ref": "#/components/schemas/ArchiveStatisticDataResult"
                 }
               }
             }
