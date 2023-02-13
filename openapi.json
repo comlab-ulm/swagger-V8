@@ -12318,7 +12318,8 @@
         "type": "object",
         "required": [
           "id_list",
-          "return_values"
+          "return_values",
+          "locale_name"
         ],
         "properties": {
           "return_values": {
