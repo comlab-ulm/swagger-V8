@@ -12717,13 +12717,12 @@
           },
           "tags": {
             "type": "array",
-            "example": [
-              "tag1",
-              "tag2"
-            ],
+            "maxItems": 100,
+            "example": ["tag1","tag2"],
             "items": {
               "type": "string",
-              "example": "tag1"
+              "example": "tag1",
+              "maxLength": 100
             }
           }
         }
@@ -12797,13 +12796,12 @@
           },
           "tags": {
             "type": "array",
-            "example": [
-              "tag1",
-              "tag2"
-            ],
+            "maxItems": 100,
+            "example": ["tag1","tag2"],
             "items": {
               "type": "string",
-              "example": "tag1"
+              "example": "tag1",
+              "maxLength": 100
             }
           },
           "user_id": {
@@ -12856,13 +12854,12 @@
           },
           "tags": {
             "type": "array",
-            "example": [
-              "tag1",
-              "tag2"
-            ],
+            "maxItems": 100,
+            "example": ["tag1","tag2"],
             "items": {
               "type": "string",
-              "example": "tag1"
+              "example": "tag1",
+              "maxLength": 100
             }
           }
         }
