@@ -11904,7 +11904,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           }
         }
@@ -11966,7 +11965,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           }
         }
@@ -12027,7 +12025,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           }
         }
@@ -12105,7 +12102,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "create_time": {
@@ -12172,7 +12168,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           }
         }
@@ -12243,7 +12238,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "create_time": {
@@ -12605,7 +12599,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "version": {
@@ -12703,7 +12696,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "hix": {
@@ -12777,7 +12769,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "hix": {
@@ -12840,7 +12831,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "hix": {
@@ -12899,7 +12889,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "depend_of": {
@@ -12985,7 +12974,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           }
         }
@@ -13003,7 +12991,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           }
         }
@@ -13043,7 +13030,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -13088,7 +13074,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -13135,7 +13120,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "description": {
@@ -13188,7 +13172,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "description": {
@@ -13262,7 +13245,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "description": {
@@ -13316,7 +13298,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           }
         }
@@ -13361,7 +13342,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -13415,7 +13395,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -13475,7 +13454,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -13510,7 +13488,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -13550,7 +13527,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -13594,7 +13570,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -15417,7 +15392,6 @@
           },
           "settings": {
             "type": "object",
-            "$ref": "#/components/schemas/EnabledSettings",
             "example": {}
           },
           "global_visible": {
@@ -15510,20 +15484,6 @@
             "minimum": 0,
             "type": "integer",
             "example": 1
-          }
-        }
-      },
-      "EnabledSettings": {
-        "type": "object",
-        "properties": {
-          "syllcount": {
-            "type": "integer"
-          },
-          "color": {
-            "type": "string"
-          },
-          "meaning": {
-            "type": "array"
           }
         }
       }
