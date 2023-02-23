@@ -2627,7 +2627,7 @@
         "operationId": "getSuggestion",
         "parameters": [
           {
-            "name": "benchmark_id",
+            "name": "id",
             "in": "query",
             "description": "Set benchmark_id for suggestion",
             "required": true,
