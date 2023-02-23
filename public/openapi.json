@@ -2629,7 +2629,7 @@
           {
             "name": "id",
             "in": "query",
-            "description": "Set benchmark_id for suggestion",
+            "description": "Set benchmark id for suggestion",
             "required": true,
             "style": "form",
             "explode": true,
