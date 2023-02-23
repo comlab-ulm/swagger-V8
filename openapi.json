@@ -2627,6 +2627,19 @@
         "operationId": "getSuggestion",
         "parameters": [
           {
+            "name": "benchmark_id",
+            "in": "query",
+            "description": "Set benchmark_id for suggestion",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "example": 1,
+              "minimum": 1
+            }
+          },
+          {
             "name": "language",
             "in": "query",
             "description": "Set language for suggestion",
@@ -4041,9 +4054,6 @@
                 "dename",
                 "dedescription",
                 "endescription",                
-                "user_id",
-                "user_group_id",
-                "company_id",
                 "locale_name",
                 "text_type_id",
                 "update_time",
@@ -8513,9 +8523,6 @@
                 "locale_name",
                 "benchmark_id",
                 "folder",
-                "user_id",
-                "user_group_id",
-                "company_id",
                 "archive_name",
                 "version",
                 "hix",
