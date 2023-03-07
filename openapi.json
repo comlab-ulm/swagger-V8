@@ -13195,6 +13195,10 @@
           "id": {
             "type": "integer"
           },
+          "text": {
+            "type": "string",
+            "example": "erfolgreich absolviert"
+          },
           "words": {
             "type": "array",
             "items": {
@@ -13236,6 +13240,16 @@
         "properties": {
           "id": {
             "type": "integer"
+          },
+          "text": {
+            "type": "string",
+            "example": "erfolgreich absolviert"
+          },
+          "update_description": {
+            "type": "boolean"
+          },
+          "update_replacement": {
+            "type": "boolean"
           },
           "words": {
             "type": "array",
