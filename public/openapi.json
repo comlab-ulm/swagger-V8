@@ -334,6 +334,81 @@
         ]
       }
     },
+    "/regexes/test":{
+      "post":{
+        "tags": [
+          "regexes"
+        ],
+        "summary": "Test Regex",
+        "operationId": "testRegex",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TestRegexesData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Regex",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegexesTestData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Regex already exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/regexes/reload": {
       "get": {
         "tags": [
@@ -11770,6 +11845,23 @@
   },
   "components": {
     "schemas": {
+      "TestRegexesData": {
+        "required": [
+          "regexp",
+          "text"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "example": "test text"
+          },
+          "regexp": {
+            "type": "string",
+            "example": "[:all:]{1,10}"
+          }
+        }
+      },
       "AddRegexesData": {
         "required": [
           "category",
@@ -11815,7 +11907,15 @@
             "example": "[\"0\",\"1\",\"2\"]"
           }
         }
-      },     
+      },
+      "RegexesTestData": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
+          }
+        }
+      },
       "RegexesData": {
         "type": "object",
         "properties": {
