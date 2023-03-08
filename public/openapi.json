@@ -13245,6 +13245,9 @@
             "type": "string",
             "example": "erfolgreich absolviert"
           },
+          "update_replace": {
+            "type": "integer"
+          },
           "update_description": {
             "type": "boolean"
           },
