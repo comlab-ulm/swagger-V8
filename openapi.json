@@ -13254,6 +13254,9 @@
           "update_replacement": {
             "type": "boolean"
           },
+          "no_regexp_check": {
+            "type": "boolean"
+          },
           "words": {
             "type": "array",
             "items": {
