@@ -14321,8 +14321,7 @@
       },
       "AddTreeTagerData": {
         "required": [
-          "locale_name",
-          "text"
+          "locale_name"
         ],
         "type": "object",
         "properties": {
@@ -14335,6 +14334,12 @@
           "text": {
             "type": "string",
             "example": "This is a text!"
+          },
+          "words_list": {
+            "type": "array",
+            "items":{
+              "type":"string"
+            }
           }
         }
       },
