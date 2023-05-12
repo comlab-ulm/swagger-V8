@@ -11933,6 +11933,10 @@
           "text": {
             "type": "string",
             "example": "text"
+          },
+          "seed": {
+            "type": "integer",
+            "default": 0
           }
         }
       },
