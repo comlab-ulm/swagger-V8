@@ -12809,16 +12809,6 @@
             "type": "string",
             "example": "ver. 1"
           },
-          "hix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
-          },
-          "clix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
-          },
           "owner": {
             "minimum": 1,
             "type": "integer",
@@ -12900,16 +12890,6 @@
             "type": "object",
             "example": {}
           },
-          "hix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
-          },
-          "clix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
-          },
           "tags": {
             "type": "array",
             "maxItems": 100,
@@ -12928,8 +12908,7 @@
           "result",
           "text",
           "benchmark_id",
-          "version",
-          "locale_name"
+          "version"
         ],
         "type": "object",
         "properties": {
@@ -12938,14 +12917,9 @@
             "maxLength": 50,
             "type": "string",
             "example": "f8FrO0dsQQQiy"
-          },
-          "locale_name": {
-            "maxLength": 5,
-            "minLength": 5,
-            "type": "string",
-            "example": "de_DE"
-          },
+          },          
           "name": {
+            "minLength": 1,
             "maxLength": 255,
             "type": "string",
             "example": "name"
@@ -12962,26 +12936,18 @@
             "example": 1
           },
           "text": {
+            "minLength": 1,
             "type": "string",
             "example": "text"
           },
           "result": {
+            "minLength": 1,
             "type": "string",
             "example": "{}"
           },
           "settings": {
             "type": "object",
             "example": {}
-          },
-          "hix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
-          },
-          "clix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
           },
           "folder": {
             "minimum": 0,
@@ -13034,16 +13000,6 @@
           "settings": {
             "type": "object",
             "example": {}
-          },
-          "hix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
-          },
-          "clix": {
-            "minimum": 0,
-            "type": "number",
-            "example": 1
           },
           "tags": {
             "type": "array",
