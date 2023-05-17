@@ -10216,7 +10216,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 1,
+              "minimum": 0,
               "type": "integer"
             }
           },
@@ -10228,7 +10228,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 1,
+              "minimum": 0,
               "type": "integer"
             }
           },
@@ -10240,7 +10240,7 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "minimum": 1,
+              "minimum": 0,
               "type": "integer"
             }
           },
