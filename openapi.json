@@ -12113,7 +12113,6 @@
       "AddTextbinData": {
         "required": [
           "check_words",
-          "lemma",
           "words",
           "user_id",
           "term_category_id"
@@ -12322,7 +12321,6 @@
       "AddAllowListData": {
         "required": [
           "check_words",
-          "lemma",
           "words",
           "user_id",
           "term_category_id"
