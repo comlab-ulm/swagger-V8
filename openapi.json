@@ -173,9 +173,64 @@
                 }
               }
             }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/net/long":{
+      "post":{
+        "tags": [
+          "net"
+        ],
+        "summary": "Get Long-To-Short_sentences suggestion",
+        "operationId": "netLong",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/getNetPassiveData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NetPassiveData"
+                }
+              }
+            }
           },
-          "409": {
-            "description": "Regex already exist",
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
             "content": {
               "application/json": {
                 "schema": {
@@ -11934,18 +11989,21 @@
             "type": "string",
             "example": "text"
           },
-          "seed": {
+          "num_return": {
             "type": "integer",
-            "default": 0
+            "default": 1
+          },
+          "top_p": {
+            "type": "number",
+            "default": 1
           }
         }
       },
       "NetPassiveData": {
         "type": "object",
         "properties": {
-          "generated_text": {
-            "type": "string",
-            "example": "text"
+          "data": {
+            "type": "array"
           }
         }
       },
