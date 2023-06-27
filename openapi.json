@@ -513,7 +513,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/translations_response_200"
+                  "$ref": "#/components/schemas/translations_response_200_1"
                 }
               }
             }
@@ -560,7 +560,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/translations_response_200"
+                  "$ref": "#/components/schemas/translations_response_200_1"
                 }
               }
             }
@@ -12445,6 +12445,23 @@
   },
   "components": {
     "schemas": {
+      "TranslationDataOpen": {
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "string",
+            "example": "value"
+          },
+          "translation": {
+            "type": "string",
+            "example": "translation"
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          }
+        }
+      },
       "TranslationData": {
         "type": "object",
         "properties": {
@@ -15916,6 +15933,17 @@
             "items": {
               "type": "string",
               "example": "Custom message"
+            }
+          }
+        }
+      },
+      "translations_response_200_1": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranslationDataOpen"
             }
           }
         }
