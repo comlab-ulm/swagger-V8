@@ -483,7 +483,7 @@
         ]
       }
     },
-    "/translations/open":{
+    "/translations/open/{locale_name}":{
       "get":{
         "tags": [
           "open",
@@ -491,7 +491,22 @@
         ],
         "summary": "Get All Common Translations",
         "operationId": "getAllCommonTranslations",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "locale_name",
+            "in": "path",
+            "description": "The locale_name of Translation",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 5,
+              "example": "de_DE",
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "TranslationData",
@@ -516,14 +531,29 @@
         }
       }
     },
-    "/translations/view":{
+    "/translations/view/{locale_name}":{
       "get":{
         "tags": [
           "translations"
         ],
         "summary": "Get All Translations for User",
         "operationId": "getAllUserTranslations",
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "locale_name",
+            "in": "path",
+            "description": "The locale_name of Translation",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 5,
+              "maxLength": 5,
+              "example": "de_DE",
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "TranslationData",
