@@ -224,7 +224,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
+                  "$ref": "#/components/schemas/translations_response_200"
                 }
               }
             }
@@ -288,7 +288,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
+                  "$ref": "#/components/schemas/translations_response_200"
                 }
               }
             }
@@ -498,7 +498,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
+                  "$ref": "#/components/schemas/translations_response_200"
                 }
               }
             }
@@ -530,7 +530,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
+                  "$ref": "#/components/schemas/translations_response_200"
                 }
               }
             }
@@ -12415,6 +12415,45 @@
   },
   "components": {
     "schemas": {
+      "TranslationData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "value": {
+            "type": "string",
+            "example": "value"
+          },
+          "translation": {
+            "type": "string",
+            "example": "translation"
+          },
+          "locale_name": {
+            "type": "string",
+            "minLength":5,
+            "maxLength":5,
+            "example": "de_DE"
+          },
+          "user_id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "user_group_id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "company_id": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          }
+        }
+      },
       "AddTranslationData": {
         "required": [
           "value",
@@ -15847,6 +15886,17 @@
             "items": {
               "type": "string",
               "example": "Custom message"
+            }
+          }
+        }
+      },
+      "translations_response_200": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TranslationData"
             }
           }
         }
