@@ -491,32 +491,7 @@
         ],
         "summary": "Get All Common Translations",
         "operationId": "getAllCommonTranslations",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Query limit",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "description": "Query offset",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "minimum": 0,
-              "type": "integer"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "TranslationData",
@@ -539,6 +514,43 @@
             }
           }
         }
+      }
+    },
+    "/translations/view":{
+      "get":{
+        "tags": [
+          "translations"
+        ],
+        "summary": "Get All Translations for User",
+        "operationId": "getAllUserTranslations",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "TranslationData",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/net/passive":{
