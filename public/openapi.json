@@ -1009,6 +1009,81 @@
         ]
       }
     },
+    "/regexes/found":{
+      "post":{
+        "tags": [
+          "regexes"
+        ],
+        "summary": "Found Regexes in text",
+        "operationId": "foundRegex",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FoundRegexesData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Regex",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RegexesTestData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Regex already exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/regexes/reload": {
       "get": {
         "tags": [
@@ -12600,6 +12675,18 @@
         "properties": {
           "data": {
             "type": "array"
+          }
+        }
+      },
+      "FoundRegexesData": {
+        "required": [
+          "regexp"
+        ],
+        "type": "object",
+        "properties": {
+          "regexp": {
+            "type": "string",
+            "example": "[:all:]{1,10}"
           }
         }
       },
