@@ -184,6 +184,7 @@
               "enum": [
                 "id",
                 "value",
+                "locale_name",
                 "translation",
                 "user_id",
                 "user_group_id",
@@ -12585,7 +12586,9 @@
         "properties": {
           "value": {
             "type": "string",
-            "example": "value"
+            "example": "value",
+            "maxLength": 255,
+            "minLength":1
           },
           "translation": {
             "type": "string",
@@ -12620,7 +12623,9 @@
         "properties": {
           "value": {
             "type": "string",
-            "example": "value"
+            "example": "value",
+            "maxLength": 255,
+            "minLength":1
           },
           "translation": {
             "type": "string",
