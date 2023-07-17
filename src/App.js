@@ -8,7 +8,7 @@ function App() {
     return (
         <Switch>
             <Route path="/" exact>
-                <SwaggerUI url="openapi.json" />
+                <SwaggerUI url="openapi.json" defaultModelsExpandDepth={-1}  />
             </Route>
             <Route path="/benchmark/" exact >
                 <SwaggerUI url="benchmark.json" />
