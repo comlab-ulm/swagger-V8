@@ -584,18 +584,18 @@
         ]
       }
     },
-    "/net/passive":{
+    "/net":{
       "post":{
         "tags": [
           "net"
         ],
-        "summary": "Get Passive/Active suggestion",
+        "summary": "Get NN suggestion",
         "operationId": "netPassive",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/getNetPassiveData"
+                "$ref": "#/components/schemas/getNetData"
               }
             }
           }
@@ -606,72 +606,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/NetPassiveData"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/net/long":{
-      "post":{
-        "tags": [
-          "net"
-        ],
-        "summary": "Get Long-To-Short_sentences suggestion",
-        "operationId": "netLong",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/getNetPassiveData"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Result",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/NetPassiveData"
+                  "$ref": "#/components/schemas/NetData"
                 }
               }
             }
@@ -12655,27 +12590,50 @@
           }
         }
       },
-      "getNetPassiveData": {
+      "getNetData": {
         "required": [
-          "text"
+          "text",
+          "type",
+          "num_return"
         ],
         "type": "object",
         "properties": {
+          "type": {
+            "type": "string",
+            "example": "passive"
+          },
           "text": {
             "type": "string",
             "example": "text"
           },
           "num_return": {
             "type": "integer",
-            "default": 1
+            "default": 1,
+            "minimum": 1
           }
         }
       },
-      "NetPassiveData": {
+      "NetData": {
         "type": "object",
         "properties": {
           "data": {
-            "type": "array"
+            "type": "object",
+            "properties": {
+              "return_sentences": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "example": ["erfolgreich","absolviert"]
+              },
+              "return_scores": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "example": [-0.111,-0.20111]
+              }
+            }
           }
         }
       },
