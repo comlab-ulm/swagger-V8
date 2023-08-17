@@ -12668,10 +12668,6 @@
           "num_return": {
             "type": "integer",
             "default": 1
-          },
-          "top_p": {
-            "type": "number",
-            "default": 1
           }
         }
       },
