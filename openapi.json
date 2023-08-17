@@ -12593,14 +12593,19 @@
       "getNetData": {
         "required": [
           "text",
-          "type",
+          "prompt",
+          "model",
           "num_return"
         ],
         "type": "object",
         "properties": {
-          "type": {
+          "prompt": {
             "type": "string",
             "example": "passive"
+          },
+          "model": {
+            "type": "string",
+            "example": "universal"
           },
           "text": {
             "type": "string",
