@@ -13153,19 +13153,14 @@
       "getNetData": {
         "required": [
           "text",
-          "prompt",
-          "model",
+          "request",
           "num_return"
         ],
         "type": "object",
         "properties": {
-          "prompt": {
+          "request": {
             "type": "string",
-            "example": "passive"
-          },
-          "model": {
-            "type": "string",
-            "example": "universal"
+            "example": "countPassiveVoiceInSentence_suggestions"
           },
           "text": {
             "type": "string",
