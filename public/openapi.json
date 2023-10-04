@@ -980,6 +980,60 @@
       }
     },
     "/net":{
+      "get":{
+        "tags": [
+          "net"
+        ],
+        "summary": "Get All NN Paths for User",
+        "operationId": "getAllUserPaths",
+        "responses": {
+          "200": {
+            "description": "TranslationData",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/nn_response_200_1"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
       "post":{
         "tags": [
           "net"
@@ -12970,6 +13024,9 @@
   },
   "components": {
     "schemas": {
+      "NNDataOpen":{
+        "type": "object"        
+      },
       "TranslationDataOpen": {
         "type": "object",
         "properties": {
@@ -16550,6 +16607,17 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/TranslationDataOpen"
+            }
+          }
+        }
+      },
+      "nn_response_200_1": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NNDataOpen"
             }
           }
         }
