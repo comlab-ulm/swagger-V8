@@ -1006,9 +1006,8 @@
                 }
               }
             }
-          }
-        },
-        "401": {
+          },
+          "401": {
             "description": "Access token is missing or invalid",
             "content": {
               "application/json": {
