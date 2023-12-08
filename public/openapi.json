@@ -162,6 +162,119 @@
         ]
       }
     },
+    "/redirect":{
+      "get":{
+        "tags": [
+          "system"
+        ],
+        "summary": "Get All Enabled Redirects",
+        "operationId": "getAllRedirects",
+        "responses": {
+          "200": {
+            "description": "RedirectData",
+            "content": {
+              "application/json": {
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post":{
+        "tags": [
+          "system"
+        ],
+        "summary": "Run the redirect REquest",
+        "operationId": "runRedirect",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunRedirectData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "RedirectData",
+            "content": {
+              "application/json": {
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/configs":{
       "get":{
         "tags": [
@@ -13095,6 +13208,24 @@
             "minLength":1,
             "maxLength":255,
             "example": "name"
+          }
+        }
+      },
+      "RunRedirectData": {
+        "required": [
+          "data",
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object"
+          },
+          "name": {
+            "type": "string",
+            "minLength":1,
+            "maxLength":255,
+            "example": "Assistant"
           }
         }
       },
