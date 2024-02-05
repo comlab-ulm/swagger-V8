@@ -11413,6 +11413,19 @@
             }
           },
           {
+            "name": "folder_name_equal",
+            "in": "query",
+            "description": "Filter by folder_name  = ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 255,
+              "minLength": 1,
+              "type": "string"
+            }
+          },
+          {
             "name": "folder_id",
             "in": "query",
             "description": "Filter by folder_id ",
