@@ -11461,6 +11461,19 @@
             }
           },
           {
+            "name": "count_subfolders",
+            "in": "query",
+            "description": "Return number of subfolders of each folder ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
+            }
+          },
+          {
             "name": "create_time_from",
             "in": "query",
             "description": " (YYYY-MM-DD HH:MM:SS) ",
@@ -11468,7 +11481,6 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "example": "2021-04-09 12:57:10",
               "type": "string"
             }
           },
@@ -11480,7 +11492,6 @@
             "style": "form",
             "explode": true,
             "schema": {
-              "example": "2021-04-09 12:57:10",
               "type": "string"
             }
           }
