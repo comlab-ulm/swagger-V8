@@ -14184,21 +14184,6 @@
             "minimum": 0,
             "type": "integer",
             "example": 1
-          },
-          "user_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
-          },
-          "user_group_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
-          },
-          "company_id": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
           }
         }
       },
