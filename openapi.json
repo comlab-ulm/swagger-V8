@@ -11486,6 +11486,33 @@
               "enum": [0,1]
             }
           },
+          ,
+          {
+            "name": "count_root",
+            "in": "query",
+            "description": "Return number of folders in root directory and  fuul number to  UGC ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
+            }
+          },
+          {
+            "name": "locale_name",
+            "in": "query",
+            "description": "Filter by locale_name (for archives counting)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 5,
+              "minLength": 5,
+              "type": "string"
+            }
+          },
           {
             "name": "create_time_from",
             "in": "query",
