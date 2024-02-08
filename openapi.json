@@ -11486,7 +11486,6 @@
               "enum": [0,1]
             }
           },
-          ,
           {
             "name": "count_root",
             "in": "query",
@@ -11503,7 +11502,7 @@
           {
             "name": "locale_name",
             "in": "query",
-            "description": "Filter by locale_name (for archives counting)",
+            "description": "Filter by locale_name (for archives)",
             "required": false,
             "style": "form",
             "explode": true,
