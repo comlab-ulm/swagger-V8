@@ -11487,6 +11487,19 @@
             }
           },
           {
+            "name": "count_archives",
+            "in": "query",
+            "description": "Return number of archives of each folder ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [0,1]
+            }
+          },
+          {
             "name": "locale_name",
             "in": "query",
             "description": "Filter by locale_name (for archives)",
