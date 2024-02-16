@@ -14468,6 +14468,11 @@
       "ArchivesUpdateVersionData": {
         "type": "object",
         "properties": {
+          "version": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "1"
+          },
           "name": {
             "maxLength": 255,
             "type": "string",
