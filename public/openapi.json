@@ -14469,7 +14469,7 @@
         "type": "object",
         "properties": {
           "version": {
-            "maxLength": 255,
+            "maxLength": 100,
             "type": "string",
             "example": "1"
           },
