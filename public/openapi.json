@@ -14510,6 +14510,11 @@
             "type": "integer",
             "example": 0
           },
+          "name": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "name"
+          },
           "user_id": {
             "minimum": 0,
             "type": "integer",
