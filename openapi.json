@@ -10264,7 +10264,8 @@
                 "spix",
                 "update_time",
                 "create_time",
-                "delete_time"
+                "delete_time",
+                "flesch"
               ]
             }
           },
