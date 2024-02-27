@@ -14205,11 +14205,6 @@
             "maxLength": 255,
             "type": "string",
             "example": "folder_name"
-          },
-          "parent": {
-            "minimum": 0,
-            "type": "integer",
-            "example": 1
           }
         }
       },
