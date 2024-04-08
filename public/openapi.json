@@ -119,7 +119,6 @@
       "name": "translations",
       "description": "Translation Operations"
     }
-    
   ],
   "paths": {
     "/treetager/reload":{
@@ -5751,7 +5750,7 @@
                 "enname",
                 "dename",
                 "dedescription",
-                "endescription",                
+                "endescription",
                 "locale_name",
                 "text_type_id",
                 "update_time",
@@ -13192,7 +13191,7 @@
   "components": {
     "schemas": {
       "NNDataOpen":{
-        "type": "object"        
+        "type": "object"
       },
       "TranslationDataOpen": {
         "type": "object",
@@ -14071,9 +14070,9 @@
           "language": {
             "description": "Language for term categories",
             "type": "string",
-            "minLength": 2,
-            "maxLength": 2,
-            "example": "de"
+            "minLength": 5,
+            "maxLength": 5,
+            "example": "de_DE"
           },
           "id_list": {
             "description": "List of  Analyzes Id'd  to export",
@@ -14155,7 +14154,7 @@
             "example": "de_DE"
           },
           "allowList": {
-            "type": "array",            
+            "type": "array",
             "example": [[1,2],[4,10]]
           },
           "excludeList": {
@@ -14397,7 +14396,7 @@
             "maxLength": 50,
             "type": "string",
             "example": "f8FrO0dsQQQiy"
-          },          
+          },
           "name": {
             "minLength": 1,
             "maxLength": 255,
@@ -14855,7 +14854,7 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/AddBunchTermData_replacement"
-            } 
+            }
           }
         }
       },
