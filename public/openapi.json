@@ -9212,6 +9212,19 @@
         ],
         "summary": "User is signing in with any type of auth",
         "operationId": "loginUserAny",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of a User",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
         "requestBody": {
           "description": "",
           "content": {
@@ -10127,7 +10140,7 @@
             "explode": false,
             "schema": {
               "minimum": 1,
-              "type": "number"
+              "type": "integer"
             }
           }
         ],
@@ -12615,7 +12628,21 @@
           "lists"
         ],
         "summary": "Move Allow Word in real Term List",
-        "operationId": "addUToTermAllowList",
+        "operationId": "publishAllowList",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of AllowList",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
         "requestBody": {
           "content": {
             "application/json": {
