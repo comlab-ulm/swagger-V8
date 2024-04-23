@@ -1557,7 +1557,7 @@
         "tags": [
           "regexes"
         ],
-        "summary": "Found Regexes in text",
+        "summary": "Find Regexes in text",
         "operationId": "foundRegex",
         "requestBody": {
           "content": {
@@ -1570,11 +1570,11 @@
         },
         "responses": {
           "200": {
-            "description": "Regex",
+            "description": "Result is array of arrays of start-end positions",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RegexesTestData"
+                  "$ref": "#/components/schemas/RegexesFoundData"
                 }
               }
             }
@@ -1636,7 +1636,7 @@
         "operationId": "reloadRegex",
         "responses": {
           "200": {
-            "description": "done",
+            "description": "done - without output",
             "content": {
               "application/json": {
                 "schema": {
@@ -13591,6 +13591,14 @@
           },
           "is_regexp": {
             "type": "boolean"
+          }
+        }
+      },
+      "RegexesFoundData": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
           }
         }
       },
