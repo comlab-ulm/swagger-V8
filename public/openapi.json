@@ -460,7 +460,7 @@
           "superadmins",
           "system"
         ],
-        "summary": "Ann New Config",
+        "summary": "Add New Config",
         "operationId": "addConfig",
         "requestBody": {
           "content": {
@@ -822,7 +822,7 @@
           "admins",
           "translations"
         ],
-        "summary": "Ann New Translation",
+        "summary": "Add New Translation",
         "operationId": "addTranslation",
         "requestBody": {
           "content": {
@@ -16894,6 +16894,9 @@
             "items": {
               "$ref": "#/components/schemas/TranslationData"
             }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
