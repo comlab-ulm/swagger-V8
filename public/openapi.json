@@ -127,11 +127,11 @@
           "superadmins",
           "system"
         ],
-        "summary": "Reload the static tables locales, benchmarkSettings and return_values into TLDBM",
+        "summary": "Reload the static tables locales, benchmarkSettings and return_values into running instance",
         "operationId": "reloadStatic",
         "responses": {
           "200": {
-            "description": "Reloaded"
+            "description": "Without return value - reloaded."
           },
           "401": {
             "description": "Access token is missing or invalid",
@@ -167,11 +167,11 @@
           "superadmins",
           "system"
         ],
-        "summary": "Reload the TreeTagger With a new  custom data",
+        "summary": "Reload the TreeTagger With a new lexicon data",
         "operationId": "reloadTreeTagger",
         "responses": {
           "200": {
-            "description": "Reloaded"
+            "description": "Without return value - reloaded."
           },
           "401": {
             "description": "Access token is missing or invalid",
@@ -409,11 +409,11 @@
         ],
         "responses": {
           "200": {
-            "description": "TranslationData",
+            "description": "ConfigData",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/translations_response_200"
+                  "$ref": "#/components/schemas/configs_response_200"
                 }
               }
             }
