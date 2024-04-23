@@ -1636,14 +1636,7 @@
         "operationId": "reloadRegex",
         "responses": {
           "200": {
-            "description": "done - without output",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
-                }
-              }
-            }
+            "description": "done - without output"
           },
           "401": {
             "description": "Access token is missing or invalid",
@@ -1716,7 +1709,7 @@
         },
         "responses": {
           "200": {
-            "description": "Regexes",
+            "description": "Regexes Updated",
             "content": {
               "application/json": {
                 "schema": {
@@ -1840,9 +1833,9 @@
         "tags": [
           "lt"
         ],
-	"summary": "Get LT check text result",
+	      "summary": "Get LT check text result",
         "operationId": "LTCheck",
-	"requestBody": {
+	      "requestBody": {
           "content": {
             "application/json": {
               "schema": {
@@ -1857,12 +1850,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/languageToolData"
                 }
               }
             }
           },
- 	  "400": {
+ 	        "400": {
             "description": "Invalid fields supplied",
             "content": {
               "application/json": {
@@ -13627,6 +13620,34 @@
           }
         }
       },
+      "languageToolData": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "object",
+            "properties": {
+              "ignoreRanges": {
+                "type": "array"
+              },
+              "language": {
+                "type": "array"
+              },
+              "matches": {
+                "type": "array"
+              },
+              "sentenceRanges": {
+                "type": "array"
+              },
+              "software": {
+                "type": "array"
+              },
+              "warnings": {
+                "type": "array"
+              }
+            }
+          }
+        }
+      },
       "MoveAllowWordItTerm": {
         "required": [
           "category_id"
@@ -14232,7 +14253,7 @@
             "maxLength": 5,
             "minLength": 5,
             "type": "string",
-            "example": "de_DE"
+            "example": "de-DE"
           },
           "allowList": {
             "type": "array",
