@@ -1898,7 +1898,7 @@
         "tags": [
           "thin"
         ],
-        "summary": "Email confirmation",
+        "summary": "User Registration",
         "operationId": "userRegistration",
         "requestBody": {
           "content": {
@@ -1911,14 +1911,7 @@
         },
         "responses": {
           "200": {
-            "description": "Registered",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
+            "description": "Registered"
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -2300,12 +2293,12 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "TermData",
+          "400": {
+            "description": "This function is deprecated",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -2351,7 +2344,7 @@
         "tags": [
           "superadmins"
         ],
-        "summary": "Add Term  (superadmin's only function)",
+        "summary": "This function is deprecated",
         "operationId": "addTerm",
         "requestBody": {
           "content": {
@@ -2364,11 +2357,11 @@
         },
         "responses": {
           "200": {
-            "description": "Term",
+            "description": "This function is deprecated",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TermData"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -2426,7 +2419,7 @@
         "tags": [
           "superadmins"
         ],
-        "summary": "Update Term  (superadmin's only function)",
+        "summary": "Update Term, This function is deprecated",
         "operationId": "updateTerm",
         "parameters": [
           {
@@ -2452,16 +2445,6 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "term UPDATE",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TermReplacementData"
-                }
-              }
-            }
-          },
           "400": {
             "description": "Invalid fields supplied",
             "content": {
@@ -2506,7 +2489,7 @@
           "admins",
           "termins"
         ],
-        "summary": "Bunch add Term to Category",
+        "summary": "Add list of terms into term_category",
         "operationId": "addBunchTermToCategory",
         "parameters": [
           {
@@ -2533,14 +2516,7 @@
         },
         "responses": {
           "200": {
-            "description": "All fine",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
+            "description": "Response array of warnings or errors"
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -2934,7 +2910,6 @@
         ]
       }
     },
-
     "/term/replacement/{category_id}/{term_id}": {
       "post": {
         "tags": [
@@ -3651,89 +3626,6 @@
         ]
       }
     },
-    "/term_category/{id}/report": {
-      "get": {
-        "tags": [
-          "admins",
-          "termins"
-        ],
-        "summary": "REport the Term Category  issues",
-        "operationId": "calculateTermCategories",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The id of Term Category",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "description": "Optional parameters",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "default": ""
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of issues",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
     "/term_category": {
       "get": {
         "tags": [
@@ -4399,7 +4291,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Cleared"
+            "description": "suggestion values",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -4519,7 +4418,6 @@
         ]
       }
     },
-
     "/languagedetect": {
       "post": {
         "tags": [
@@ -4585,7 +4483,6 @@
         ]
       }
     },
-
     "/convert/pdf": {
       "post": {
         "tags": [
@@ -4604,7 +4501,7 @@
         },
         "responses": {
           "200": {
-            "description": "treeTager",
+            "description": "html result from a pdf file",
             "content": {
               "application/json": {
                 "schema": {
@@ -4651,7 +4548,6 @@
         ]
       }
     },
-
     "/convert/docx": {
       "post": {
         "tags": [
@@ -4670,7 +4566,7 @@
         },
         "responses": {
           "200": {
-            "description": "treeTager",
+            "description": "html result from a docx file",
             "content": {
               "application/json": {
                 "schema": {
@@ -4717,7 +4613,6 @@
         ]
       }
     },
-
     "/treetager": {
       "post": {
         "tags": [
@@ -4736,7 +4631,7 @@
         },
         "responses": {
           "200": {
-            "description": "treeTager",
+            "description": "dataTokenizer contains treetagger data",
             "content": {
               "application/json": {
                 "schema": {
@@ -5924,7 +5819,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Benchmarks with his rights. Right is an Array of arrays [[{userId, username},{gid, group name}, {cid, company name}],[{userId, username},{gid, group name}, {cid, company name}]]",
+            "description": "Benchmarks with rights. Right is an Array of arrays [[{userId, username},{gid, group name}, {cid, company name}],[{userId, username},{gid, group name}, {cid, company name}]]",
             "content": {
               "application/json": {
                 "schema": {
