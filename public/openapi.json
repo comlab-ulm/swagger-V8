@@ -7046,8 +7046,8 @@
           "admins",
           "groups"
         ],
-        "summary": "Get user group credentials by id",
-        "description": "(for the admins only yet)\nGet credetentals of any user\n",
+        "summary": "Get user group by id",
+        "description": "Get user group by id",
         "operationId": "getUserGroupById",
         "parameters": [
           {
@@ -7768,7 +7768,7 @@
         ],
         "responses": {
           "200": {
-            "description": "user exist",
+            "description": "user data array",
             "content": {
               "application/json": {
                 "schema": {
@@ -7886,8 +7886,8 @@
           "admins",
           "users"
         ],
-        "summary": "Get user credentials by id",
-        "description": "(for the admins only yet)\nGet credetentals of any user\n",
+        "summary": "Get user by id",
+        "description": "Get user by id",
         "operationId": "getUserById",
         "parameters": [
           {
@@ -7904,11 +7904,11 @@
         ],
         "responses": {
           "200": {
-            "description": "user exist",
+            "description": "user data",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserData"
+                  "$ref": "#/components/schemas/inline_response_200_8"
                 }
               }
             }
@@ -8470,7 +8470,7 @@
         "operationId": "getUserMe",
         "responses": {
           "200": {
-            "description": "user exist",
+            "description": "user full information",
             "content": {
               "application/json": {
                 "schema": {
@@ -8694,7 +8694,7 @@
         ],
         "responses": {
           "200": {
-            "description": "messages exist",
+            "description": "list of messages",
             "content": {
               "application/json": {
                 "schema": {
@@ -8794,7 +8794,7 @@
           "users",
           "simple"
         ],
-        "summary": "Mark Message as read",
+        "summary": "Get Message by id and mark it as read",
         "operationId": "getMessageById",
         "parameters": [
           {
@@ -16906,6 +16906,9 @@
             "items": {
               "$ref": "#/components/schemas/CompanyData"
             }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
@@ -16917,6 +16920,9 @@
             "items": {
               "$ref": "#/components/schemas/UserGroupData"
             }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
@@ -16928,6 +16934,9 @@
             "items": {
               "$ref": "#/components/schemas/UserData"
             }
+          },
+          "fullcount":{
+            "type":"integer"
           }
         }
       },
@@ -16939,6 +16948,9 @@
             "items": {
               "$ref": "#/components/schemas/MessageData"
             }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
