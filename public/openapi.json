@@ -9697,7 +9697,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The id of archive which will be deleted",
+            "description": "The id of archive which will be return",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -9709,7 +9709,28 @@
         ],
         "responses": {
           "200": {
-            "description": "archive result"
+            "description": "archive result for specific id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ArchivesData"
+                      }
+                    },
+                    "version_fullcount": {
+                      "type": "integer"
+                    },
+                    "archive_fullcount": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -10120,6 +10141,12 @@
                       "items": {
                         "$ref": "#/components/schemas/ArchivesData"
                       }
+                    },
+                    "version_fullcount": {
+                      "type": "integer"
+                    },
+                    "archive_fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -10581,7 +10608,7 @@
           {
             "name": "analyse_id",
             "in": "path",
-            "description": "The user frendly id of archive which will be deleted",
+            "description": "analyse_id string",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -10605,7 +10632,7 @@
         },
         "responses": {
           "200": {
-            "description": "folder",
+            "description": "added new version to an existing analyse_id",
             "content": {
               "application/json": {
                 "schema": {
@@ -10754,7 +10781,7 @@
           {
             "name": "analyse_id",
             "in": "path",
-            "description": "The id of archive which will be deleted (urlencoded)",
+            "description": "The analyse_id of archive (urlencoded)",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -10940,7 +10967,7 @@
           "archives"
         ],
         "summary": "Get archive folders  with filters",
-        "description": "For example for filter string is ?filter_by_field=name&filter_by_value=%mi%\nSELECT * FROM table WHERE name LIKE '%mi%'\n",
+        "description": "Get archive folders  with filters",
         "operationId": "getAllArchiveFolders",
         "parameters": [
           {
@@ -11164,6 +11191,9 @@
                       "items": {
                         "$ref": "#/components/schemas/ArchiveFoldersData"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -11383,7 +11413,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The id of archive folder which will be deleted",
+            "description": "The id of archive folder which will be delete",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -11451,7 +11481,7 @@
           "simple",
           "archives"
         ],
-        "summary": "Get archive  tags  with filters",
+        "summary": "Get archive tags with filters",
         "description": " ",
         "operationId": "getAllArchiveTags",
         "parameters": [
@@ -11565,7 +11595,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Archive Tagss",
+            "description": "Archive Tags",
             "content": {
               "application/json": {
                 "schema": {
@@ -11581,6 +11611,9 @@
                         "type": "string",
                         "example": "tag1"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -11653,7 +11686,7 @@
         },
         "responses": {
           "200": {
-            "description": "folder",
+            "description": "Allowedlist added",
             "content": {
               "application/json": {
                 "schema": {
@@ -11713,7 +11746,7 @@
         "tags": [
           "lists"
         ],
-        "summary": "Get Allowlists  with filters",
+        "summary": "Get Allowlists with filters",
         "description": " ",
         "operationId": "getAllAllowLists",
         "parameters": [
@@ -11980,7 +12013,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Whitelists",
+            "description": "allowed list result",
             "content": {
               "application/json": {
                 "schema": {
@@ -11991,6 +12024,9 @@
                       "items": {
                         "$ref": "#/components/schemas/AllowListData"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -12077,7 +12113,7 @@
         },
         "responses": {
           "200": {
-            "description": "Term Category",
+            "description": "Updated allowed list",
             "content": {
               "application/json": {
                 "schema": {
@@ -12145,7 +12181,7 @@
         ],
         "responses": {
           "200": {
-            "description": "deleted"
+            "description": "allowed list deleted"
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -12612,7 +12648,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Whitelists",
+            "description": "textbin",
             "content": {
               "application/json": {
                 "schema": {
@@ -12623,6 +12659,9 @@
                       "items": {
                         "$ref": "#/components/schemas/TextbinData"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -12709,7 +12748,7 @@
         },
         "responses": {
           "200": {
-            "description": "Term Category",
+            "description": "updated textbin",
             "content": {
               "application/json": {
                 "schema": {
@@ -15795,6 +15834,9 @@
             "maxLength": 255,
             "type": "string",
             "example": "English"
+          },
+          "list_of_translations": {
+            "type":"array"
           },
           "territory": {
             "maxLength": 255,
