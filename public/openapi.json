@@ -1835,7 +1835,7 @@
         ],
         "summary": "Get LT check text result",
         "operationId": "LTCheck",
-	      "requestBody": {
+        "requestBody": {
           "content": {
             "application/json": {
               "schema": {
