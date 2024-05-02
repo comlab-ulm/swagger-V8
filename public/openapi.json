@@ -1833,7 +1833,7 @@
         "tags": [
           "lt"
         ],
-	      "summary": "Get LT check text result",
+        "summary": "Get LT check text result",
         "operationId": "LTCheck",
 	      "requestBody": {
           "content": {
