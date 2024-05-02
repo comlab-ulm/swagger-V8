@@ -127,11 +127,11 @@
           "superadmins",
           "system"
         ],
-        "summary": "Reload the static tables locales, benchmarkSettings and return_values into TLDBM",
+        "summary": "Reload the static tables locales, benchmarkSettings and return_values into running instance",
         "operationId": "reloadStatic",
         "responses": {
           "200": {
-            "description": "Reloaded"
+            "description": "Without return value - reloaded."
           },
           "401": {
             "description": "Access token is missing or invalid",
@@ -167,11 +167,11 @@
           "superadmins",
           "system"
         ],
-        "summary": "Reload the TreeTagger With a new  custom data",
+        "summary": "Reload the TreeTagger With a new lexicon data",
         "operationId": "reloadTreeTagger",
         "responses": {
           "200": {
-            "description": "Reloaded"
+            "description": "Without return value - reloaded."
           },
           "401": {
             "description": "Access token is missing or invalid",
@@ -409,11 +409,11 @@
         ],
         "responses": {
           "200": {
-            "description": "TranslationData",
+            "description": "ConfigData",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/translations_response_200"
+                  "$ref": "#/components/schemas/configs_response_200"
                 }
               }
             }
@@ -460,7 +460,7 @@
           "superadmins",
           "system"
         ],
-        "summary": "Ann New Config",
+        "summary": "Add New Config",
         "operationId": "addConfig",
         "requestBody": {
           "content": {
@@ -822,7 +822,7 @@
           "admins",
           "translations"
         ],
-        "summary": "Ann New Translation",
+        "summary": "Add New Translation",
         "operationId": "addTranslation",
         "requestBody": {
           "content": {
@@ -1087,7 +1087,7 @@
         "tags": [
           "translations"
         ],
-        "summary": "Get All Translations for User",
+        "summary": "Get All Translations, Common and User special",
         "operationId": "getAllUserTranslations",
         "parameters": [
           {
@@ -1143,7 +1143,7 @@
         "operationId": "getAllUserPaths",
         "responses": {
           "200": {
-            "description": "TranslationData",
+            "description": "Object contains NN paths and settings",
             "content": {
               "application/json": {
                 "schema": {
@@ -1206,7 +1206,7 @@
         },
         "responses": {
           "200": {
-            "description": "Result",
+            "description": "Result of suggestion values",
             "content": {
               "application/json": {
                 "schema": {
@@ -1420,6 +1420,9 @@
                       "items": {
                         "$ref": "#/components/schemas/RegexesData"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -1554,7 +1557,7 @@
         "tags": [
           "regexes"
         ],
-        "summary": "Found Regexes in text",
+        "summary": "Find Regexes in text",
         "operationId": "foundRegex",
         "requestBody": {
           "content": {
@@ -1567,11 +1570,11 @@
         },
         "responses": {
           "200": {
-            "description": "Regex",
+            "description": "Result is array of arrays of start-end positions",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RegexesTestData"
+                  "$ref": "#/components/schemas/RegexesFoundData"
                 }
               }
             }
@@ -1633,14 +1636,7 @@
         "operationId": "reloadRegex",
         "responses": {
           "200": {
-            "description": "done",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
-                }
-              }
-            }
+            "description": "done - without output"
           },
           "401": {
             "description": "Access token is missing or invalid",
@@ -1713,7 +1709,7 @@
         },
         "responses": {
           "200": {
-            "description": "Regexes",
+            "description": "Regexes Updated",
             "content": {
               "application/json": {
                 "schema": {
@@ -1837,9 +1833,9 @@
         "tags": [
           "lt"
         ],
-	"summary": "Get LT check text result",
+        "summary": "Get LT check text result",
         "operationId": "LTCheck",
-	"requestBody": {
+        "requestBody": {
           "content": {
             "application/json": {
               "schema": {
@@ -1854,12 +1850,12 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
+                  "$ref": "#/components/schemas/languageToolData"
                 }
               }
             }
           },
- 	  "400": {
+ 	        "400": {
             "description": "Invalid fields supplied",
             "content": {
               "application/json": {
@@ -1902,7 +1898,7 @@
         "tags": [
           "thin"
         ],
-        "summary": "Email confirmation",
+        "summary": "User Registration",
         "operationId": "userRegistration",
         "requestBody": {
           "content": {
@@ -1915,14 +1911,7 @@
         },
         "responses": {
           "200": {
-            "description": "Registered",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
+            "description": "Registered"
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -2304,12 +2293,12 @@
           }
         ],
         "responses": {
-          "200": {
-            "description": "TermData",
+          "400": {
+            "description": "This function is deprecated",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/inline_response_200"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -2355,7 +2344,7 @@
         "tags": [
           "superadmins"
         ],
-        "summary": "Add Term  (superadmin's only function)",
+        "summary": "This function is deprecated",
         "operationId": "addTerm",
         "requestBody": {
           "content": {
@@ -2368,11 +2357,11 @@
         },
         "responses": {
           "200": {
-            "description": "Term",
+            "description": "This function is deprecated",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TermData"
+                  "$ref": "#/components/schemas/ErrorResponse"
                 }
               }
             }
@@ -2430,7 +2419,7 @@
         "tags": [
           "superadmins"
         ],
-        "summary": "Update Term  (superadmin's only function)",
+        "summary": "Update Term, This function is deprecated",
         "operationId": "updateTerm",
         "parameters": [
           {
@@ -2456,16 +2445,6 @@
           }
         },
         "responses": {
-          "200": {
-            "description": "term UPDATE",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TermReplacementData"
-                }
-              }
-            }
-          },
           "400": {
             "description": "Invalid fields supplied",
             "content": {
@@ -2510,7 +2489,7 @@
           "admins",
           "termins"
         ],
-        "summary": "Bunch add Term to Category",
+        "summary": "Add list of terms into term_category",
         "operationId": "addBunchTermToCategory",
         "parameters": [
           {
@@ -2537,14 +2516,7 @@
         },
         "responses": {
           "200": {
-            "description": "All fine",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
+            "description": "Response array of warnings or errors"
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -2938,7 +2910,6 @@
         ]
       }
     },
-
     "/term/replacement/{category_id}/{term_id}": {
       "post": {
         "tags": [
@@ -3655,89 +3626,6 @@
         ]
       }
     },
-    "/term_category/{id}/report": {
-      "get": {
-        "tags": [
-          "admins",
-          "termins"
-        ],
-        "summary": "REport the Term Category  issues",
-        "operationId": "calculateTermCategories",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "The id of Term Category",
-            "required": true,
-            "style": "simple",
-            "explode": false,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "type",
-            "in": "query",
-            "description": "Optional parameters",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "default": ""
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "List of issues",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
     "/term_category": {
       "get": {
         "tags": [
@@ -4403,7 +4291,14 @@
         ],
         "responses": {
           "200": {
-            "description": "Cleared"
+            "description": "suggestion values",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object"
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -4523,7 +4418,6 @@
         ]
       }
     },
-
     "/languagedetect": {
       "post": {
         "tags": [
@@ -4589,7 +4483,6 @@
         ]
       }
     },
-
     "/convert/pdf": {
       "post": {
         "tags": [
@@ -4608,7 +4501,7 @@
         },
         "responses": {
           "200": {
-            "description": "treeTager",
+            "description": "html result from a pdf file",
             "content": {
               "application/json": {
                 "schema": {
@@ -4655,7 +4548,6 @@
         ]
       }
     },
-
     "/convert/docx": {
       "post": {
         "tags": [
@@ -4674,7 +4566,7 @@
         },
         "responses": {
           "200": {
-            "description": "treeTager",
+            "description": "html result from a docx file",
             "content": {
               "application/json": {
                 "schema": {
@@ -4721,7 +4613,6 @@
         ]
       }
     },
-
     "/treetager": {
       "post": {
         "tags": [
@@ -4740,7 +4631,7 @@
         },
         "responses": {
           "200": {
-            "description": "treeTager",
+            "description": "dataTokenizer contains treetagger data",
             "content": {
               "application/json": {
                 "schema": {
@@ -5928,7 +5819,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Benchmarks with his rights. Right is an Array of arrays [[{userId, username},{gid, group name}, {cid, company name}],[{userId, username},{gid, group name}, {cid, company name}]]",
+            "description": "Benchmarks with rights. Right is an Array of arrays [[{userId, username},{gid, group name}, {cid, company name}],[{userId, username},{gid, group name}, {cid, company name}]]",
             "content": {
               "application/json": {
                 "schema": {
@@ -7155,8 +7046,8 @@
           "admins",
           "groups"
         ],
-        "summary": "Get user group credentials by id",
-        "description": "(for the admins only yet)\nGet credetentals of any user\n",
+        "summary": "Get user group by id",
+        "description": "Get user group by id",
         "operationId": "getUserGroupById",
         "parameters": [
           {
@@ -7877,7 +7768,7 @@
         ],
         "responses": {
           "200": {
-            "description": "user exist",
+            "description": "user data array",
             "content": {
               "application/json": {
                 "schema": {
@@ -7995,8 +7886,8 @@
           "admins",
           "users"
         ],
-        "summary": "Get user credentials by id",
-        "description": "(for the admins only yet)\nGet credetentals of any user\n",
+        "summary": "Get user by id",
+        "description": "Get user by id",
         "operationId": "getUserById",
         "parameters": [
           {
@@ -8013,11 +7904,11 @@
         ],
         "responses": {
           "200": {
-            "description": "user exist",
+            "description": "user data",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/UserData"
+                  "$ref": "#/components/schemas/inline_response_200_8"
                 }
               }
             }
@@ -8579,7 +8470,7 @@
         "operationId": "getUserMe",
         "responses": {
           "200": {
-            "description": "user exist",
+            "description": "user full information",
             "content": {
               "application/json": {
                 "schema": {
@@ -8803,7 +8694,7 @@
         ],
         "responses": {
           "200": {
-            "description": "messages exist",
+            "description": "list of messages",
             "content": {
               "application/json": {
                 "schema": {
@@ -8903,7 +8794,7 @@
           "users",
           "simple"
         ],
-        "summary": "Mark Message as read",
+        "summary": "Get Message by id and mark it as read",
         "operationId": "getMessageById",
         "parameters": [
           {
@@ -9442,334 +9333,6 @@
         ]
       }
     },
-    "/multilang": {
-      "get": {
-        "tags": [
-          "open"
-        ],
-        "summary": "Get translation  with filters",
-        "description": "For example for filter string is ?filter_by_field=name&filter_by_value=%mi%\nSELECT * FROM table WHERE name LIKE '%mi%'\n",
-        "operationId": "getAllmultilang",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "Query limit",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "minimum": 1,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "offset",
-            "in": "query",
-            "description": "Query offset",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "minimum": 0,
-              "type": "integer"
-            }
-          },
-          {
-            "name": "order",
-            "in": "query",
-            "description": "Query order (0-ASC, 1-DESC)",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "integer",
-              "default": 0,
-              "enum": [
-                0,
-                1
-              ]
-            }
-          },
-          {
-            "name": "order_by",
-            "in": "query",
-            "description": "order by field",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "type": "string",
-              "default": "element_id",
-              "enum": [
-                "element_id",
-                "table_name",
-                "value_name",
-                "text",
-                "language_short_name"
-              ]
-            }
-          },
-          {
-            "name": "element_id",
-            "in": "query",
-            "description": "Filter by  element id ",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 50,
-              "minLength": 2,
-              "type": "string"
-            }
-          },
-          {
-            "name": "table_name",
-            "in": "query",
-            "description": "Filter by table_name  (LIKE format) ",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 50,
-              "minLength": 2,
-              "type": "string"
-            }
-          },
-          {
-            "name": "value_name",
-            "in": "query",
-            "description": "Filter by value_name (LIKE format)",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 50,
-              "minLength": 2,
-              "type": "string"
-            }
-          },
-          {
-            "name": "text",
-            "in": "query",
-            "description": "Filter by text (LIKE format)",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "minLength": 2,
-              "type": "string"
-            }
-          },
-          {
-            "name": "language_short_name",
-            "in": "query",
-            "description": "Filter by language_short_name (LIKE format)",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 2,
-              "minLength": 2,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Translations",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/inline_response_200_12"
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Record not found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "superadmins"
-        ],
-        "summary": "Create a new translation",
-        "operationId": "createTranslation",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/MultilangData"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Translation created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/MultilangData"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "409": {
-            "description": "Already exist!",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "superadmins"
-        ],
-        "summary": "delete translation",
-        "operationId": "deleteTranslation",
-        "parameters": [
-          {
-            "name": "element_id",
-            "in": "query",
-            "description": "element_id",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 50,
-              "type": "string"
-            }
-          },
-          {
-            "name": "table_name",
-            "in": "query",
-            "description": "table_name",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 50,
-              "type": "string"
-            }
-          },
-          {
-            "name": "value_name",
-            "in": "query",
-            "description": "value_name",
-            "required": true,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 50,
-              "type": "string"
-            }
-          },
-          {
-            "name": "language_short_name",
-            "in": "query",
-            "description": "language_short_name",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "maxLength": 2,
-              "minLength": 2,
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Translation deleted"
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
     "/country": {
       "get": {
         "tags": [
@@ -10134,7 +9697,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The id of archive which will be deleted",
+            "description": "The id of archive which will be return",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -10146,7 +9709,28 @@
         ],
         "responses": {
           "200": {
-            "description": "archive result"
+            "description": "archive result for specific id",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/ArchivesData"
+                      }
+                    },
+                    "version_fullcount": {
+                      "type": "integer"
+                    },
+                    "archive_fullcount": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -10557,6 +10141,12 @@
                       "items": {
                         "$ref": "#/components/schemas/ArchivesData"
                       }
+                    },
+                    "version_fullcount": {
+                      "type": "integer"
+                    },
+                    "archive_fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -11018,7 +10608,7 @@
           {
             "name": "analyse_id",
             "in": "path",
-            "description": "The user frendly id of archive which will be deleted",
+            "description": "analyse_id string",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -11042,7 +10632,7 @@
         },
         "responses": {
           "200": {
-            "description": "folder",
+            "description": "added new version to an existing analyse_id",
             "content": {
               "application/json": {
                 "schema": {
@@ -11191,7 +10781,7 @@
           {
             "name": "analyse_id",
             "in": "path",
-            "description": "The id of archive which will be deleted (urlencoded)",
+            "description": "The analyse_id of archive (urlencoded)",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -11377,7 +10967,7 @@
           "archives"
         ],
         "summary": "Get archive folders  with filters",
-        "description": "For example for filter string is ?filter_by_field=name&filter_by_value=%mi%\nSELECT * FROM table WHERE name LIKE '%mi%'\n",
+        "description": "Get archive folders  with filters",
         "operationId": "getAllArchiveFolders",
         "parameters": [
           {
@@ -11601,6 +11191,9 @@
                       "items": {
                         "$ref": "#/components/schemas/ArchiveFoldersData"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -11820,7 +11413,7 @@
           {
             "name": "id",
             "in": "path",
-            "description": "The id of archive folder which will be deleted",
+            "description": "The id of archive folder which will be delete",
             "required": true,
             "style": "simple",
             "explode": false,
@@ -11888,7 +11481,7 @@
           "simple",
           "archives"
         ],
-        "summary": "Get archive  tags  with filters",
+        "summary": "Get archive tags with filters",
         "description": " ",
         "operationId": "getAllArchiveTags",
         "parameters": [
@@ -12002,7 +11595,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Archive Tagss",
+            "description": "Archive Tags",
             "content": {
               "application/json": {
                 "schema": {
@@ -12018,6 +11611,9 @@
                         "type": "string",
                         "example": "tag1"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -12090,7 +11686,7 @@
         },
         "responses": {
           "200": {
-            "description": "folder",
+            "description": "Allowedlist added",
             "content": {
               "application/json": {
                 "schema": {
@@ -12150,7 +11746,7 @@
         "tags": [
           "lists"
         ],
-        "summary": "Get Allowlists  with filters",
+        "summary": "Get Allowlists with filters",
         "description": " ",
         "operationId": "getAllAllowLists",
         "parameters": [
@@ -12417,7 +12013,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Whitelists",
+            "description": "allowed list result",
             "content": {
               "application/json": {
                 "schema": {
@@ -12428,6 +12024,9 @@
                       "items": {
                         "$ref": "#/components/schemas/AllowListData"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -12514,7 +12113,7 @@
         },
         "responses": {
           "200": {
-            "description": "Term Category",
+            "description": "Updated allowed list",
             "content": {
               "application/json": {
                 "schema": {
@@ -12582,7 +12181,7 @@
         ],
         "responses": {
           "200": {
-            "description": "deleted"
+            "description": "allowed list deleted"
           },
           "400": {
             "description": "Invalid fields supplied",
@@ -13049,7 +12648,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Whitelists",
+            "description": "textbin",
             "content": {
               "application/json": {
                 "schema": {
@@ -13060,6 +12659,9 @@
                       "items": {
                         "$ref": "#/components/schemas/TextbinData"
                       }
+                    },
+                    "fullcount": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -13146,7 +12748,7 @@
         },
         "responses": {
           "200": {
-            "description": "Term Category",
+            "description": "updated textbin",
             "content": {
               "application/json": {
                 "schema": {
@@ -13585,6 +13187,17 @@
         "properties": {
           "data": {
             "type": "array"
+          },
+          "is_regexp": {
+            "type": "boolean"
+          }
+        }
+      },
+      "RegexesFoundData": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array"
           }
         }
       },
@@ -13610,6 +13223,34 @@
           "exclude": {
             "type": "string",
             "example": "[\"0\",\"1\",\"2\"]"
+          }
+        }
+      },
+      "languageToolData": {
+        "type": "object",
+        "properties": {
+          "result": {
+            "type": "object",
+            "properties": {
+              "ignoreRanges": {
+                "type": "array"
+              },
+              "language": {
+                "type": "array"
+              },
+              "matches": {
+                "type": "array"
+              },
+              "sentenceRanges": {
+                "type": "array"
+              },
+              "software": {
+                "type": "array"
+              },
+              "warnings": {
+                "type": "array"
+              }
+            }
           }
         }
       },
@@ -14218,7 +13859,7 @@
             "maxLength": 5,
             "minLength": 5,
             "type": "string",
-            "example": "de_DE"
+            "example": "de-DE"
           },
           "allowList": {
             "type": "array",
@@ -16194,6 +15835,9 @@
             "type": "string",
             "example": "English"
           },
+          "list_of_translations": {
+            "type":"array"
+          },
           "territory": {
             "maxLength": 255,
             "type": "string",
@@ -16894,6 +16538,9 @@
             "items": {
               "$ref": "#/components/schemas/TranslationData"
             }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
@@ -16973,6 +16620,9 @@
             "items": {
               "$ref": "#/components/schemas/CompanyData"
             }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
@@ -16984,6 +16634,9 @@
             "items": {
               "$ref": "#/components/schemas/UserGroupData"
             }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
@@ -16995,6 +16648,9 @@
             "items": {
               "$ref": "#/components/schemas/UserData"
             }
+          },
+          "fullcount":{
+            "type":"integer"
           }
         }
       },
@@ -17006,6 +16662,9 @@
             "items": {
               "$ref": "#/components/schemas/MessageData"
             }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
