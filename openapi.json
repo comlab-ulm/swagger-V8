@@ -6037,6 +6037,18 @@
             }
           },
           {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "deleted",
             "in": "query",
             "description": "Filter by deleted   ( delete_time IS NULL)  ",
@@ -6835,6 +6847,18 @@
             }
           },
           {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "id",
             "in": "query",
             "description": "Filter by group id ",
@@ -7535,7 +7559,8 @@
                 "user_group_id",
                 "update_time",
                 "create_time",
-                "delete_time"
+                "delete_time",
+                "options.expired_time"
               ]
             }
           },
@@ -7543,6 +7568,18 @@
             "name": "extended_filter",
             "in": "query",
             "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
             "required": false,
             "style": "form",
             "explode": true,
