@@ -8612,7 +8612,6 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
               "enum": [0,1]
             }
           },
@@ -8625,7 +8624,6 @@
             "explode": true,
             "schema": {
               "type": "integer",
-              "default": 0,
               "enum": [0,1]
             }
           },
