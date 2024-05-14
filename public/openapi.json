@@ -6073,18 +6073,6 @@
               "minLength": 2,
               "type": "string"
             }
-          },
-          {
-            "name": "license_id",
-            "in": "query",
-            "description": "Filter by license id ",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "minimum": 0,
-              "type": "integer"
-            }
           }
         ],
         "responses": {
