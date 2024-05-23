@@ -9239,7 +9239,7 @@
             }
           },
           "401": {
-            "description": "Witi for a 2FA TOTP enter",
+            "description": "Wait for a 2FA TOTP enter",
             "content": {
               "application/json": {
                 "schema": {
