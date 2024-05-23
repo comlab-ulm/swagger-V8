@@ -9201,9 +9201,52 @@
               }
             }
           },
-          "400": {
+          "401": {
             "description": "Invalid username/password supplied",
             "content": {}
+          }
+        }
+      }
+    },
+    "/user/login/2fa": {
+      "post": {
+        "tags": [
+          "users",
+          "simple",
+          "login"
+        ],
+        "summary": "User send the 2FA",
+        "operationId": "login2FAUser",
+        "requestBody": {
+          "description": "Used for additional authentication with 2FA",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin2FAData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_10"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Invalid username/password supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_401_2fa"
+                }
+              }
+            }
           }
         }
       }
@@ -15684,6 +15727,25 @@
       "UserLoginDataAny": {
         "type": "object"
       },
+      "UserLogin2FAData": {
+        "required": [
+          "totp",
+          "secret"
+        ],
+        "type": "object",
+        "properties": {
+          "totp": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "123321"
+          },
+          "secret": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "dsfdsrt"
+          }
+        }
+      },
       "UserLoginData": {
         "required": [
            "identifier",
@@ -16676,6 +16738,15 @@
           },
           "fullcount": {
             "type": "integer"
+          }
+        }
+      },
+      "inline_response_401_2fa": {
+        "required": [],
+        "type": "object",
+        "properties": {
+          "secret": {
+            "type": "string"
           }
         }
       },
