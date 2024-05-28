@@ -9341,7 +9341,8 @@
                   "$ref": "#/components/schemas/inline_response_200_ga"
                 }
               }
-            },
+            }
+          },
           "400": {
             "description": "user error",
             "content": {
@@ -9372,7 +9373,8 @@
           "200": {
             "description": "successful operation"
           },
-          "403": {
+          "403": 
+          {
             "description": "you are not allowed to make this action",
             "content": {
               "application/json": {
