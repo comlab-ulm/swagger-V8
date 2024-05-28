@@ -9239,7 +9239,7 @@
             }
           },
           "401": {
-            "description": "Witi for a 2FA TOTP enter",
+            "description": "Wait for a 2FA TOTP enter",
             "content": {
               "application/json": {
                 "schema": {
@@ -15729,11 +15729,17 @@
       },
       "UserLogin2FAData": {
         "required": [
+          "identifier",
           "totp",
           "secret"
         ],
         "type": "object",
         "properties": {
+          "identifier": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "test"
+          },
           "totp": {
             "maxLength": 255,
             "type": "string",
