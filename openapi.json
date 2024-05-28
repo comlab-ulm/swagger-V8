@@ -9400,7 +9400,7 @@
         ]
       }
     },
-    "/user/2fa/{type_2fa}/{user_id}":{
+    "/user/2fa/{2fa_type}/{user_id}":{
       "delete": {
         "tags": [
           "admins",
