@@ -15729,11 +15729,17 @@
       },
       "UserLogin2FAData": {
         "required": [
+          "identifier",
           "totp",
           "secret"
         ],
         "type": "object",
         "properties": {
+          "identifier": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "test"
+          },
           "totp": {
             "maxLength": 255,
             "type": "string",
