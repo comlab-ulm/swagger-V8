@@ -48,8 +48,8 @@
       "description": "User Login/Logout Operations"
     },
     {
-      "name": "login",
-      "description": "User Login/Logout Operations"
+      "name": "2fa",
+      "description": "2FA Operations"
     },
     {
       "name": "open",
@@ -9212,7 +9212,7 @@
       "post": {
         "tags": [
           "users",
-          "simple",
+          "2fa",
           "login"
         ],
         "summary": "User send the 2FA",
@@ -9249,6 +9249,155 @@
             }
           }
         }
+      }
+    },
+    "/user/2fa/{2fa_type}": {
+      "get": {
+        "tags": [
+          "users",
+          "2fa"
+        ],
+        "summary": "User get the GA 2FA QR code",
+        "operationId": "enable2FAGet",        
+        "responses": {
+          "200": {
+            "description": "successful operation"            
+          },
+          "401": {
+            "description": "2FA proof is going wrong",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "users",
+          "2fa"
+        ],
+        "summary": "User disable the 2FA for the normal user",
+        "operationId": "disable2FA",        
+        "responses": {
+          "401": {
+            "description": "waiting for proof",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserLogin2FAProof"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "users",
+          "2fa"
+        ],
+        "summary": "User proof the GA 2FA QR code",
+        "operationId": "enable2FAPost",
+        "requestBody": {
+          "description": "In field  (login) user can put either email or login",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserLogin2FAProof"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_ga"
+                }
+              }
+            }
+          "400": {
+            "description": "user error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/user/2fa/{type_2fa}/{user_id}":{
+      "delete": {
+        "tags": [
+          "admins",
+          "2fa"
+        ],
+        "summary": "User disable the 2FA for the ADMIN",
+        "operationId": "disable2FA",        
+        "responses": {
+          "200": {
+            "description": "successful operation"
+          },
+          "403": {
+            "description": "you are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "user error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/user/logout": {
@@ -15752,6 +15901,30 @@
           }
         }
       },
+      "UserLogin2FAProof": {
+        "required": [
+          "operation",
+          "totp",
+          "secret"
+        ],
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": ["enable","disable"]
+          },
+          "totp": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "123321"
+          },
+          "secret": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "dsfdsrt"
+          }
+        }
+      },
       "UserLoginData": {
         "required": [
            "identifier",
@@ -16765,6 +16938,20 @@
           "token": {
             "type": "string",
             "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c"
+          }
+        }
+      },
+      "inline_response_200_ga": {
+        "required": [],
+        "type": "object",
+        "properties": {
+          "secret": {
+            "type": "string",
+            "example": "adQssw5c"
+          },
+          "qr": {
+            "type": "string",
+            "example": "otpauth://totp/russkiy@textlab.online?secret=COL3V3Q5INZGUFPF4IRTOFQ4VA&issuer=Textlab"
           }
         }
       },
