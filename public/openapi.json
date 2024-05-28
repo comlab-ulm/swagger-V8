@@ -9299,7 +9299,20 @@
           "2fa"
         ],
         "summary": "User disable the 2FA for the normal user",
-        "operationId": "disable2FA",        
+        "operationId": "disable2FA",
+        "parameters": [
+          {
+            "name": "2fa_type",
+            "in": "path",
+            "description": "Type of 2FA",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],        
         "responses": {
           "401": {
             "description": "waiting for proof",
@@ -9335,6 +9348,19 @@
         ],
         "summary": "User proof the GA 2FA QR code",
         "operationId": "enable2FAPost",
+        "parameters": [
+          {
+            "name": "2fa_type",
+            "in": "path",
+            "description": "Type of 2FA",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],  
         "requestBody": {
           "description": "In field  (login) user can put either email or login",
           "content": {
