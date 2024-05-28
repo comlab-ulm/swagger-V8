@@ -9341,7 +9341,7 @@
                   "$ref": "#/components/schemas/inline_response_200_ga"
                 }
               }
-            }
+            },
           "400": {
             "description": "user error",
             "content": {
