@@ -9258,7 +9258,20 @@
           "2fa"
         ],
         "summary": "User get the GA 2FA QR code",
-        "operationId": "enable2FAGet",        
+        "operationId": "enable2FAGet",
+        "parameters": [
+          {
+            "name": "2fa_type",
+            "in": "path",
+            "description": "Type of 2FA",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],     
         "responses": {
           "200": {
             "description": "successful operation"            
@@ -9368,7 +9381,31 @@
           "2fa"
         ],
         "summary": "User disable the 2FA for the ADMIN",
-        "operationId": "disable2FA",        
+        "operationId": "disable2FAAdmihn",
+        "parameters": [
+          {
+            "name": "2fa_type",
+            "in": "path",
+            "description": "Type of 2FA",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "path",
+            "description": "User ID",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],         
         "responses": {
           "200": {
             "description": "successful operation"
