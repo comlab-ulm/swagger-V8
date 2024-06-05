@@ -16715,7 +16715,6 @@
             "example": "option"
           },
           "value": {
-            "maxLength": 4000,
             "type": "string",
             "example": "value"
           }
