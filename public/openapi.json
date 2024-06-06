@@ -9257,7 +9257,7 @@
         }
       }
     },
-    "/user/login/2fa": {
+    "/user/login/2fa/{2fa_type}": {
       "post": {
         "tags": [
           "users",
@@ -9266,6 +9266,19 @@
         ],
         "summary": "User send the 2FA",
         "operationId": "login2FAUser",
+        "parameters": [
+          {
+            "name": "2fa_type",
+            "in": "path",
+            "description": "Type of 2FA",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],  
         "requestBody": {
           "description": "Used for additional authentication with 2FA",
           "content": {
