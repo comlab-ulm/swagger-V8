@@ -121,6 +121,55 @@
     }
   ],
   "paths": {
+    "/clean_db":{
+      "post":{
+        "tags": [
+          "superadmins",
+          "system"
+        ],
+        "summary": "Clean the DB from the old records",
+        "operationId": "cleanDB",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CleanDBData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Without return value - reloaded."
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/reloadstatics":{
       "get":{
         "tags": [
@@ -13198,6 +13247,32 @@
             "minLength":1,
             "maxLength":255,
             "example": "name"
+          }
+        }
+      },
+      "CleanDBData": {
+        "required": [
+          "clean_type"
+        ],
+        "type": "object",
+        "properties": {
+          "clean_type": {
+            "type": "string"
+          },
+          "archiveExecLimit": {
+            "type": "integer"
+          },
+          "categoryExecLimit": {
+            "type": "integer"
+          },
+          "descriptionExecLimit": {
+            "type": "integer"
+          },
+          "settingExecLimit": {
+            "type": "integer"
+          },
+          "termExecLimit": {
+            "type": "integer"
           }
         }
       },
