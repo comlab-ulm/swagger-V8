@@ -121,6 +121,236 @@
     }
   ],
   "paths": {
+    "/logs":{
+      "get":{
+        "tags": [
+          "admins",
+          "system"
+        ],
+        "summary": "Export Logs with filters",
+        "description": "Covered by Extended Filter and Return_Values\n",
+        "operationId": "getAllLogs",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Query limit",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Query offset",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Query order (0-ASC, 1-DESC)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Filter by log id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_id",
+            "in": "query",
+            "description": "Filter by log user_id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "user_group_id",
+            "in": "query",
+            "description": "Filter by log user_group_id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "comapny_id",
+            "in": "query",
+            "description": "Filter by log company_id ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "level",
+            "in": "query",
+            "description": "Filter by logs level (Info, warning, ...) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 10,
+              "minLength": 2,
+              "type": "string"
+            }
+          },
+          {
+            "name": "path",
+            "in": "query",
+            "description": "Filter by logs Path (/endpoint/param) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 10,
+              "minLength": 2,
+              "type": "string"
+            }
+          },
+          {
+            "name": "method",
+            "in": "query",
+            "description": "Filter by logs endpoint method (GET, PUT, POST...) ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "maxLength": 10,
+              "minLength": 2,
+              "type": "string"
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "order by field",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "id",
+              "enum": [
+                "id",
+                "user_id",
+                "level",
+                "log",
+                "create_time"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logs",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_24"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/clean_db":{
       "post":{
         "tags": [
@@ -9278,7 +9508,7 @@
               "type": "string"
             }
           }
-        ],  
+        ],
         "requestBody": {
           "description": "Used for additional authentication with 2FA",
           "content": {
@@ -9333,10 +9563,10 @@
               "type": "string"
             }
           }
-        ],     
+        ],
         "responses": {
           "200": {
-            "description": "successful operation"            
+            "description": "successful operation"
           },
           "401": {
             "description": "2FA proof is going wrong",
@@ -9374,7 +9604,7 @@
               "type": "string"
             }
           }
-        ],        
+        ],
         "responses": {
           "401": {
             "description": "waiting for proof",
@@ -9422,7 +9652,7 @@
               "type": "string"
             }
           }
-        ],  
+        ],
         "requestBody": {
           "description": "In field  (login) user can put either email or login",
           "content": {
@@ -9493,12 +9723,12 @@
               "type": "integer"
             }
           }
-        ],         
+        ],
         "responses": {
           "200": {
             "description": "successful operation"
           },
-          "403": 
+          "403":
           {
             "description": "you are not allowed to make this action",
             "content": {
@@ -16843,6 +17073,39 @@
           }
         }
       },
+      "LogData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "user_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "log": {
+            "type": "string",
+            "example": "GET /api/user/me"
+          },
+          "service": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "1"
+          },
+          "level": {
+            "maxLength": 255,
+            "type": "string",
+            "example": "info"
+          },
+          "create_time": {
+            "maxLength": 255,
+            "type": "string"
+          }
+        }
+      },
       "UserGroupAddData": {
         "required": [
           "company_id",
@@ -17236,6 +17499,20 @@
             "items": {
               "$ref": "#/components/schemas/LocalesData"
             }
+          }
+        }
+      },
+      "inline_response_200_24": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LogData"
+            }
+          },
+          "fullcount": {
+            "type": "integer"
           }
         }
       },
