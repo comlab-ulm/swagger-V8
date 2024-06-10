@@ -232,7 +232,7 @@
             }
           },
           {
-            "name": "comapny_id",
+            "name": "company_id",
             "in": "query",
             "description": "Filter by log company_id ",
             "required": false,
