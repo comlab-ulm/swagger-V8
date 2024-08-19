@@ -539,13 +539,89 @@
         "tags": [
           "system"
         ],
-        "summary": "Run the redirect Request",
+        "summary": "(deprecated! use /redirect/{name} ) Run the redirect Request ",
         "operationId": "runRedirect",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/RunRedirectData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "RedirectData",
+            "content": {
+              "application/json": {
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/redirect/{name}":{
+      "post":{
+        "tags": [
+          "system"
+        ],
+        "summary": "Run the redirect Request",
+        "operationId": "runRedirectName",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "path",
+            "description": "The name of the redirect Request",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minLength": 1,
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RunRedirectNameData"
               }
             }
           }
@@ -13581,6 +13657,17 @@
           },
           "termExecLimit": {
             "type": "integer"
+          }
+        }
+      },
+      "RunRedirectNameData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object"
           }
         }
       },
