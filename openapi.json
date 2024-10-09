@@ -4584,13 +4584,7 @@
         "responses": {
           "200": {
             "description": "Term Category",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/TermCategoryData"
-                }
-              }
-            }
+            "content": {}
           },
           "400": {
             "description": "Invalid fields supplied",
