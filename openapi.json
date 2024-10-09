@@ -9198,7 +9198,7 @@
           "admins",
           "users"
         ],
-        "summary": "Restore a deleted users",
+        "summary": "Restore a deleted user",
         "operationId": "restoreUsers",
         "parameters": [
           {
