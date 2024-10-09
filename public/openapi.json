@@ -4583,7 +4583,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Term Category",
+            "description": "Term Category restored",
             "content": {}
           },
           "400": {
