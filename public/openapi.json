@@ -9192,7 +9192,7 @@
         ]
       }
     },
-    "/users/{id}/restore": {
+    "/user/{id}/restore": {
       "put": {
         "tags": [
           "admins",
