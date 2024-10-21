@@ -3375,6 +3375,18 @@
         "operationId": "getTermsReplacement",
         "parameters": [
           {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "return_values",
             "in": "query",
             "description": "Set list of returning values in JSON array format (if empty - return all)",
