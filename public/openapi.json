@@ -9399,6 +9399,18 @@
             }
           },
           {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
             "name": "read_time",
             "in": "query",
             "description": "Filter by is read ( read_time IS NULL) ",
