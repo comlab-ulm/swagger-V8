@@ -17113,6 +17113,10 @@
           "email": {
             "type": "string",
             "example": "User email to send"
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
           }
         }
       },
@@ -17178,6 +17182,10 @@
           },
           "email": {
             "type": "string",
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
           }
         }
       },
