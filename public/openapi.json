@@ -9395,7 +9395,8 @@
                 "read_time",
                 "answer_time",
                 "delete_time",
-                "email_time"
+                "email_time",
+                "header"
               ]
             }
           },
@@ -17112,7 +17113,13 @@
           },
           "email": {
             "type": "string",
+            "maxLength": 255,
             "example": "User email to send"
+          },
+          "header": {
+            "type": "string",
+            "maxLength": 255,
+            "example": "header text"
           },
           "settings": {
             "type": "object",
@@ -17182,6 +17189,11 @@
           },
           "email": {
             "type": "string",
+            "maxLength": 255
+          },
+          "header": {
+            "type": "string",
+            "maxLength": 255
           },
           "settings": {
             "type": "object",
