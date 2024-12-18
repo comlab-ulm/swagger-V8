@@ -9394,7 +9394,8 @@
                 "create_time",
                 "read_time",
                 "answer_time",
-                "delete_time"
+                "delete_time",
+                "email_time"
               ]
             }
           },
@@ -17108,6 +17109,10 @@
           "answer": {
             "type": "string",
             "example": "Test answer!"
+          },
+          "email": {
+            "type": "string",
+            "example": "User email to send"
           }
         }
       },
@@ -17166,6 +17171,13 @@
           "delete_time": {
             "maxLength": 255,
             "type": "string"
+          },
+          "email_time": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
           }
         }
       },
