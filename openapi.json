@@ -9938,6 +9938,130 @@
         ]
       }
     },
+    "/message/emails": {
+      "get": {
+        "tags": [
+          "superadmins"
+        ],
+        "summary": "Get all messages for mailing",
+        "operationId": "getAllMessagesEmail",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Query limit",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Query offset",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Query order (0-ASC, 1-DESC)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "order by field",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "user_id",
+                "level",
+                "from_inf",
+                "template",
+                "text",
+                "create_time",
+                "read_time",
+                "answer_time",
+                "delete_time",
+                "email_time",
+                "header"
+              ]
+            }
+          },
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "list of messages",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_9"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/user/login/{id}":{
       "post": {
         "tags": [
