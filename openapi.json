@@ -9938,10 +9938,84 @@
         ]
       }
     },
+    "/message/{id}/sentemail": {
+      "get": {
+        "tags": [
+          "superadmins",
+          "thin"
+        ],
+        "summary": "Mark Message as sended by email",
+        "operationId": "readMessage",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of Message which will be marked as sended by email",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/message/emails": {
       "get": {
         "tags": [
-          "superadmins"
+          "superadmins",
+          "thin"
         ],
         "summary": "Get all messages for mailing",
         "operationId": "getAllMessagesEmail",
