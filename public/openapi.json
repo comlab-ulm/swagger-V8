@@ -10004,6 +10004,41 @@
         }
       }
     },
+    "/user/login/shib": {
+      "post": {
+        "tags": [
+          "login"
+        ],
+        "summary": "Special endpoint to Shiboleth request",
+        "operationId": "loginUserShib",
+        "requestBody": {
+          "description": "To auto IDP provider response",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ShibLoginData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_10"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields",
+            "content": {}
+          }
+        }
+      }
+    },
     "/user/login": {
       "post": {
         "tags": [
@@ -17261,6 +17296,17 @@
             "maxLength": 255,
             "type": "string",
             "example": "dsfdsrt"
+          }
+        }
+      },
+      "ShibLoginData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string"
           }
         }
       },
