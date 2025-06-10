@@ -118,9 +118,164 @@
     {
       "name": "translations",
       "description": "Translation Operations"
+    },
+    {
+      "name": "tasks",
+      "description": "Translation Operations"
     }
   ],
   "paths": {
+    "/tasks":{
+      "post": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Start a new task",
+        "operationId": "addTask",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTaskData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "task added",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AddTaskDataReturn"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/tasks/{id}/upload":{
+      "put":{
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Upload chunk data",
+        "operationId": "uploadTaskData",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the task",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UploadTaskData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Data added",
+            "content": {
+              "application/json": {
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/logs":{
       "get":{
         "tags": [
@@ -14626,6 +14781,60 @@
   },
   "components": {
     "schemas": {
+      "UploadTaskData": {
+        "required": [
+          "data"
+        ],
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "example": "name"
+          }
+        }
+      },
+      "AddTaskData": {
+        "required": [
+          "name"
+        ],
+        "type": "object",
+        "properties": {
+          "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cron": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "name"
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "data": {
+            "type": "string",
+            "example": "name"
+          }
+        }
+      },
+      "AddTaskDataReturn": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "example": 1
+              }
+            }
+          }
+        }
+      },
       "NNDataOpen":{
         "type": "object"
       },
