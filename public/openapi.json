@@ -15388,7 +15388,8 @@
             "minimum": 1
           },
           "cron": {
-            "type": "string"
+            "type": "string",
+            "example": "* * * * *"
           },
           "name": {
             "type": "string",
@@ -15428,7 +15429,8 @@
             "example": {}
           },
           "cron": {
-            "type": "string"
+            "type": "string",
+            "example": "* * * * *"
           },
           "description": {
             "type": "string",
@@ -15456,7 +15458,8 @@
             "minimum": 1
           },
           "cron": {
-            "type": "string"
+            "type": "string",
+            "example": "* * * * *"
           },
           "name": {
             "type": "string",
@@ -15496,7 +15499,8 @@
             "minimum": 1
           },
           "cron": {
-            "type": "string"
+            "type": "string",
+            "example": "* * * * *"
           },
           "name": {
             "type": "string",
@@ -15549,7 +15553,8 @@
             "minimum": 1
           },
           "cron": {
-            "type": "string"
+            "type": "string",
+            "example": "* * * * *"
           },
           "name": {
             "type": "string",
@@ -15607,7 +15612,8 @@
             "minimum": 1
           },
           "cron": {
-            "type": "string"
+            "type": "string",
+            "example": "* * * * *"
           },
           "name": {
             "type": "string",
