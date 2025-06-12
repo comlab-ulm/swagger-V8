@@ -15388,8 +15388,7 @@
             "minimum": 1
           },
           "cron": {
-            "type": "integer",
-            "minimum": 1
+            "type": "string"
           },
           "name": {
             "type": "string",
@@ -15412,17 +15411,11 @@
       },
       "AddTaskTypeData": {
         "required": [
-          "name",
-          "run",
-          "type"
+          "name"
         ],
         "type": "object",
         "properties": {
           "priority": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "cron": {
             "type": "integer",
             "minimum": 1
           },
@@ -15434,13 +15427,24 @@
             "type": "object",
             "example": {}
           },
-          "data": {
-            "type": "string",
-            "example": "name"
+          "cron": {
+            "type": "string"
           },
           "description": {
             "type": "string",
             "example": "name"
+          },
+          "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "user_group_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "company_id": {
+            "type": "integer",
+            "minimum": 1
           }
         }
       },
@@ -15452,8 +15456,7 @@
             "minimum": 1
           },
           "cron": {
-            "type": "integer",
-            "minimum": 1
+            "type": "string"
           },
           "name": {
             "type": "string",
@@ -15485,8 +15488,7 @@
             "minimum": 1
           },
           "cron": {
-            "type": "integer",
-            "minimum": 1
+            "type": "string"
           },
           "name": {
             "type": "string",
@@ -15539,8 +15541,7 @@
             "minimum": 1
           },
           "cron": {
-            "type": "integer",
-            "minimum": 1
+            "type": "string"
           },
           "name": {
             "type": "string",
@@ -15598,8 +15599,7 @@
             "minimum": 1
           },
           "cron": {
-            "type": "integer",
-            "minimum": 1
+            "type": "string"
           },
           "name": {
             "type": "string",
