@@ -766,7 +766,7 @@
             "bearerAuth": []
           }
         ]
-      },
+      }
     },
     "/tasks/{id}/upload":{
       "put":{
