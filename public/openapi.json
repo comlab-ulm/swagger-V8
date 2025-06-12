@@ -15400,7 +15400,7 @@
           },
           "data": {
             "type": "string",
-            "example": "name"
+            "example": "data"
           },
           "run": {
             "type": "integer",
@@ -15432,7 +15432,7 @@
           },
           "description": {
             "type": "string",
-            "example": "name"
+            "example": "description"
           },
           "user_id": {
             "type": "integer",
@@ -15466,13 +15466,21 @@
             "type": "object",
             "example": {}
           },
-          "data": {
-            "type": "string",
-            "example": "name"
-          },
           "description": {
             "type": "string",
             "example": "name"
+          },
+          "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "user_group_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "company_id": {
+            "type": "integer",
+            "minimum": 1
           }
         }
       },
@@ -15500,7 +15508,7 @@
           },
           "data": {
             "type": "string",
-            "example": "name"
+            "example": "data"
           },
           "run": {
             "type": "integer",
@@ -15611,7 +15619,7 @@
           },
           "description": {
             "type": "string",
-            "example": "name"
+            "example": "description"
           },
           "create_time": {
             "maxLength": 255,
