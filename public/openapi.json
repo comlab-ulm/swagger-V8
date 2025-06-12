@@ -125,6 +125,202 @@
     }
   ],
   "paths": {
+    "/task_types":{
+      "post": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Add a new task type",
+        "operationId": "addTaskype",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTaskTypeData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "task type added"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Get task types with filters",
+        "description": "",
+        "operationId": "getTaskTypesUser",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Query limit",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Query offset",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Query order (0-ASC, 1-DESC)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "order by field",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "id",
+              "enum": [
+                "id",
+                "name"
+              ]
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "task types data array",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GetTaskTypeData"
+                      }
+                    },
+                    "fullcount": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/tasks":{
       "post": {
         "tags": [
@@ -174,6 +370,144 @@
           },
           "403": {
             "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Get tasks with filters",
+        "description": "",
+        "operationId": "getTasksUser",
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Query limit",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Query offset",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Query order (0-ASC, 1-DESC)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "order by field",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "id",
+              "enum": [
+                "id",
+                "name"
+              ]
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "tasks data array",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GetTaskData"
+                      }
+                    },
+                    "fullcount": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
             "content": {
               "application/json": {
                 "schema": {
@@ -15040,11 +15374,16 @@
       "AddTaskData": {
         "required": [
           "name",
-          "run"
+          "run",
+          "type"
         ],
         "type": "object",
         "properties": {
           "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
             "type": "integer",
             "minimum": 1
           },
@@ -15071,10 +15410,77 @@
           }
         }
       },
+      "AddTaskTypeData": {
+        "required": [
+          "name",
+          "run",
+          "type"
+        ],
+        "type": "object",
+        "properties": {
+          "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cron": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "name"
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "data": {
+            "type": "string",
+            "example": "name"
+          },
+          "description": {
+            "type": "string",
+            "example": "name"
+          }
+        }
+      },
+      "UpdateTaskTypeData": {
+        "type": "object",
+        "properties": {
+          "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cron": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "name"
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "data": {
+            "type": "string",
+            "example": "name"
+          },
+          "description": {
+            "type": "string",
+            "example": "name"
+          }
+        }
+      },
       "UpdateTaskData": {
         "type": "object",
         "properties": {
           "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
             "type": "integer",
             "minimum": 1
           },
@@ -15098,6 +15504,125 @@
             "type": "integer",
             "description": "1 - run immediately, 0 - create only",
             "example": 0
+          }
+        }
+      },
+      "GetTaskData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "owner": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "user_group_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "company_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cron": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "name"
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "status": {
+            "type": "integer"
+          },
+          "create_time": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "update_time": {
+            "type": "string"
+          },
+          "end_time": {
+            "maxLength": 255,
+            "type": "string"
+          }
+        }
+      },
+      "GetTaskTypeData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "owner": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "user_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "user_group_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "company_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "type": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cron": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "name"
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "description": {
+            "type": "string",
+            "example": "name"
+          },
+          "create_time": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "update_time": {
+            "type": "string"
+          },
+          "delete_time": {
+            "maxLength": 255,
+            "type": "string"
           }
         }
       },
