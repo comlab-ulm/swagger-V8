@@ -15490,17 +15490,9 @@
             "type": "integer",
             "minimum": 1
           },
-          "type": {
-            "type": "integer",
-            "minimum": 1
-          },
           "cron": {
             "type": "string",
             "example": "* * * * *"
-          },
-          "name": {
-            "type": "string",
-            "example": "name"
           },
           "settings": {
             "type": "object",
