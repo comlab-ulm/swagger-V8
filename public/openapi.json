@@ -15383,17 +15383,13 @@
             "type": "integer",
             "minimum": 1
           },
-          "type": {
+          "task_type_id": {
             "type": "integer",
             "minimum": 1
           },
           "cron": {
             "type": "string",
             "example": "* * * * *"
-          },
-          "name": {
-            "type": "string",
-            "example": "name"
           },
           "settings": {
             "type": "object",
