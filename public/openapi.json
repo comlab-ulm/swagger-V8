@@ -15438,15 +15438,15 @@
           },
           "user_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "user_group_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "company_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           }
         }
       },
@@ -15475,15 +15475,15 @@
           },
           "user_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "user_group_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "company_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           }
         }
       },
@@ -15534,15 +15534,15 @@
           },
           "user_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "user_group_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "company_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "priority": {
             "type": "integer",
@@ -15593,15 +15593,15 @@
           },
           "user_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "user_group_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "company_id": {
             "type": "integer",
-            "minimum": 1
+            "minimum": 0
           },
           "priority": {
             "type": "integer",
