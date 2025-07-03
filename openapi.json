@@ -15373,7 +15373,7 @@
       },
       "AddTaskData": {
         "required": [
-          "type"
+          "task_type_id"
         ],
         "type": "object",
         "properties": {
