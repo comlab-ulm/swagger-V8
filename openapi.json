@@ -15373,8 +15373,6 @@
       },
       "AddTaskData": {
         "required": [
-          "name",
-          "run",
           "type"
         ],
         "type": "object",
