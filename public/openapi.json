@@ -321,6 +321,159 @@
         ]
       }
     },
+    "/task_types/{id}":{
+      "put": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Update a task type",
+        "operationId": "updateTaskTypeData",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the task type",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTaskTypeData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "task type updated"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Delete a task type",
+        "operationId": "deleteTask",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the task type",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "task type deleted"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/tasks":{
       "post": {
         "tags": [
