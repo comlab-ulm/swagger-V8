@@ -474,6 +474,175 @@
         ]
       }
     },
+    "/task_types/ugc": {
+      "post": {
+        "tags": [
+          "admins",
+          "tasks"
+        ],
+        "summary": "Add task type relation to User Group Company",
+        "operationId": "addUGCTaskType",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TaskTypeAddUGCData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "added"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task_types/ugc/{task_type_id}/{uid}/{gid}/{cid}": {
+      "delete": {
+        "tags": [
+          "admins",
+          "tasks"
+        ],
+        "summary": "Delete UGC relation for Task Type",
+        "operationId": "deleteUGCTaskType",
+        "parameters": [
+          {
+            "name": "task_type_id",
+            "in": "path",
+            "description": "The id of Task Type",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "uid",
+            "in": "path",
+            "description": "The uid",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "gid",
+            "in": "path",
+            "description": "The gid",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "cid",
+            "in": "path",
+            "description": "The cid",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Deleted successful"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/tasks":{
       "post": {
         "tags": [
@@ -17990,6 +18159,34 @@
                 }
               }
             }
+          }
+        }
+      },
+      "TaskTypeAddUGCData": {
+        "required": [
+          "task_type_id"
+        ],
+        "type": "object",
+        "properties": {
+          "task_type_id": {
+            "minimum": 1,
+            "type": "integer",
+            "example": 1
+          },
+          "user_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "user_group_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
+          },
+          "company_id": {
+            "minimum": 0,
+            "type": "integer",
+            "example": 1
           }
         }
       },
