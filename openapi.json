@@ -15728,7 +15728,8 @@
       },
       "AddTaskTypeData": {
         "required": [
-          "name"
+          "name",
+          "function"
         ],
         "type": "object",
         "properties": {
@@ -15738,7 +15739,13 @@
           },
           "name": {
             "type": "string",
-            "example": "name"
+            "example": "name",
+            "maxLength":255
+          },
+          "function": {
+            "type": "string",
+            "example": "function",
+            "maxLength":255
           },
           "settings": {
             "type": "object",
@@ -15779,7 +15786,13 @@
           },
           "name": {
             "type": "string",
-            "example": "name"
+            "example": "name",
+            "maxLength":255
+          },
+          "function": {
+            "type": "string",
+            "example": "function",
+            "maxLength":255
           },
           "settings": {
             "type": "object",
@@ -15926,6 +15939,10 @@
           "name": {
             "type": "string",
             "example": "name"
+          },
+          "function": {
+            "type": "string",
+            "example": "function"
           },
           "settings": {
             "type": "object",
