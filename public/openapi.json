@@ -184,6 +184,62 @@
       }
     },
     "/task_type_cron":{
+      "post": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Add a new task type cron",
+        "operationId": "addTaskTypeCron",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AddTaskTypeCronData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "task type cron added"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
       "get": {
         "tags": [
           "tasks"
@@ -215,6 +271,159 @@
           },
           "401": {
             "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task_type_cron/{id}":{
+      "put": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Update a task type cron",
+        "operationId": "updateTaskTypeCronData",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the task type cron",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateTaskTypeCronData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "task type cron updated"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Delete a task type cron",
+        "operationId": "deleteTaskTypeCron",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Id of the task type cron",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "task type cron deleted"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
             "content": {
               "application/json": {
                 "schema": {
@@ -15839,6 +16048,46 @@
             "type": "integer",
             "description": "1 - run immediately, 0 - create only",
             "example": 0
+          }
+        }
+      },
+      "AddTaskTypeCronData": {
+        "required": [
+          "name",
+          "cron"
+        ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "name",
+            "maxLength":255
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "cron": {
+            "type": "string",
+            "example": "* * * * *"
+          }
+        }
+      },
+      "UpdateTaskTypeCronData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "name",
+            "maxLength":255
+          },
+          "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "cron": {
+            "type": "string",
+            "example": "* * * * *"
           }
         }
       },
