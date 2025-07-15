@@ -125,6 +125,122 @@
     }
   ],
   "paths": {
+    "/task_type_functions":{
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Get task types Functions with filters",
+        "description": "",
+        "operationId": "getTaskTypesFunctions",
+        "responses": {
+          "200": {
+            "description": "task types Functions data array",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GetTaskTypeFunctionData"
+                      }
+                    },
+                    "fullcount": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/task_type_cron":{
+      "get": {
+        "tags": [
+          "tasks"
+        ],
+        "summary": "Get task types CRON with filters",
+        "description": "",
+        "operationId": "getTaskTypesCron",
+        "responses": {
+          "200": {
+            "description": "task types CRON data array",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/GetTaskTypeCronData"
+                      }
+                    },
+                    "fullcount": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/task_types":{
       "post": {
         "tags": [
@@ -15898,6 +16014,28 @@
           "end_time": {
             "maxLength": 255,
             "type": "string"
+          }
+        }
+      },
+      "GetTaskTypeFunctionData": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Function"
+          }
+        }
+      },
+      "GetTaskTypeCronData": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "cron": {
+            "type": "string",
+            "example": "* * * * *"
           }
         }
       },
