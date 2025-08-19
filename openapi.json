@@ -16116,6 +16116,10 @@
             "type": "object",
             "example": {}
           },
+          "shared_settings": {
+            "type": "object",
+            "example": {}
+          },
           "cron": {
             "type": "string",
             "example": "* * * * *"
@@ -16160,6 +16164,10 @@
             "maxLength":255
           },
           "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "shared_settings": {
             "type": "object",
             "example": {}
           },
@@ -16332,6 +16340,10 @@
             "example": "function"
           },
           "settings": {
+            "type": "object",
+            "example": {}
+          },
+          "shared_settings": {
             "type": "object",
             "example": {}
           },
