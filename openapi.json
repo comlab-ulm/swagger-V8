@@ -16034,7 +16034,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           },
           "settings": {
             "type": "object",
@@ -16069,7 +16069,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           }
         }
       },
@@ -16087,7 +16087,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           }
         }
       },
@@ -16122,7 +16122,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           },
           "description": {
             "type": "string",
@@ -16151,7 +16151,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           },
           "name": {
             "type": "string",
@@ -16198,7 +16198,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           },
           "settings": {
             "type": "object",
@@ -16248,7 +16248,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           },
           "name": {
             "type": "string",
@@ -16292,7 +16292,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           }
         }
       },
@@ -16329,7 +16329,7 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * *"
+            "example": "* * * * * *"
           },
           "name": {
             "type": "string",
