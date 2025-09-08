@@ -16226,6 +16226,11 @@
             "type": "integer",
             "description": "1 - run immediately, 0 - create only",
             "example": 0
+          },
+          "status": {
+            "type": "integer",
+            "description": "0 - created, 1 - in queue, 2 - running, 3 - done, 4 - error, 5- canceled",
+            "example": 0
           }
         }
       },
