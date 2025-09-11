@@ -16048,7 +16048,8 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           },
           "settings": {
             "type": "object",
@@ -16075,7 +16076,8 @@
           "name": {
             "type": "string",
             "example": "name",
-            "maxLength":255
+            "maxLength":255,
+            "minLength": 1
           },
           "settings": {
             "type": "object",
@@ -16083,7 +16085,8 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           }
         }
       },
@@ -16093,7 +16096,8 @@
           "name": {
             "type": "string",
             "example": "name",
-            "maxLength":255
+            "maxLength":255,
+            "minLength": 1
           },
           "settings": {
             "type": "object",
@@ -16101,14 +16105,16 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           }
         }
       },
       "AddTaskTypeData": {
         "required": [
           "name",
-          "function"
+          "function",
+          "cron"
         ],
         "type": "object",
         "properties": {
@@ -16119,12 +16125,14 @@
           "name": {
             "type": "string",
             "example": "name",
-            "maxLength":255
+            "maxLength":255,
+            "minLength": 1
           },
           "function": {
             "type": "string",
             "example": "function",
-            "maxLength":255
+            "maxLength":255,
+            "minLength": 1
           },
           "settings": {
             "type": "object",
@@ -16136,7 +16144,8 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           },
           "description": {
             "type": "string",
@@ -16165,17 +16174,20 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           },
           "name": {
             "type": "string",
             "example": "name",
-            "maxLength":255
+            "maxLength":255,
+            "minLength": 1
           },
           "function": {
             "type": "string",
             "example": "function",
-            "maxLength":255
+            "maxLength":255,
+            "minLength": 1
           },
           "settings": {
             "type": "object",
@@ -16212,7 +16224,8 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           },
           "settings": {
             "type": "object",
@@ -16262,7 +16275,8 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           },
           "name": {
             "type": "string",
@@ -16306,7 +16320,8 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           }
         }
       },
@@ -16343,7 +16358,8 @@
           },
           "cron": {
             "type": "string",
-            "example": "* * * * * *"
+            "example": "* * * * * *",
+            "minLength": 10
           },
           "name": {
             "type": "string",
