@@ -16034,7 +16034,8 @@
       },
       "AddTaskData": {
         "required": [
-          "task_type_id"
+          "task_type_id",
+          "cron"
         ],
         "type": "object",
         "properties": {
