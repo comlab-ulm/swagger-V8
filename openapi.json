@@ -16150,18 +16150,6 @@
           "description": {
             "type": "string",
             "example": "description"
-          },
-          "user_id": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "user_group_id": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "company_id": {
-            "type": "integer",
-            "minimum": 0
           }
         }
       },
@@ -16200,18 +16188,6 @@
           "description": {
             "type": "string",
             "example": "name"
-          },
-          "user_id": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "user_group_id": {
-            "type": "integer",
-            "minimum": 0
-          },
-          "company_id": {
-            "type": "integer",
-            "minimum": 0
           }
         }
       },
@@ -16238,6 +16214,7 @@
           "status": {
             "type": "integer",
             "description": "0 - created, 1 - in queue, 2 - running, 3 - done, 4 - error, 5- canceled",
+            "enum": [0,1,2,3,4,5],
             "example": 0
           }
         }
