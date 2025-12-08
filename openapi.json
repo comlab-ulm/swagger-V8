@@ -2805,18 +2805,6 @@
               "example": "de_DE",
               "type": "string"
             }
-          },
-          {
-            "name": "extended_filter",
-            "in": "query",
-            "description": "",
-            "required": false,
-            "style": "form",
-            "explode": true,
-            "schema": {
-              "default": "",
-              "type": "string"
-            }
           }
         ],
         "responses": {
@@ -2862,6 +2850,18 @@
               "minLength": 5,
               "maxLength": 5,
               "example": "de_DE",
+              "type": "string"
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": "",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
               "type": "string"
             }
           }
