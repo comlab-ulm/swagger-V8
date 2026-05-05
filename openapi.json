@@ -1359,7 +1359,20 @@
           {
             "name": "return",
             "in": "query",
-            "description": "0 - return status only, 1 - full result",
+            "description": "0 - return status only, 1 - return full result",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "default": 0,
+              "type": "integer",
+              "enum":[0,1]
+            }
+          },
+          {
+            "name": "delete",
+            "in": "query",
+            "description": "0 - do not delete after return, 1 - delete after return",
             "required": true,
             "style": "simple",
             "explode": false,
