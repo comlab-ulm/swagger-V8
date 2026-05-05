@@ -122,9 +122,153 @@
     {
       "name": "tasks",
       "description": "Translation Operations"
+    },
+    {
+      "name": "RAG",
+      "description": "RAG Operations"
     }
   ],
   "paths": {
+    "/rag/index_archives": {
+      "post":{
+        "tags": [
+          "RAG"
+        ],
+        "summary": "Index Archives for RAG",
+        "description": "",
+        "operationId": "indexRAGArchives",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RAGIndexArchiveRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Archives indexed"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "RAG"
+        ],
+        "summary": "Search in RAG Archives",
+        "description": "",
+        "operationId": "searchRAGArchives",
+                "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "limit chunks in response",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "query",
+            "in": "query",
+            "description": "Query string",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Founded chunks data array",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RAGSearchArchivesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/task_type_functions":{
       "get": {
         "tags": [
@@ -16056,7 +16200,67 @@
     }
   },
   "components": {
-    "schemas": {
+     "schemas": {
+      "RAGIndexArchiveRequest": {
+        "required": [
+          "archive_ids"
+        ],
+        "type": "object",
+        "properties": {
+          "archive_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        }
+      },
+      "RAGSearchArchivesResponseItem": {
+        "type": "object",
+        "properties": {
+          "similarity": {
+            "type": "number",
+            "description": "Similarity score",
+            "example": 0.793965
+          },
+          "chunk_index": {
+            "type": "integer",
+            "description": "Index of the chunk",
+            "example": 4444
+          },
+          "chunk_id": {
+            "type": "integer",
+            "description": "Unique identifier of the chunk",
+            "example": 3434
+          },
+          "archive_id": {
+            "type": "integer",
+            "description": "ID of the archive",
+            "example": 234234
+          },
+          "start_pos": {
+            "type": "integer",
+            "description": "Real Start position in the text",
+            "example": 2132
+          },
+          "end_pos": {
+            "type": "integer",
+            "description": "Real End position in the text",
+            "example": 2132
+          },
+          "create_time": {
+            "type": "string",
+            "description": "Creation timestamp"
+          }
+        }
+      },
+      "RAGSearchArchivesResponse": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/RAGSearchArchivesResponseItem"
+        }
+      },
       "UploadTaskData": {
         "required": [
           "data"
