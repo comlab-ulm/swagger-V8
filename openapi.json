@@ -1517,7 +1517,7 @@
             "name": "delete",
             "in": "query",
             "description": "0 - do not delete after return, 1 - delete after return",
-            "required": true,
+            "required": false,
             "style": "simple",
             "explode": false,
             "schema": {
