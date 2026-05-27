@@ -16219,6 +16219,11 @@
             "description": "0 - Paragraph, 1 - LLM, 2 -Sentence",
             "enum": [0,1,2],
             "example": 0
+          },
+          "min_chunk_size": {
+            "type": "integer",
+            "description": "Minimum chunk size",
+            "example": 200
           }
         }
       },
