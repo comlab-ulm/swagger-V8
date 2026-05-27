@@ -16215,13 +16215,10 @@
             }
           },
           "chunk_method": {
-            "type": "array",
-            "items": {
-              "type": "integer",
-              "description": "0 - Paragraph, 1 - LLM, 2 -Sentence",
-              "enum": [0,1,2],
-              "example": 0
-            }
+            "type": "integer",
+            "description": "0 - Paragraph, 1 - LLM, 2 -Sentence",
+            "enum": [0,1,2],
+            "example": 0
           }
         }
       },
