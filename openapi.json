@@ -369,7 +369,7 @@
             "explode": true,
             "schema": {
               "type": "string",
-              "default": "achive"
+              "default": "archive"
             }
           },
           {
