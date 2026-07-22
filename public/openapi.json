@@ -253,7 +253,7 @@
         "summary": "Search in RAG Archives",
         "description": "",
         "operationId": "searchRAGArchives",
-                "parameters": [
+        "parameters": [
           {
             "name": "limit",
             "in": "query",
@@ -277,6 +277,29 @@
               "minimum": 0,
               "type": "string"
             }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of the RAG index",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "archive"
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": "Extended filter for the search",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
           }
         ],
         "responses": {
@@ -286,6 +309,88 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/RAGSearchArchivesResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/rag/index/exists": {
+      "get": {
+        "tags": [
+          "RAG"
+        ],
+        "summary": "Check if RAG index exists",
+        "description": "",
+        "operationId": "checkRAGIndexExists",
+                "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "description": "Type of the RAG index",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "achive"
+            }
+          },
+          {
+            "name": "ids",
+            "in": "query",
+            "description": "Comma-separated list of IDs",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "RAG index existence check result",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RAGCheckIndexExistsResponse"
                 }
               }
             }
@@ -16372,6 +16477,24 @@
             "type": "integer",
             "description": "Minimum chunk size",
             "example": 200
+          }
+        }
+      },
+      "RAGCheckIndexExistsResponse": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "exists": {
+              "type": "boolean",
+              "description": "Indicates if the index exists",
+              "example": true
+            },
+            "id": {
+              "type": "integer",
+              "description": "ID of the archive",
+              "example": 12345
+            }
           }
         }
       },
