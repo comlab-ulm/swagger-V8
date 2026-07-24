@@ -7586,6 +7586,397 @@
         ]
       }
     },
+    "/benchmark/{id}/calcelement/{calcelement_name}": {
+      "put": {
+        "tags": [
+          "superadmins",
+          "benchmarks"
+        ],
+        "summary": "Update benchmark calcelement setting (superadmins only).",
+        "operationId": "updateBenchmarkCalcelementSetting",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of benchmark",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "calcelement_name",
+            "in": "path",
+            "description": "The name of the calcelement",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BenchmarkPutCalcelementSettingData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "benchmark calcelement updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BenchmarkCalcelementData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "superadmins",
+          "benchmarks"
+        ],
+        "summary": "Delete benchmark calcelement setting (superadmins only).",
+        "operationId": "deleteBenchmark",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of benchmark which will be deleted",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "calcelement_name",
+            "in": "path",
+            "description": "The name of the calcelement",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "benchmark calcelement deleted"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/benchmark/{id}/calcelement":{
+      "get": {
+        "tags": [
+          "superadmins",
+          "benchmarks"
+        ],
+        "summary": "Get benchmarks calcelement with filters",
+        "description": "",
+        "operationId": "getAllBenchmarkCalcelements",
+        "parameters": [
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Query limit",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Query offset",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Query order (0-ASC, 1-DESC)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "order by field",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "benchmark_id",
+              "enum": [
+                "benchmark_id",
+                "calcelement_name",
+                "create_time",
+                "delete_time"
+              ]
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }          
+        ],
+        "responses": {
+          "200": {
+            "description": "benchmark calcelements with filters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/inline_response_200_calc"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "superadmins",
+          "benchmarks"
+        ],
+        "summary": "Add benchmark calcelement (superadmins only)",
+        "operationId": "addBenchmarkCalcelement",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BenchmarkCalcelementAddData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "benchmark calcelement added",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BenchmarkCalcelementData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/benchmark/{id}/restore": {
       "put": {
         "tags": [
@@ -19253,6 +19644,67 @@
           }
         }
       },
+      "BenchmarkCalcelementAddData": {
+        "type": "object",
+        "properties": {
+          "required": [
+            "sort",
+            "calcelement_name"
+          ],
+          "sort": {
+            "type": "integer",
+            "example": 100
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          },
+          "calcelement_name": {
+            "maxLength": 50,
+            "type": "string",
+            "example": "AbbreviationsLib"
+          },
+          "create_time": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "delete_time": {
+            "maxLength": 255,
+            "type": "string"
+          }
+        }
+      },
+      "BenchmarkCalcelementSettingData": {
+        "type": "object",
+        "properties": {
+          "sort": {
+            "type": "integer",
+            "example": 100
+          },
+          "benchmark_id": {
+            "minimum": 1,
+            "type": "integer",
+            "example": 1
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          },
+          "calcelement_name": {
+            "maxLength": 50,
+            "type": "string",
+            "example": "AbbreviationsLib"
+          },
+          "create_time": {
+            "maxLength": 255,
+            "type": "string"
+          },
+          "delete_time": {
+            "maxLength": 255,
+            "type": "string"
+          }
+        }
+      },
       "BenchmarkPutSettingData": {
         "type": "object",
         "properties": {
@@ -19362,6 +19814,33 @@
           "settings": {
             "type": "string",
             "example": "{}"
+          }
+        }
+      },
+      "BenchmarkCalcelementData": {
+        "type": "object",
+        "properties": {
+          "benchmark_id": {
+            "minimum": 1,
+            "type": "integer",
+            "example": 1
+          },
+          "calcelement_name": {
+            "maxLength": 50,
+            "type": "string",
+            "example": "AbbreviationsLib"
+          },
+          "sort": {
+            "type": "integer",
+            "example": 100
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          },
+          "create_time": {
+            "maxLength": 255,
+            "type": "string"
           }
         }
       },
@@ -20864,6 +21343,7 @@
           }
         }
       },
+
       "inline_response_200_4": {
         "type": "object",
         "properties": {
@@ -21029,6 +21509,17 @@
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/SettingsData"
+            }
+          }
+        }
+      },
+      "inline_response_200_calc": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BenchmarkCalcelementData"
             }
           }
         }
