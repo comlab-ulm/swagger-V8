@@ -19700,6 +19700,19 @@
           }
         }
       },
+      "BenchmarkPutCalcelementSettingData": {
+        "type": "object",
+        "properties": {
+          "sort": {
+            "type": "integer",
+            "example": 100
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          }
+        }
+      },
       "BenchmarkCalcelementSettingData": {
         "type": "object",
         "properties": {
