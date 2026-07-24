@@ -7780,6 +7780,90 @@
         "summary": "Get benchmarks calcelement with filters",
         "description": "",
         "operationId": "getAllBenchmarkCalcelements",
+        "parameters": [
+          {
+            "name": "return_values",
+            "in": "query",
+            "description": "Set list of returning values in JSON array format (if empty - return all)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Query limit",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Query offset",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "minimum": 0,
+              "type": "integer"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Query order (0-ASC, 1-DESC)",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "enum": [
+                0,
+                1
+              ]
+            }
+          },
+          {
+            "name": "order_by",
+            "in": "query",
+            "description": "order by field",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "benchmark_id",
+              "enum": [
+                "benchmark_id",
+                "calcelement_name",
+                "create_time",
+                "delete_time"
+              ]
+            }
+          },
+          {
+            "name": "extended_filter",
+            "in": "query",
+            "description": " ",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "default": "",
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "benchmark calcelements with filters",
