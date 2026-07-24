@@ -7693,7 +7693,7 @@
           "benchmarks"
         ],
         "summary": "Delete benchmark calcelement setting (superadmins only).",
-        "operationId": "deleteBenchmark",
+        "operationId": "deleteBenchmarkCalcelement",
         "parameters": [
           {
             "name": "id",
