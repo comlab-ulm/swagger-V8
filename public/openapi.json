@@ -7255,6 +7255,95 @@
       }
     },
     "/benchmark_template/{id}": {
+      "put": {
+        "tags": [
+          "superadmins",
+          "benchmarks"
+        ],
+        "summary": "Update benchmark templates (superadmins only).",
+        "operationId": "updateBenchmarkTemplate",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The id of benchmark templates which will be updated",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBenchmarkTemplateData"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "benchmark template updated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BenchmarkTemplateData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Record not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
       "delete": {
         "tags": [
           "superadmins",
@@ -19562,6 +19651,42 @@
           "return_values",
           "text_type_id"
         ],
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "{\"en\":\"Benchmark name\",\"de\":\"Benchmark Name\"}"
+          },
+          "description": {
+            "type": "string",
+            "example": "{\"en\":\"Benchmark description\",\"de\":\"Benchmark description\"}"
+          },
+          "text_type_id": {
+            "maxLength": 50,
+            "type": "string",
+            "example": "web"
+          },
+          "default_calcelements": {
+            "type": "string",
+            "example": "[[\"AbbreviationsLib\",100,{}],[\"TokenizerLib\",200,{}],[\"SyllableCountLib\",300,{}],[\"TreeTaggerLib\",400,{}],[\"SentenceCountLib\",500,{}],[\"WordAndCharactersCountLib\",600,{}],[\"HIXCountLib\",700,{}]]"
+          },
+          "locale_name": {
+            "maxLength": 5,
+            "minLength": 5,
+            "type": "string",
+            "example": "de_DE"
+          },
+          "return_values": {
+            "type": "string",
+            "example": "[\"hix\",\"data\"]"
+          },
+          "settings": {
+            "type": "string",
+            "example": "{}"
+          }
+        }
+      },
+      "UpdateBenchmarkTemplateData": {
         "type": "object",
         "properties": {
           "name": {
