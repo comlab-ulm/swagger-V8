@@ -126,10 +126,255 @@
     {
       "name": "RAG",
       "description": "RAG Operations"
+    },
+    {
+      "name": "compliance",
+      "description": "Compliance Operations"
     }
   ],
   "paths": {
-        "/rag/tag_archives": {
+    "/compliance/sanitize": {
+      "post": {
+        "tags": [
+          "compliance",
+          "users"
+        ],
+        "summary": "Sanitize text for compliance",
+        "description": "",
+        "operationId": "sanitizeTextForCompliance",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComplianceSanitizeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sanitized text response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceSanitizeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/compliance/unsanitize": {
+      "post": {
+        "tags": [
+          "compliance",
+          "users"
+        ],
+        "summary": "Unsanitize text for compliance",
+        "description": " Unsanitize text for compliance using the provided access codes for placeholders.",
+        "operationId": "unsanitizeTextForCompliance",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComplianceUnsanitizeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Unsanitized text response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComplianceUnsanitizeResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/compliance/placeholders/{placeholders_access_code}": {
+      "delete": {
+        "tags": [
+          "compliance",
+          "users"
+        ],
+        "summary": "Delete placeholders from sanitized text",
+        "description": "",
+        "operationId": "deletePlaceholdersFromSanitizedText",
+        "responses": {
+          "200": {
+            "description": "Placeholders deleted successfully"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "get": {
+        "tags": [
+          "compliance",
+          "users"
+        ],
+        "summary": "Get placeholders from sanitized text",
+        "description": "",
+        "operationId": "getPlaceholdersFromSanitizedText",
+        "responses": {
+          "200": {
+            "description": "Placeholders retrieved successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompliancePlaceholdersResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/rag/tag_archives": {
       "post":{
         "tags": [
           "RAG"
@@ -16919,6 +17164,90 @@
   },
   "components": {
      "schemas": {
+      "ComplianceUnsanitizeResponse": {
+        "type": "object",
+        "properties": {
+          "unsanitized_text": {
+            "type": "string",
+            "example": "This is an unsanitized text."
+          }
+        }
+      },
+      "CompliancePlaceholdersResponse": {
+        "type": "object",
+        "properties": {
+          "placeholders": {
+            "type": "object",
+            "description": "Placeholders found in the text",
+            "example": {
+              "<PLACEHOLDER_1>": "Value 1",
+              "<PLACEHOLDER_2>": "Value 2"
+            }
+          }
+        }
+      },
+      "ComplianceSanitizeResponse": {
+        "type": "object",
+        "properties": {
+          "sanitized_text": {
+            "type": "string",
+            "example": "This is a sanitized text."
+          },
+          "placeholders_access_code": {
+            "type": "string",
+            "description": "Access code to the placeholders in the sanitized text",
+            "example": ""
+          }
+        }
+      },
+      "ComplianceUnsanitizeRequest": {
+        "required": [
+          "sanitized_text",
+          "placeholders_access_code"
+        ],
+        "type": "object",
+        "properties": {
+          "sanitized_text": {
+            "type": "string",
+            "example": "This is a sanitized text."
+          },
+          "placeholders_access_code": {
+            "type": "string",
+            "description": "Access code to the placeholders in the sanitized text",
+            "example": ""
+          }
+        }
+      },
+      "ComplianceSanitizeRequest": {
+        "required": [
+          "text",
+          "compliance_settings",
+          "data_tokenizer",
+          "data_complience"
+        ],
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "example": "This is a sample text to be sanitized."
+          },
+          "compliance_settings": {
+            "type": "object",
+            "description": "Compliance settings for sanitization",
+            "example": {}
+          },
+          "data_tokenizer": {
+             "type": "object",
+            "description": "Data tokenizer of the text",
+            "example": {}
+        },
+        "data_complience": {
+            "type": "object",
+            "description": "Data compliance of the text",
+            "example": {}
+        }
+        }
+      },
       "RAGTagArchiveRequest": {
         "required": [
           "archive_ids"
