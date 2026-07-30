@@ -17263,9 +17263,9 @@
             "example": {}
           },
           "data_tokenizer": {
-             "type": "object",
+             "type": "array",
             "description": "Data tokenizer of the text",
-            "example": {}
+            "example": []
         },
         "data_terms": {
             "type": "object",
