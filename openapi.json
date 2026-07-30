@@ -17249,7 +17249,7 @@
           "text",
           "compliance_settings",
           "data_tokenizer",
-          "data_complience"
+          "data_terms"
         ],
         "type": "object",
         "properties": {
@@ -17267,9 +17267,9 @@
             "description": "Data tokenizer of the text",
             "example": {}
         },
-        "data_complience": {
+        "data_terms": {
             "type": "object",
-            "description": "Data compliance of the text",
+            "description": "Data terms of the text",
             "example": {}
         }
         }
