@@ -276,6 +276,19 @@
         "summary": "Delete placeholders from sanitized text",
         "description": "",
         "operationId": "deletePlaceholdersFromSanitizedText",
+        "parameters": [
+          {
+            "name": "placeholders_access_code",
+            "in": "path",
+            "description": "Access code for the placeholders to be deleted",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Placeholders deleted successfully"
@@ -325,6 +338,19 @@
         "summary": "Get placeholders from sanitized text",
         "description": "",
         "operationId": "getPlaceholdersFromSanitizedText",
+        "parameters": [
+          {
+            "name": "placeholders_access_code",
+            "in": "path",
+            "description": "Access code for the placeholders to be retrieved",
+            "required": true,
+            "style": "simple",
+            "explode": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "Placeholders retrieved successfully",
