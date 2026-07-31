@@ -17246,13 +17246,20 @@
       },
       "ComplianceSanitizeRequest": {
         "required": [
-          "text"
+          "text",
+          "locale_name"
         ],
         "type": "object",
         "properties": {
           "text": {
             "type": "string",
             "example": "This is a text to be sanitized."
+          },
+          "locale_name": {
+            "type": "string",
+            "minLength":5,
+            "maxLength":5,
+            "example": "de_DE"
           },
           "compliance_settings": {
             "type": "object",
