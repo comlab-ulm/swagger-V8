@@ -17246,16 +17246,13 @@
       },
       "ComplianceSanitizeRequest": {
         "required": [
-          "text",
-          "compliance_settings",
-          "data_tokenizer",
-          "data_terms"
+          "text"
         ],
         "type": "object",
         "properties": {
           "text": {
             "type": "string",
-            "example": "This is a sample text to be sanitized."
+            "example": "This is a text to be sanitized."
           },
           "compliance_settings": {
             "type": "object",
