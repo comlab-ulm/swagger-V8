@@ -8207,7 +8207,8 @@
                 "benchmark_id",
                 "calcelement_name",
                 "create_time",
-                "delete_time"
+                "delete_time",
+                "sort"
               ]
             }
           },
