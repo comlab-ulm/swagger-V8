@@ -17223,6 +17223,21 @@
             "type": "string",
             "description": "Access code to the placeholders in the sanitized text",
             "example": ""
+          },
+          "data_tokenizer": {
+             "type": "array",
+            "description": "Data tokenizer of the text",
+            "example": []
+        },
+          "data_terms": {
+              "type": "object",
+              "description": "Data terms of the text",
+              "example": {}
+          },
+          "lanuage_tool": {
+              "type": "array",
+              "description": "language tool result array",
+              "example": {}
           }
         }
       },
@@ -17271,11 +17286,16 @@
             "description": "Data tokenizer of the text",
             "example": []
         },
-        "data_terms": {
-            "type": "object",
-            "description": "Data terms of the text",
-            "example": {}
-        }
+          "data_terms": {
+              "type": "object",
+              "description": "Data terms of the text",
+              "example": {}
+          },
+          "lanuage_tool": {
+              "type": "array",
+              "description": "language tool result array",
+              "example": {}
+          }
         }
       },
       "RAGTagArchiveRequest": {
