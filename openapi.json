@@ -17234,7 +17234,7 @@
               "description": "Data terms of the text",
               "example": {}
           },
-          "lanuage_tool": {
+          "language_tool": {
               "type": "array",
               "description": "language tool result array",
               "example": {}
@@ -17291,7 +17291,7 @@
               "description": "Data terms of the text",
               "example": {}
           },
-          "lanuage_tool": {
+          "language_tool": {
               "type": "array",
               "description": "language tool result array",
               "example": {}
