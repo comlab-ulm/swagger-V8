@@ -459,6 +459,65 @@
         ]
       }
     },
+    "/rag/index_external": {
+      "post":{
+        "tags": [
+          "RAG"
+        ],
+        "summary": "Index External sources for RAG",
+        "description": "",
+        "operationId": "indexRAGExternalSources",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RAGIndexExternalSourcesRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "External sources indexed"
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/rag/index_archives": {
       "post":{
         "tags": [
@@ -17313,6 +17372,39 @@
             }
           }
         }
+      }, 
+      "RAGIndexExternalSourcesRequest": {
+        "required": [
+          "directory"
+        ],
+        "type": "object",
+        "properties": {
+          "directory": {
+            "type": "string",
+            "description": "Directory path",
+            "example": "reports/2026"
+          },
+          "pattern": {
+            "type": "string",
+            "description": "File pattern to match",
+            "example": "*.pdf"
+          },
+          "recursive": {
+            "type": "boolean",
+            "description": "Whether to search recursively",
+            "example": true
+          },
+          "min_chunk_size": {
+            "type": "integer",
+            "description": "Minimum chunk size",
+            "example": 200
+          },
+          "chunk_method": {
+            "type": "integer",
+            "description": "0 - Paragraph, 1 - LLM, 2 -Sentence",
+            "enum": [0,1,2],
+            "example": 0
+          }
       },
       "RAGIndexArchiveRequest": {
         "required": [
