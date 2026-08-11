@@ -17405,6 +17405,7 @@
             "enum": [0,1,2],
             "example": 0
           }
+      }
       },
       "RAGIndexArchiveRequest": {
         "required": [
