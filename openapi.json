@@ -13937,6 +13937,7 @@
               "type": "string",
               "default": "analyse_id",
               "enum": [
+                "language_level",
                 "analyse_id",
                 "locale_name",
                 "benchmark_id",
