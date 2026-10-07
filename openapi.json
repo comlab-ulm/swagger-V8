@@ -1478,7 +1478,7 @@
           "tasks"
         ],
         "summary": "Delete a task type",
-        "operationId": "deleteTask",
+        "operationId": "deleteTaskType",
         "parameters": [
           {
             "name": "id",
@@ -2093,7 +2093,7 @@
             "in": "query",
             "description": "0 - return status only, 1 - return full result",
             "required": true,
-            "style": "simple",
+            "style": "form",
             "explode": false,
             "schema": {
               "default": 0,
@@ -2106,7 +2106,7 @@
             "in": "query",
             "description": "0 - do not delete after return, 1 - delete after return",
             "required": false,
-            "style": "simple",
+            "style": "form",
             "explode": false,
             "schema": {
               "default": 0,
@@ -7107,71 +7107,6 @@
         "responses": {
           "200": {
             "description": "html result from a pdf file",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ConvertResultData"
-                }
-              }
-            }
-          },
-          "400": {
-            "description": "Invalid fields supplied",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "401": {
-            "description": "Access token is missing or invalid",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "You are not allowed to make this action",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ErrorResponse"
-                }
-              }
-            }
-          }
-        },
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ]
-      }
-    },
-    "/convert/docx": {
-      "post": {
-        "tags": [
-          "system"
-        ],
-        "summary": "Convert from DOCX to HTML",
-        "operationId": "convertDOCX",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ConvertData"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "html result from a docx file",
             "content": {
               "application/json": {
                 "schema": {
@@ -12589,7 +12524,7 @@
           "thin"
         ],
         "summary": "Mark Message as sended by email",
-        "operationId": "readMessage",
+        "operationId": "markMessageAsSentEmail",
         "parameters": [
           {
             "name": "id",
@@ -13715,10 +13650,10 @@
                         "$ref": "#/components/schemas/ArchivesData"
                       }
                     },
-                    "version_fullcount": {
+                    "versions_fullcount": {
                       "type": "integer"
                     },
-                    "archive_fullcount": {
+                    "archives_fullcount": {
                       "type": "integer"
                     }
                   }
@@ -14211,10 +14146,10 @@
                         "$ref": "#/components/schemas/ArchivesData"
                       }
                     },
-                    "version_fullcount": {
+                    "versions_fullcount": {
                       "type": "integer"
                     },
-                    "archive_fullcount": {
+                    "archives_fullcount": {
                       "type": "integer"
                     }
                   }
@@ -17906,23 +17841,6 @@
       "NNDataOpen":{
         "type": "object"
       },
-      "TranslationDataOpen": {
-        "type": "object",
-        "properties": {
-          "value": {
-            "type": "string",
-            "example": "value"
-          },
-          "translation": {
-            "type": "string",
-            "example": "translation"
-          },
-          "settings": {
-            "type": "object",
-            "example": {}
-          }
-        }
-      },
       "TranslationData": {
         "type": "object",
         "properties": {
@@ -18348,8 +18266,6 @@
         }
       },
       "UpdateAllowListData": {
-        "required": [
-        ],
         "type": "object",
         "properties": {
           "words": {
@@ -18461,8 +18377,6 @@
         }
       },
       "UpdateTextbinData": {
-        "required": [
-        ],
         "type": "object",
         "properties": {
           "words": {
@@ -18943,8 +18857,20 @@
             "example": "de-DE"
           },
           "allowList": {
-            "type": "array",
-            "example": [[1,2],[4,10]]
+            "type": "object",
+            "description": "Text ranges in which LanguageTool findings are dropped, grouped under any key (e.g. the id of an allow list category). Each range is [start, end]: character positions in data, end inclusive. A finding is dropped when it lies completely inside one range.",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "integer"
+                },
+                "minItems": 2,
+                "maxItems": 2
+              }
+            },
+            "example": {"12": [[1,2],[4,10]]}
           },
           "excludeList": {
             "type": "array",
@@ -20264,13 +20190,13 @@
         }
       },
       "BenchmarkCalcelementAddData": {
+        "required": [
+          "benchmark_id",
+          "sort",
+          "calcelement_name"
+        ],
         "type": "object",
         "properties": {
-          "required": [
-            "benchmark_id",
-            "sort",
-            "calcelement_name"
-          ],
           "benchmark_id": {
             "minimum": 1,
             "type": "integer",
@@ -20692,7 +20618,7 @@
          "properties": {
            "language": {
              "description": "Language in locale name format (2 letters long, see an example",
-             "data": "string",
+             "type": "string",
              "maxLength": 2,
              "minLength": 2,
              "example": "de"
@@ -20723,7 +20649,7 @@
         "properties": {
           "html": {
             "description": "HTML formatted text",
-            "data": "string",
+            "type": "string",
             "example": "<html><body>result</body></html>"
           }
         }
@@ -21891,13 +21817,12 @@
       },
       "translations_response_200_1": {
         "type": "object",
-        "properties": {
-          "data": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TranslationDataOpen"
-            }
-          }
+        "description": "All UI texts of the locale as one object: text key -> translated text. On /translations/view a text defined for the user, the user's group or company replaces the common text with the same key.",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "<text key>": "<translated text>"
         }
       },
       "nn_response_200_1": {
@@ -22062,7 +21987,6 @@
         }
       },
       "inline_response_401_2fa": {
-        "required": [],
         "type": "object",
         "properties": {
           "secret": {
@@ -22083,7 +22007,6 @@
         }
       },
       "inline_response_200_ga": {
-        "required": [],
         "type": "object",
         "properties": {
           "secret": {
@@ -22092,7 +22015,7 @@
           },
           "qr": {
             "type": "string",
-            "example": "otpauth://totp/russkiy@textlab.online?secret=COL3V3Q5INZGUFPF4IRTOFQ4VA&issuer=Textlab"
+            "example": "otpauth://totp/user@example.com?secret=JBSWY3DPEHPK3PXP&issuer=Textlab"
           }
         }
       },
