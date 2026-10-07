@@ -21605,9 +21605,9 @@
             "enum": [0,1]
           },
           "license_id": {
-            "minimum": 0,
             "type": "integer",
-            "example": 1
+            "example": 1,
+            "enum": [0,1,2,999]
           }
         }
       },
@@ -21693,9 +21693,9 @@
             "enum": [0,1]
           },
           "license_id": {
-            "minimum": 0,
             "type": "integer",
-            "example": 1
+            "example": 1,
+            "enum": [0,1,2,999]
           }
         }
       },
