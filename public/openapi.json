@@ -617,6 +617,10 @@
             "explode": true,
             "schema": {
               "type": "string",
+              "enum": [
+                "archive",
+                "external"
+              ],
               "default": "archive"
             }
           },
@@ -629,6 +633,18 @@
             "explode": true,
             "schema": {
               "type": "string"
+            }
+          },
+          {
+            "name": "similarity",
+            "in": "query",
+            "description": "Similarity threshold",
+            "required": false,
+            "style": "form",
+            "explode": true,
+            "schema": {
+              "type": "number",
+              "default": 0.8
             }
           }
         ],
@@ -699,6 +715,10 @@
             "explode": true,
             "schema": {
               "type": "string",
+              "enum": [
+                "archive",
+                "external"
+              ],
               "default": "archive"
             }
           },
