@@ -7178,6 +7178,75 @@
         ]
       }
     },
+    "/convert/doc": {
+      "post": {
+        "tags": [
+          "system"
+        ],
+        "summary": "Convert from DOC or DOCX to HTML",
+        "operationId": "convertDOC",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ConvertData"
+              },
+              "example": {
+                "file_name": "file.docx",
+                "data": "UEsDBBQABgAIAAAAIQ..."
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "html result from a doc or docx file",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConvertResultData"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid fields supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Access token is missing or invalid",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "You are not allowed to make this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
     "/treetager": {
       "post": {
         "tags": [
