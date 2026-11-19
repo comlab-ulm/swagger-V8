@@ -7178,13 +7178,13 @@
         ]
       }
     },
-    "/convert/doc": {
+    "/convert/docx": {
       "post": {
         "tags": [
           "system"
         ],
-        "summary": "Convert from DOC or DOCX to HTML",
-        "operationId": "convertDOC",
+        "summary": "Convert from DOCX to HTML",
+        "operationId": "convertDOCX",
         "requestBody": {
           "content": {
             "application/json": {
@@ -7200,7 +7200,7 @@
         },
         "responses": {
           "200": {
-            "description": "html result from a doc or docx file",
+            "description": "html result from a docx file",
             "content": {
               "application/json": {
                 "schema": {
